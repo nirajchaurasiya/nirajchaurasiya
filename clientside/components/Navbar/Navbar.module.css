@@ -1,0 +1,91 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--text-color) 0px 0px 4px 0px;
+  padding: 20px;
+}
+.first_navbar a {
+  color: var(--nav-text-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.second_nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+.second_nav li {
+  color: var(--nav-text-color);
+  cursor: pointer;
+}
+
+.thirdNav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+.thirdNav li {
+  color: var(--nav-text-color);
+  cursor: pointer;
+}
+.themeToggle {
+  font-size: 25px;
+  cursor: pointer;
+}
+@media (max-width: 750px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    padding: 20px;
+  }
+}
+.mble_navbar div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+.mble_navbar div div {
+  height: 3px;
+  width: 20px;
+  background-color: var(--text-color);
+}
+.mble_navbar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  transition: 0.3s;
+  right: 5%;
+  padding: 40px;
+  margin-top: 10%;
+  background-color: var(--bg-color);
+  border: 1px solid var(--nav-text-color);
+  border-radius: 5px;
+}
+
+.mble_navbar li {
+  color: var(--nav-text-color);
+  cursor: pointer;
+}
+@media (max-width: 750px) {
+  .hideInPhone {
+    display: none;
+  }
+}
+@media (min-width: 750px) {
+  .mble_navbar {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Exploring-the-Wilderness",
+        "author": "John Doe",
+        "description": "Embark on an adventurous journey through untouched wilderness.",
+        "image": "/blogimage/nextjs.png",
+        "createdAt": "2023-07-10"
+    },
+    {
+        "name": "Healthy-Eating-Habits",
+        "author": "Jane Smith",
+        "description": "Learn about the importance of maintaining a balanced diet and adopting healthy eating habits.",
+        "image": "/blogimage/nextjs.png",
+        "createdAt": "2023-06-25"
+    },
+    {
+        "name": "Mastering-the-Art-of-Photography",
+        "author": "David Johnson",
+        "description": "Uncover the secrets to capturing stunning photographs and refining your photography skills.",
+        "image": "/blogimage/nextjs.png",
+        "createdAt": "2023-05-15"
+    },
+    {
+        "name": "The-Power-of-Mindfulness",
+        "author": "Emily Wilson",
+        "description": "Discover the transformative effects of mindfulness practice in managing stress and enhancing well-being.",
+        "image": "/blogimage/nextjs.png",
+        "createdAt": "2023-04-02"
+    },
+    {
+        "name": "Exploring-Ancient-History",
+        "author": "Michael Thompson",
+        "description": "Take a captivating journey back in time to explore the mysteries of ancient civilizations.",
+        "image": "/blogimage/nextjs.png",
+        "createdAt": "2023-03-12"
+    },
+    {
+        "name": "Introduction-to-Machine-Learning",
+        "author": "Sarah Johnson",
+        "description": "Get started with the basics of machine learning and understand its applications in various fields.",
+        "image": "/blogimage/nextjs.png",
+        "createdAt": "2023-08-05"
+    }
+]
