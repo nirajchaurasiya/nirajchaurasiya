@@ -239,7 +239,7 @@
 .mid_form_section {
   width: 100%;
 }
-.mid_form_section input {
+.mid_form_section textarea {
   width: 100%;
   padding: 15px;
   outline: none;

@@ -2,7 +2,44 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Blog from '../components/Blog/Blog'
+import { useState } from 'react';
+import axios from 'axios';
 export default function Index() {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+  const [loader, setLoader] = useState(false);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setLoader(true);
+
+    if (!name || !email || !message) {
+      alert("Please fill all the fields")
+      setLoader(false);
+    }
+    else {
+      try {
+        await axios.post('/api/sendemail', {
+          email,
+          name,
+          message,
+        });
+        // Simulating a delay of 1 second before hiding the loader
+        setTimeout(() => {
+          setLoader(false);
+          alert("Message sent successfully");
+          setEmail('');
+          setName('');
+          setMessage('');
+        }, 1000);
+      } catch (error) {
+        console.error('Error sending email:', error);
+        alert('Failed to send email. Please try again.');
+        setLoader(false); // Hide the loader in case of an error
+      }
+    }
+  };
   return (
     <>
       <Head>
@@ -121,16 +158,27 @@ export default function Index() {
         <p className="_skills_header">My <span style={{ color: 'var(--nav-text-color)' }}>Blogs</span></p>
         <Blog />
         {/* Form Section - Contact Form */}
-        <p className="_skills_header">Contact <span style={{ color: 'var(--nav-text-color)' }}>Me</span></p>
+        <p className="_skills_header" style={{ marginBottom: "30px" }}>Contact <span style={{ color: 'var(--nav-text-color)' }}>Me</span></p>
+        {loader && <div className='loader'></div>}
         <div className="_form_section">
           <div className="mid_form_section">
-            <input type="text" placeholder='Enter your message' />
+            <textarea
+              type="text"
+              placeholder="Enter your message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              style={{ resize: "vertical", maxWidth: "100%" }}
+
+            />
           </div>
+
           <div className="mid_form_section_mid">
-            <input type="text" placeholder='Enter Email' />
-            <input type="text" placeholder='Enter Name' />
+            <input value={email}
+              onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Enter Email' />
+            <input value={name}
+              onChange={(e) => setName(e.target.value)} type="text" placeholder='Enter Name' />
           </div>
-          <button>Shoot</button>
+          <button onClick={handleFormSubmit}>Shoot</button>
         </div>
 
 
