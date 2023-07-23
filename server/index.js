@@ -8,7 +8,7 @@ app.use(helmet());
 app.use(server.json());
 app.use(body_parser.json());
 app.use("/user", require('./Routes/user'))
-
+require('./auth/conn')
 app.get('/', (req, res) => {
     res.send("Working");
 })
