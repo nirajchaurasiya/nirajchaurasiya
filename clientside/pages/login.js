@@ -1,32 +1,62 @@
-import Head from 'next/head';
-import React, { useState } from 'react'
+import Head from "next/head";
+import React, { useState } from "react";
 
 export default function Login() {
-    const [isPasswordSeen, setIsPasswordSeen] = useState('password')
-    const [isPasswordSeenText, setIsPasswordSeenText] = useState('😀')
-    return (
-        <>
-            <Head>
-                <title>Niraj Chaurasiya - Login Now</title>
-                <link rel="shortcut icon" href="/assests/logo.jpg" type="image/x-icon" />
-            </Head>
-            <div style={{ marginTop: "5%" }}>
-                <p style={{ textAlign: "center", fontSize: "24px", fontWeight: "700" }}>Login Now</p>
-                <div className="_form_section">
-                    <div className="mid_form_section">
-                        <textarea type="text" placeholder='Enter your Name' />
-                        <textarea type="text" placeholder='Enter Email' />
-                    </div>
-                    <div className="mid_form_section_mid">
-                        <input autoComplete={false} type={isPasswordSeen} placeholder='Enter Password' />
-                        <input autoComplete={false} type={isPasswordSeen} placeholder='Confirm Your Password' />
-                        <button style={{ height: "100%", width: "10px", display: "flex", justifyContent: "center", alignItems: "center" }} onClick={() => { setIsPasswordSeen(isPasswordSeen === 'password' ? 'text' : 'password'); setIsPasswordSeenText(isPasswordSeenText === "😀" ? "😎" : "😀") }}>{isPasswordSeenText}</button>
-                    </div>
-                    <button>Login</button>
-                </div>
-
-
-            </div>
-        </>
-    )
+  const [isPasswordSeen, setIsPasswordSeen] = useState("password");
+  const [isPasswordSeenText, setIsPasswordSeenText] = useState("😀");
+  return (
+    <>
+      <Head>
+        <title>Niraj Chaurasiya - Login Now</title>
+        <link
+          rel="shortcut icon"
+          href="/assests/logo.jpg"
+          type="image/x-icon"
+        />
+      </Head>
+      <div style={{ marginTop: "5%" }}>
+        <p style={{ textAlign: "center", fontSize: "24px", fontWeight: "700" }}>
+          Login Now
+        </p>
+        <div className="_form_section">
+          <div className="mid_form_section">
+            <textarea type="text" placeholder="Enter your Name" />
+            <textarea type="text" placeholder="Enter Email" />
+          </div>
+          <div className="mid_form_section_mid">
+            <input
+              autoComplete={false}
+              type={isPasswordSeen}
+              placeholder="Enter Password"
+            />
+            <input
+              autoComplete={false}
+              type={isPasswordSeen}
+              placeholder="Confirm Your Password"
+            />
+            <button
+              style={{
+                height: "100%",
+                width: "10px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              onClick={() => {
+                setIsPasswordSeen(
+                  isPasswordSeen === "password" ? "text" : "password"
+                );
+                setIsPasswordSeenText(
+                  isPasswordSeenText === "😀" ? "😎" : "😀"
+                );
+              }}
+            >
+              {isPasswordSeenText}
+            </button>
+          </div>
+          <button>Login</button>
+        </div>
+      </div>
+    </>
+  );
 }
