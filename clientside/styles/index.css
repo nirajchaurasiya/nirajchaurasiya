@@ -1,30 +1,10 @@
-/* .custom-shape-divider-bottom-1680950311 {
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-bottom-1680950311 svg {
-  position: relative;
-  display: block;
-  height: 402px;
-}
-
-.custom-shape-divider-bottom-1680950311 .shape-fill {
-  fill: var(--nav-text-color);
-} */
-
 ._main_content {
   width: 80vw;
   margin: auto;
   position: sticky;
-  z-index: 10;
-
-  /* background-color: rgb(161, 187, 187); */
+  z-index: 1;
 }
+
 .first_content {
   display: flex;
   padding-top: 6rem;
@@ -34,6 +14,7 @@
   align-items: center;
   gap: 10rem;
 }
+
 .text_first_content {
   flex: 2.5;
 }
@@ -47,9 +28,11 @@
 .text_first_content p:nth-child(2) {
   font-size: 19px;
 }
+
 .text_first_content p span {
   color: var(--nav-text-color);
 }
+
 .text_first_content button {
   margin-top: 4%;
   padding: 15px;
@@ -61,20 +44,63 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .image_first_content {
   flex: 2;
 }
+
 .image_first_content img {
   width: 500px;
   height: 600px;
   border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
 }
+
+
+.first_content_name_design {
+  position: fixed;
+  top: auto;
+  top: 0;
+  right: 0;
+  /* Adjust the width as needed */
+  height: 100vh;
+  color: var(--nav-text-color);
+  /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Lumanosimo', cursive;
+  font-size: 20px;
+}
+
+/* Animation */
+.first_content_name_design p {
+  animation: moveText 10s linear infinite;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateY(-360%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+
+
 /* Second Section - Skill Section */
 ._skills_header {
   text-align: center;
   font-size: 2em;
-  margin-top: 6rem;
+  margin-top: 1rem;
 }
+
 ._skill_section {
   margin-top: 1rem;
   margin-bottom: 10rem;
@@ -89,6 +115,7 @@
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
+
 .skills_section {
   display: flex;
   flex-direction: column;
@@ -100,8 +127,10 @@
   width: 70vw;
   margin: auto;
 }
+
 ._projects_card {
-  padding-top: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
@@ -114,21 +143,26 @@
   /* border: 1px solid white; */
   border-radius: 10px;
 }
+
 .item_card_projects img {
   width: 100%;
   border-radius: 10px;
 }
+
 .projects_heading {
   padding: 5px;
 }
+
 .projects_heading p:first-child {
   font-weight: 500;
   margin-top: 2%;
   margin-bottom: 1%;
 }
+
 .projects_heading p:last-child {
   margin-bottom: 1%;
 }
+
 .item_card_projects button {
   padding: 15px;
   border: none;
@@ -151,14 +185,18 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding-bottom: 4rem;
 }
+
 .image_first_content_about {
   width: 350px;
 }
+
 .image_first_content_about img {
   height: auto;
   width: 100%;
 }
+
 .about_me_content {
   width: 60%;
 }
@@ -167,18 +205,22 @@
   font-size: 25px;
   padding-bottom: 2%;
 }
+
 .about_me p:nth-child(2) {
   padding-bottom: 2%;
   font-size: 18px;
 }
+
 .about_me p:nth-child(3) {
   padding-bottom: 2%;
   font-size: 18px;
 }
+
 .about_me p:nth-child(4) {
   padding-bottom: 1%;
   font-size: 18px;
 }
+
 .about_me button {
   padding: 15px;
   border: none;
@@ -201,27 +243,33 @@
   flex-wrap: wrap;
   margin-top: 4rem;
 }
+
 .index_blogPage .blog_items {
   width: 600px;
 }
+
 .index_blogPage .blog_items img {
   width: 100%;
   border-radius: 10px;
 }
+
 .blog_items .content_blog p:first-child {
   font-weight: 600;
   font-size: 20px;
   margin-top: 2%;
   margin-bottom: 2%;
 }
+
 .rightpage_blog {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .rightpage_blog .blog_items {
   width: 350px;
 }
+
 .rightpage_blog .blog_items img {
   width: 100%;
   border-radius: 10px;
@@ -230,15 +278,17 @@
 /* Form Section */
 ._form_section {
   padding-bottom: 5rem;
-  padding-top: 4rem;
+  padding-top: 2rem;
   width: 70vw;
   display: flex;
   margin: auto;
   flex-direction: column;
 }
+
 .mid_form_section {
   width: 100%;
 }
+
 .mid_form_section textarea {
   width: 100%;
   padding: 15px;
@@ -251,11 +301,13 @@
   background: transparent;
   margin-bottom: 3%;
 }
+
 .mid_form_section_mid {
   width: 100%;
   display: flex;
   gap: 10px;
 }
+
 .mid_form_section_mid input {
   width: 50%;
   padding: 15px;
@@ -268,6 +320,7 @@
   background: transparent;
   margin-bottom: 3%;
 }
+
 ._form_section button {
   padding: 15px;
   outline: none;

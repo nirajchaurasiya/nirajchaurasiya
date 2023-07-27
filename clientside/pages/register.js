@@ -14,12 +14,12 @@ export default function Register() {
                 <p style={{ textAlign: "center", fontSize: "24px", fontWeight: "700" }}>Register Now</p>
                 <div className="_form_section">
                     <div className="mid_form_section">
-                        <input type="text" placeholder='Enter your Name' />
-                        <input type="text" placeholder='Enter Email' />
+                        <textarea type="text" placeholder='Enter your Name' />
+                        <textarea type="text" placeholder='Enter Email' />
                     </div>
                     <div className="mid_form_section_mid">
-                        <input type={isPasswordSeen} placeholder='Enter Password' />
-                        <input type={isPasswordSeen} placeholder='Confirm Your Password' />
+                        <input autoComplete={false} type={isPasswordSeen} placeholder='Enter Password' />
+                        <input autoComplete={false} type={isPasswordSeen} placeholder='Confirm Your Password' />
                         <button style={{ height: "100%", width: "10px", display: "flex", justifyContent: "center", alignItems: "center" }} onClick={() => { setIsPasswordSeen(isPasswordSeen === 'password' ? 'text' : 'password'); setIsPasswordSeenText(isPasswordSeenText === "😀" ? "😎" : "😀") }}>{isPasswordSeenText}</button>
                     </div>
                     <button>Register</button>
