@@ -142,7 +142,7 @@
   background-color: transparent;
   padding: 15px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .project_description_contents {
