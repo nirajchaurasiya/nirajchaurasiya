@@ -34,7 +34,7 @@ const handler = async (req, res) => {
     });
 
     // Send the activation link to the user's email
-    const activationLink = `http://localhost:3000/activate/${activationToken}`;
+    const activationLink = `${process.env.Website}/activate/${activationToken}`;
     const transporter = nodemailer.createTransport({
       host: process.env.HOST,
       port: 465,
