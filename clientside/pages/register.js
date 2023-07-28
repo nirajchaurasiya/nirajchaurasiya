@@ -19,6 +19,9 @@ export default function Register() {
 
   const handleRegister = async () => {
     try {
+      const notify = () =>
+        toast("Please wait while we try to register your account!");
+      notify();
       // Simple client-side validation
       if (
         name === "" ||

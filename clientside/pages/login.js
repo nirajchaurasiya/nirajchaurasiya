@@ -22,6 +22,9 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
+      const notify = () =>
+        toast("Please wait while we try to login to your account!");
+      notify();
       // Make the POST request to /api/login
       if (!email || !password) {
         const notify = () => toast("Please fill all the fields!");
