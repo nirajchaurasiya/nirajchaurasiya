@@ -4,8 +4,6 @@ import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 
 const handler = async (req, res) => {
-  console.log("process.env.MONGO_URI");
-  console.log(process.env.MONGO_URI);
   const { email } = req.body;
   try {
     const isEmailExists = await userSchema.findOne({ email: email });
@@ -36,7 +34,7 @@ const handler = async (req, res) => {
     });
 
     // Send the activation link to the user's email
-    const activationLink = `http://localhost:3000/activate/${activationToken}`;
+    const activationLink = `${process.env.URI}/activate/${activationToken}`;
     const transporter = nodemailer.createTransport({
       host: process.env.HOST,
       port: 465,
