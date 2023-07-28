@@ -70,6 +70,11 @@ export default function Register() {
     // Add the CSS class to the image wrapper div after the page loads
     const imageWrapper = document.querySelector(".register_now_className");
     imageWrapper.classList.add("image-first-content");
+    if (localStorage) {
+      if (localStorage.getItem("nkcdata")) {
+        window.location.href = "/";
+      }
+    }
   }, []);
 
   return (

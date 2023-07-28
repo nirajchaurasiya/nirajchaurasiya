@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./Blog.module.css";
 import { useRouter } from "next/router";
@@ -34,13 +34,19 @@ const AIRevolution = () => {
   setTimeout(() => {
     document.title = targetString + " - Niraj Chaurasiya";
   }, 1500);
+
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector(".Exploring-the-Wilderness");
+    imageWrapper.classList.add("image-first-content");
+  }, []);
   return (
     <>
       <div className={styles.container}>
         <Head>
           <title>Loading - Niraj Chaurasiya</title>
         </Head>
-        <div className={styles.mainContent}>
+        <div className={`${styles.mainContent} Exploring-the-Wilderness`}>
           <h1 className={styles.h1}>{targetString}</h1>
           <img
             className={styles.img}

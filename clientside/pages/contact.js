@@ -1,7 +1,8 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Contact() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -13,7 +14,8 @@ export default function Contact() {
     setLoader(true);
 
     if (!name || !email || !message) {
-      alert("Please fill all the fields");
+      const notify = () => toast("Please fill all the fields!");
+      notify();
       setLoader(false);
     } else {
       try {
@@ -25,14 +27,15 @@ export default function Contact() {
         // Simulating a delay of 1 second before hiding the loader
         setTimeout(() => {
           setLoader(false);
-          alert("Message sent successfully");
+          const notify = () => toast("Message sent successfully!");
+          notify();
           setEmail("");
           setName("");
           setMessage("");
         }, 1000);
       } catch (error) {
-        console.error("Error sending email:", error);
-        alert("Failed to send email. Please try again.");
+        const notify = () => toast("Failed to send email. Please try again!");
+        notify();
         setLoader(false); // Hide the loader in case of an error
       }
     }
@@ -53,7 +56,7 @@ export default function Contact() {
           type="image/x-icon"
         />
       </Head>
-
+      <ToastContainer />
       <div style={{ marginTop: "5%" }} className="image_first_content_contact">
         <div
           style={{

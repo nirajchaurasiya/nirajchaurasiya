@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./Blog.module.css";
 import { useRouter } from "next/router";
@@ -9,6 +9,12 @@ const AIRevolution = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [comments, setComments] = useState([]);
+
+  const router = useRouter();
+  const { blogPosition } = router.query;
+  const fullUrl = router.asPath;
+  const parts = fullUrl.split("/");
+  const targetString = parts[parts.length - 1];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,21 +32,22 @@ const AIRevolution = () => {
     setMessage("");
   };
 
-  const router = useRouter();
-  const { blogPosition } = router.query;
-  const fullUrl = router.asPath;
-  const parts = fullUrl.split("/");
-  const targetString = parts[parts.length - 1];
   setTimeout(() => {
     document.title = targetString + " - Niraj Chaurasiya";
   }, 1500);
+
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector(".Exploring-Ancient-History");
+    imageWrapper.classList.add("image-first-content");
+  }, []);
   return (
     <>
-      <div className={styles.container}>
+      <div className={`${styles.container} Exploring-Ancient-History`}>
         <Head>
           <title>Loading - Niraj Chaurasiya</title>
         </Head>
-        <div className={styles.mainContent}>
+        <div className={`${styles.mainContent}`}>
           <h1 className={styles.h1}>{targetString}</h1>
           <img
             className={styles.img}

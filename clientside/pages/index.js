@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Blog from "../components/Blog/Blog";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import project_all_data from "./project/project.json";
 export default function Index() {
@@ -15,7 +17,8 @@ export default function Index() {
     setLoader(true);
 
     if (!name || !email || !message) {
-      alert("Please fill all the fields");
+      const notify = () => toast("Please fill all the fields!");
+      notify();
       setLoader(false);
     } else {
       try {
@@ -27,14 +30,15 @@ export default function Index() {
         // Simulating a delay of 1 second before hiding the loader
         setTimeout(() => {
           setLoader(false);
-          alert("Message sent successfully");
+          const notify = () => toast("Message sent successfully!");
+          notify();
           setEmail("");
           setName("");
           setMessage("");
         }, 1000);
       } catch (error) {
-        console.error("Error sending email:", error);
-        alert("Failed to send email. Please try again.");
+        const notify = () => toast("Failed to send email. Please try again!");
+        notify();
         setLoader(false); // Hide the loader in case of an error
       }
     }
@@ -87,6 +91,7 @@ export default function Index() {
           type="image/x-icon"
         />
       </Head>
+      <ToastContainer />
       {/* First Content */}
       <div className={`_main_content`}>
         <div className="first_content">
@@ -196,11 +201,11 @@ export default function Index() {
             <Image width={500} height={500} src="/guy.jpg" alt="guy" />
           </div>
         </div>
-        <div class="vertical-line"></div>
-        <div class="first_content_name_design">
+        <div className="vertical-line"></div>
+        <div className="first_content_name_design">
           <p>Welcome to my website</p>
         </div>
-        <div class="vertical-line"></div>
+        <div className="vertical-line"></div>
         {/* Second Content */}
         <p className="_skills_header" style={{ paddingTop: "5vh" }}>
           My <span style={{ color: "var(--nav-text-color)" }}>Skills</span>

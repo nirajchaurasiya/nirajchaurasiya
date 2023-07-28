@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
@@ -6,10 +7,16 @@ import Image from "next/image";
 export default function Navbar() {
   const [showMbleNave, setShowMbleNave] = useState(false);
   const [isLightMode, setIsLightMode] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState("");
   useEffect(() => {
     if (localStorage) {
       document.body.className = localStorage.getItem("darkmodenkc");
+      if (localStorage.getItem("nkcdata")) {
+        const name = JSON.parse(localStorage.getItem("nkcdata")).name;
+        setIsLoggedIn(true);
+        setUserData(name);
+      }
     } else {
       document.body.className = isLightMode ? "dark" : "light";
     }
@@ -54,20 +61,49 @@ export default function Navbar() {
         className={styles.thirdNav}
         style={{ listStyle: "none", alignItems: "center", display: "flex" }}
       >
-        <Link
-          style={{ textDecoration: "none" }}
-          className="hideInPhone"
-          href="/login"
-        >
-          <li onClick={playTickSound}>Login</li>
-        </Link>
-        <Link
-          style={{ textDecoration: "none", userSelect: "none" }}
-          className="hideInPhone"
-          href="/register"
-        >
-          <li onClick={playTickSound}>Register</li>
-        </Link>
+        {isLoggedIn ? (
+          <>
+            <Link
+              style={{ textDecoration: "none" }}
+              className="hideInPhone"
+              href="#"
+            >
+              <li onClick={playTickSound}>{userData}</li>
+            </Link>
+            <Link
+              href="#"
+              onClick={playTickSound}
+              style={{ textDecoration: "none" }}
+              className="hideInPhone"
+            >
+              <li
+                onClick={() => {
+                  localStorage.removeItem("nkcdata");
+                  window.location.href = "/login";
+                }}
+              >
+                Logout
+              </li>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              style={{ textDecoration: "none" }}
+              className="hideInPhone"
+              href="/login"
+            >
+              <li onClick={playTickSound}>Login</li>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", userSelect: "none" }}
+              className="hideInPhone"
+              href="/register"
+            >
+              <li onClick={playTickSound}>Register</li>
+            </Link>
+          </>
+        )}
         <li className={styles.themeToggle} onClick={toggleTheme}>
           {!isLightMode ? (
             <Image
@@ -116,36 +152,83 @@ export default function Navbar() {
               <Link style={{ textDecoration: "none" }} href="/blog">
                 <li onClick={playTickSound}>Blog</li>
               </Link>
-              <Link style={{ textDecoration: "none" }} href="/login">
-                <button
-                  style={{
-                    padding: "10px",
-                    width: "100%",
-                    border: "1px solid var(--nav-text-color)",
-                    outline: "none",
-                    backgroundColor: "transparent",
-                    color: "var(--nav-text-color)",
-                  }}
-                  onClick={playTickSound}
-                >
-                  Login
-                </button>
-              </Link>
-              <Link style={{ textDecoration: "none" }} href="/register">
-                <button
-                  style={{
-                    padding: "10px",
-                    width: "100%",
-                    border: "1px solid var(--nav-text-color)",
-                    outline: "none",
-                    backgroundColor: "transparent",
-                    color: "var(--nav-text-color)",
-                  }}
-                  onClick={playTickSound}
-                >
-                  Register
-                </button>
-              </Link>
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    onClick={playTickSound}
+                    style={{ textDecoration: "none" }}
+                    href="#"
+                  >
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
+                    >
+                      {userData}
+                    </button>
+                  </Link>
+                  <Link
+                    onClick={playTickSound}
+                    style={{ textDecoration: "none" }}
+                    href="#"
+                  >
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
+                      onClick={() => {
+                        localStorage.removeItem("nkcdata");
+                        window.location.href = "/login";
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link style={{ textDecoration: "none" }} href="/login">
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
+                      onClick={playTickSound}
+                    >
+                      Login
+                    </button>
+                  </Link>
+                  <Link style={{ textDecoration: "none" }} href="/register">
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
+                      onClick={playTickSound}
+                    >
+                      Register
+                    </button>
+                  </Link>
+                </>
+              )}
             </ul>
           )}
         </div>
