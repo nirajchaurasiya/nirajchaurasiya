@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -66,6 +66,11 @@ export default function Register() {
       notify();
     }
   };
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector(".register_now_className");
+    imageWrapper.classList.add("image-first-content");
+  }, []);
 
   return (
     <>
@@ -78,7 +83,7 @@ export default function Register() {
         />
       </Head>
       <ToastContainer />
-      <div style={{ marginTop: "5%" }}>
+      <div style={{ marginTop: "5%" }} className="register_now_className">
         <p style={{ textAlign: "center", fontSize: "24px", fontWeight: "700" }}>
           Register Now
         </p>

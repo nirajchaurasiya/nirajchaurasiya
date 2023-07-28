@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import blog_all_data from "./allblog/allblog.json";
 import Link from "next/link";
 export default function Blog() {
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector(".project-page_card");
+    imageWrapper.classList.add("image-first-content");
+  }, []);
   return (
     <div className="project-page_card" style={{ width: "80vw" }}>
       <div className="_project-pages_card">

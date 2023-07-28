@@ -57,6 +57,29 @@
 }
 
 
+/* Add your other styles here */
+
+/* CSS animation for the image */
+.image-first-content {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+._main_content {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .first_content_name_design {
   position: fixed;
   top: auto;

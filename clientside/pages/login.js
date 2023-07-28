@@ -1,9 +1,14 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Login() {
   const [isPasswordSeen, setIsPasswordSeen] = useState("password");
   const [isPasswordSeenText, setIsPasswordSeenText] = useState("😀");
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector("._form_section");
+    imageWrapper.classList.add("image-first-content");
+  }, []);
   return (
     <>
       <Head>

@@ -2,16 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Blog from "../components/Blog/Blog";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "../styles/Style.module.css";
 import project_all_data from "./project/project.json";
 export default function Index() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState(false);
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setLoader(true);
@@ -41,10 +39,48 @@ export default function Index() {
       }
     }
   };
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector(".image_first_content");
+    imageWrapper.classList.add("image-first-content");
+  }, []);
   return (
     <>
       <Head>
+        {/* SEO meta tags */}
         <title>Niraj Chaurasiya - Home</title>
+        <meta
+          name="description"
+          content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
+        />
+        <meta
+          name="keywords"
+          content="full stack web developer, web applications, front-end, back-end"
+        />
+        <meta name="author" content="Niraj Chaurasiya" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph meta tags (for better sharing on social media) */}
+        <meta property="og:title" content="Niraj Chaurasiya - Home" />
+        <meta
+          property="og:description"
+          content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
+        />
+        <meta property="og:image" content="/path/to/your/og-image.jpg" />
+        <meta property="og:url" content="https://www.nirajchaurasiya.com/" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card meta tags (for better sharing on Twitter) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Niraj Chaurasiya - Home" />
+        <meta
+          name="twitter:description"
+          content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
+        />
+        <meta name="twitter:image" content="/path/to/your/twitter-image.jpg" />
+        <meta name="twitter:url" content="https://www.nirajchaurasiya.com/" />
+
+        {/* Other meta tags */}
         <link
           rel="shortcut icon"
           href="/assests/logo.jpg"
@@ -165,7 +201,6 @@ export default function Index() {
           <p>Welcome to my website</p>
         </div>
         <div class="vertical-line"></div>
-
         {/* Second Content */}
         <p className="_skills_header" style={{ paddingTop: "5vh" }}>
           My <span style={{ color: "var(--nav-text-color)" }}>Skills</span>

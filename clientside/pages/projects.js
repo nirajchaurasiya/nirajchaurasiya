@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ImCross } from "react-icons/im";
 import project from "./project/project.json";
@@ -8,6 +8,11 @@ export default function Projects() {
   const [project_all_data, setProject_all_data] = useState(project);
   const [hideProjectDesc, setHideProjectDesc] = useState(true);
   const [projectPos, setProjectPos] = useState("");
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector(".project-page_card");
+    imageWrapper.classList.add("image-first-content");
+  }, []);
   return (
     <>
       <Head>

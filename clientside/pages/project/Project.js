@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import project from "./project.json";
 import { HiOutlineExternalLink } from "react-icons/hi";
 export default function Project(props) {
+  useEffect(() => {
+    // Add the CSS class to the image wrapper div after the page loads
+    const imageWrapper = document.querySelector(
+      ".project_description_contents"
+    );
+    imageWrapper.classList.add("image-first-content");
+  }, []);
   return (
     <>
       <div>
