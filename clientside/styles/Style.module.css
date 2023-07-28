@@ -1,0 +1,4 @@
+/* custom-cursor.css */
+.custom-cursor {
+    cursor: url('/customcurser.png'), auto;
+}

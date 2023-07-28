@@ -268,7 +268,7 @@ const AIRevolution = () => {
               </button>
             </form>
           </div>
-          <div className={styles.commentList}>
+          {/* <div className={styles.commentList}>
             <h2>Comments</h2>
             {[1, 2, 3, 4].map((comment, index) => (
               <div key={index} className={styles.comment}>
@@ -282,7 +282,7 @@ const AIRevolution = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
         <div className={styles.recommendedBlogs}>
           <h2>Recommended Blogs</h2>

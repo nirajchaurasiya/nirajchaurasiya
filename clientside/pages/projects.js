@@ -87,7 +87,7 @@ export default function Projects() {
       >
         <div className="hide_icon_desc_project">
           <ImCross
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "url('/pointer.png'), auto" }}
             onClick={() => {
               setHideProjectDesc(true);
             }}

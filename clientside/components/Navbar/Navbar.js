@@ -29,8 +29,8 @@ export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <ul className={styles.first_navbar}>
-        <Link href="/" className={styles.logo}>
-          <p onClick={playTickSound}>Niraj Chaurasiya</p>
+        <Link onClick={playTickSound} href="/" className={styles.logo}>
+          Niraj Chaurasiya
         </Link>
       </ul>
       <ul className={`${styles.second_nav} hideInPhone`}>
@@ -70,25 +70,21 @@ export default function Navbar() {
         </Link>
         <li className={styles.themeToggle} onClick={toggleTheme}>
           {!isLightMode ? (
-            <span>
-              <Image
-                width={20}
-                height={20}
-                src="https://img.icons8.com/arcade/256/sun.png"
-                alt=""
-                onClick={playTickSound}
-              />
-            </span>
+            <Image
+              width={20}
+              height={20}
+              src="https://img.icons8.com/arcade/256/sun.png"
+              alt=""
+              onClick={playTickSound}
+            />
           ) : (
-            <span>
-              <Image
-                width={20}
-                height={20}
-                src="https://img.icons8.com/sf-black-filled/256/moon-symbol.png"
-                alt=""
-                onClick={playTickSound}
-              />
-            </span>
+            <Image
+              width={20}
+              height={20}
+              src="https://img.icons8.com/sf-black-filled/256/moon-symbol.png"
+              alt=""
+              onClick={playTickSound}
+            />
           )}
         </li>
         <div className={styles.mble_navbar}>

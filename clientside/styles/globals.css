@@ -20,7 +20,7 @@ ul {
   --nav-text-color: rgb(64, 194, 64);
   --primary-color: #007aff;
   --secondary-color: #6c757d;
-  --bg-color-light: #fff;
+  --bg-color-light: rgb(255, 255, 255);
   --text-color-light: #333;
   --bg-color-dark: #111;
   --text-color-dark: #f1f1f1;
@@ -30,7 +30,31 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: "Rubik", sans-serif;
+  cursor: url('/customcurser.png'), auto;
+}
 
+
+input,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+textarea {
+  cursor: url('/input.png'), auto !important;
+}
+
+button,
+a,
+image,
+li,
+link,
+option,
+select {
+  cursor: url('/pointer.png'), auto !important;
 }
 
 body.light {

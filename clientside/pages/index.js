@@ -4,6 +4,7 @@ import Link from "next/link";
 import Blog from "../components/Blog/Blog";
 import { useState } from "react";
 import axios from "axios";
+import styles from "../styles/Style.module.css";
 import project_all_data from "./project/project.json";
 export default function Index() {
   const [email, setEmail] = useState("");
@@ -50,8 +51,8 @@ export default function Index() {
           type="image/x-icon"
         />
       </Head>
-      <div className="_main_content">
-        {/* First Content */}
+      {/* First Content */}
+      <div className={`_main_content`}>
         <div className="first_content">
           <div className="text_first_content">
             <p className="heading_first_content">

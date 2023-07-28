@@ -25,7 +25,6 @@
 
 .second_nav li {
   color: var(--nav-text-color);
-  cursor: pointer;
 }
 
 .thirdNav {
@@ -37,12 +36,10 @@
 
 .thirdNav li {
   color: var(--nav-text-color);
-  cursor: pointer;
 }
 
 .themeToggle {
   font-size: 25px;
-  cursor: pointer;
 }
 
 @media (max-width: 750px) {
@@ -61,7 +58,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  cursor: pointer;
 }
 
 .mble_navbar div div {
@@ -86,7 +82,6 @@
 
 .mble_navbar li {
   color: var(--nav-text-color);
-  cursor: pointer;
 }
 
 @media (max-width: 750px) {
