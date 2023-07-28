@@ -40,7 +40,7 @@ export default function Contact() {
 
   useEffect(() => {
     // Add the CSS class to the image wrapper div after the page loads
-    const imageWrapper = document.querySelector(".image_first_content");
+    const imageWrapper = document.querySelector(".image_first_content_contact");
     imageWrapper.classList.add("image-first-content");
   }, []);
   return (
@@ -54,7 +54,7 @@ export default function Contact() {
         />
       </Head>
 
-      <div style={{ marginTop: "5%" }} className="image_first_content">
+      <div style={{ marginTop: "5%" }} className="image_first_content_contact">
         <div
           style={{
             marginBottom: "3%",
