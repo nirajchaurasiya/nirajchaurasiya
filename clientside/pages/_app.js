@@ -1,5 +1,4 @@
-// ... (existing code)
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import LoadingBar from "react-top-loading-bar";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -12,20 +11,23 @@ import "../styles/about.css";
 import "../styles/projects.css";
 import "../styles/404.css";
 import "react-toastify/dist/ReactToastify.css";
+
 export default function MyApp({ Component, pageProps }) {
   const loadingRef = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
+    let currentLoadingRef = loadingRef.current; // Copy the ref to a variable
+
     const handleRouteChangeStart = () => {
       try {
-        loadingRef.current.continuousStart();
+        currentLoadingRef.continuousStart(); // Use the variable inside the effect
       } catch (err) {}
     };
 
     const handleRouteChangeComplete = () => {
       try {
-        loadingRef.current.complete();
+        currentLoadingRef.complete(); // Use the variable inside the effect
       } catch (err) {}
     };
 
@@ -37,10 +39,10 @@ export default function MyApp({ Component, pageProps }) {
       router.events.off("routeChangeComplete", handleRouteChangeComplete);
 
       try {
-        loadingRef.current.complete();
+        currentLoadingRef.complete(); // Use the variable inside the cleanup function
       } catch (err) {}
     };
-  }, []);
+  }, [router.events]);
 
   return (
     <>
