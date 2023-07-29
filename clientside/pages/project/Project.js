@@ -57,43 +57,65 @@ export default function Project(props) {
           <div className="specific_project_links">
             <div className="github_link">
               <h4>Github</h4>
-              <button
-                onClick={() => {
-                  window.open(
-                    "https://github.com/nirajchaurasiya/onlineroomfinder",
-                    "_blank"
-                  );
-                }}
-              >
-                https://github.com/nirajchaurasiya/onlineroomfinder
-              </button>
+              {project[props.projectPos - 1]?.github_link ? (
+                <button
+                  onClick={() => {
+                    window.open(
+                      project[props.projectPos - 1]?.github_link,
+                      "_blank"
+                    );
+                  }}
+                >
+                  {project[props.projectPos - 1]?.github_link}
+                </button>
+              ) : (
+                <button>Unavailable</button>
+              )}
             </div>
             <br />
             <div className="website_link">
               <h4>Website link</h4>
-              <button
-                onClick={() => {
-                  window.open("https://onlineroomfinder.epizy.com", "_blank");
-                }}
-              >
-                https://onlineroomfinder.epizy.com
-              </button>
+              {project[props.projectPos - 1]?.website_link ? (
+                <button
+                  onClick={() => {
+                    window.open(
+                      project[props.projectPos - 1]?.website_link,
+                      "_blank"
+                    );
+                  }}
+                >
+                  {project[props.projectPos - 1]?.website_link}
+                </button>
+              ) : (
+                <button>Unavailable</button>
+              )}
             </div>
           </div>
           <br />
         </div>
 
-        <button
-          className="open_project_links"
-          onClick={() => {
-            window.open(
-              "https://github.com/nirajchaurasiya/onlineroomfinder",
-              "_blank"
-            );
-          }}
-        >
-          Open Project <HiOutlineExternalLink style={{ fontSize: "22px" }} />{" "}
-        </button>
+        {project[props.projectPos - 1]?.github_link ? (
+          <button
+            className="open_project_links"
+            onClick={() => {
+              window.open(project[props.projectPos - 1]?.github_link, "_blank");
+            }}
+          >
+            Open Project <HiOutlineExternalLink style={{ fontSize: "22px" }} />{" "}
+          </button>
+        ) : (
+          <button
+            className="open_project_links"
+            onClick={() => {
+              window.open(
+                project[props.projectPos - 1]?.website_link,
+                "_blank"
+              );
+            }}
+          >
+            Open Project <HiOutlineExternalLink style={{ fontSize: "22px" }} />{" "}
+          </button>
+        )}
       </div>
     </>
   );
