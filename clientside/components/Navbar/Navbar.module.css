@@ -95,3 +95,236 @@
     display: none;
   }
 }
+
+
+@media (max-width:800px) {
+  .seaarch_bar_nav {
+    width: 100% !important;
+  }
+}
+
+@media (max-width:1400px) {
+
+  .seaarch_bar_nav button {
+    width: 10% !important;
+  }
+
+  .seaarch_bar_nav input {
+    width: 80% !important;
+  }
+
+}
+
+@media (max-width:600px) {
+  .seaarch_bar_nav input {
+    width: 70% !important;
+  }
+
+  .select_box select {
+    background-color: var(--text-color);
+    border: 1px solid var(--nav-text-color);
+    padding: 5px !important;
+    width: 80px !important;
+    font-size: 15px !important;
+    outline: none;
+  }
+
+  .seaarch_bar_nav button {
+    width: 10% !important;
+    font-size: 10px;
+  }
+
+}
+
+
+@media (max-width:400px) {
+  .seaarch_bar_nav input {
+    width: 50% !important;
+    padding: 0px !important;
+  }
+
+  .select_box select {
+    padding: 5px !important;
+    width: 80px !important;
+    font-size: 15px !important;
+  }
+}
+
+.seaarch_bar_nav {
+  width: 73vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+  border: 1px solid var(--nav-text-color);
+  padding: 2px;
+  margin: auto;
+  border-top: none;
+}
+
+.seaarch_bar_nav input {
+  width: 90%;
+  padding: 0 3px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.seaarch_bar_nav button {
+  width: 7%;
+  padding: 13px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.select_box {
+  display: flex;
+  justify-content: center;
+}
+
+.select_box select {
+  background-color: var(--text-color);
+  border: 1px solid var(--nav-text-color);
+  color: var(--bg-color);
+  padding: 12px;
+  width: 150px;
+  font-size: 20px;
+  outline: none;
+}
+
+.select_box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.select_box select option {
+  padding: 30px;
+}
+
+/* Define the hiding animation using @keyframes */
+@keyframes hide {
+  0% {
+    transform: rotateY(0deg);
+    /* Start with no rotation */
+    opacity: 1;
+    /* Start fully visible */
+  }
+
+  80% {
+    transform: rotateX(100deg);
+    /* Rotate back to its original state */
+    opacity: 0;
+    /* Fade out to become invisible */
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+    /* Fade out to become invisible */
+  }
+}
+
+.hide_cmd {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  background-color: var(--bg-color);
+  height: 200px;
+  transition: all 0.3s ease-in-out;
+  animation: hide 0.8s forwards;
+  overflow: auto;
+  z-index: 10;
+  /* Enable scrolling if content exceeds the fixed height */
+  resize: vertical;
+}
+
+.cmd {
+  border-top: 1px solid var(--nav-text-color);
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  background-color: var(--bg-color);
+  height: 200px;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+  animation: show 0.8s forwards;
+  overflow: auto;
+  /* Enable scrolling if content exceeds the fixed height */
+  resize: vertical;
+  /* Apply the hiding animation */
+}
+
+@keyframes show {
+  0% {
+    transform: rotateY(120deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateY(0deg);
+    opacity: .8;
+  }
+}
+
+.new_cmd {
+  position: absolute;
+  color: red;
+  font-weight: 600;
+  top: 13px;
+}
+
+.input_cmd {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.input_cmd p {
+  margin: 0;
+  padding-right: 5px;
+}
+
+.resize_handle {
+  height: 8px;
+  cursor: row-resize;
+  /* Use the row-resize cursor to indicate vertical resizing */
+  user-select: none;
+  /* Prevent text selection while dragging */
+  background-color: var(--nav-text-color);
+  /* Set the background color of the handle */
+}
+
+.input_cmd input {
+  padding: 4px;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.input_cmd input:focus {
+  border: 0;
+  outline: none;
+}
+
+.hide_cmd_btn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.hide_cmd_btn button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  padding: 4px 10px;
+  font-size: large;
+}

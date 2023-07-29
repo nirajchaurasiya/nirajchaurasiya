@@ -11,6 +11,7 @@ import "../styles/index.css";
 import "../styles/about.css";
 import "../styles/projects.css";
 import "../styles/404.css";
+import "react-toastify/dist/ReactToastify.css";
 export default function MyApp({ Component, pageProps }) {
   const loadingRef = useRef(null);
   const router = useRouter();
