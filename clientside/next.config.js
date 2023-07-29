@@ -14,12 +14,13 @@ module.exports = withOffline({
       })
     );
 
-    if (dev) {
-      // esbuildLoader(config, {
-      //   loader: "jsx",
-      //   target: "es2017",
-      // });
-    }
+    // Remove the esbuildLoader part as it is not needed
+    // if (dev) {
+    //   esbuildLoader(config, {
+    //     loader: "jsx",
+    //     target: "es2017",
+    //   });
+    // }
 
     // Modify the webpack config as needed
     // Example: Add a custom plugin
@@ -32,7 +33,7 @@ module.exports = withOffline({
         dns: false,
         child_process: false,
         tls: false,
-        webpack5: false, // <-- Set webpack5: false here
+        webpack5: false, // Set webpack5: false here
       };
     }
 
