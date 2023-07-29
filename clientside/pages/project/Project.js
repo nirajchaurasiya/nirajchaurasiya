@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import project from "./project.json";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import Image from "next/image";
 export default function Project(props) {
   useEffect(() => {
     // Add the CSS class to the image wrapper div after the page loads
@@ -19,9 +20,12 @@ export default function Project(props) {
           </div>
 
           <div className="specific_project_image">
-            <img
+            <Image
               src={project[props.projectPos - 1]?.project_image_url}
               alt=""
+              width={100}
+              height={370}
+              className="img"
             />
           </div>
 
@@ -41,8 +45,9 @@ export default function Project(props) {
               {project[props.projectPos - 1]?.technologies_used.map(
                 (e, index) => (
                   <div key={index} className="html">
-                    <img
-                      style={{ width: e.style.width, height: e.style.height }}
+                    <Image
+                      height={e.style.height.slice(0, 2)}
+                      width={e.style.width.slice(0, 2)}
                       src={e?.image}
                       alt={e?.title}
                       title={e?.title}

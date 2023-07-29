@@ -162,9 +162,10 @@
   font-size: 17px;
 }
 
-.specific_project_image img {
+.specific_project_image .img {
   margin: 30px 0px;
   width: 100%;
+  height: auto !important;
 }
 
 .specific_project_description p {

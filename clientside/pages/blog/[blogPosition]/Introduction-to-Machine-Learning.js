@@ -4,11 +4,18 @@ import styles from "./Blog.module.css";
 import { useRouter } from "next/router";
 import allblogs from "../../../components/Blog/allblog/allblog.json";
 import Link from "next/link";
+import Image from "next/image";
 const AIRevolution = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [comments, setComments] = useState([]);
+
+  const router = useRouter();
+  const { blogPosition } = router.query;
+  const fullUrl = router.asPath;
+  const parts = fullUrl.split("/");
+  const targetString = parts[parts.length - 1];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,34 +33,26 @@ const AIRevolution = () => {
     setMessage("");
   };
 
-  const router = useRouter();
-  const { blogPosition } = router.query;
-  const fullUrl = router.asPath;
-  const parts = fullUrl.split("/");
-  const targetString = parts[parts.length - 1];
   setTimeout(() => {
     document.title = targetString + " - Niraj Chaurasiya";
   }, 1500);
 
   useEffect(() => {
     // Add the CSS class to the image wrapper div after the page loads
-    const imageWrapper = document.querySelector(
-      ".Introduction-to-Machine-Learning"
-    );
+    const imageWrapper = document.querySelector(".Exploring-Ancient-History");
     imageWrapper.classList.add("image-first-content");
   }, []);
-
   return (
     <>
-      <div className={styles.container}>
+      <div className={`${styles.container} Exploring-Ancient-History`}>
         <Head>
           <title>Loading - Niraj Chaurasiya</title>
         </Head>
-        <div
-          className={`${styles.mainContent} Introduction-to-Machine-Learning`}
-        >
+        <div className={`${styles.mainContent}`}>
           <h1 className={styles.h1}>{targetString}</h1>
-          <img
+          <Image
+            height="350"
+            width="100"
             className={styles.img}
             src="/blogimage/ai.png"
             alt="AI Revolution"
@@ -279,21 +278,6 @@ const AIRevolution = () => {
               </button>
             </form>
           </div>
-          {/* <div className={styles.commentList}>
-            <h2>Comments</h2>
-            {[1, 2, 3, 4].map((comment, index) => (
-              <div key={index} className={styles.comment}>
-                <div className={styles.commentProfile}>
-                  <img src="/guy.png" alt="Profile" />
-                  <div>
-                    <p className={styles.profileName}>Niraj Chaurasiya</p>
-                    <p className={styles.date}>2023/02/07</p>
-                    <p className={styles.commentText}>Absolutely Correct!</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div> */}
         </div>
         <div className={styles.recommendedBlogs}>
           <h2>Recommended Blogs</h2>
@@ -301,7 +285,12 @@ const AIRevolution = () => {
             .filter((blog, index) => index + 1 !== parseInt(blogPosition))
             .map((blog, index) => (
               <div key={index} className={styles.blogCard}>
-                <img src={blog.image} alt={`Blog ${index + 1}`} />
+                <Image
+                  src={blog.image}
+                  height="200"
+                  width="100"
+                  alt={`Blog ${index + 1}`}
+                />
                 <div className={styles.cardContent}>
                   <h3>{blog.name}</h3>
                   <p style={{ color: "var(--text-color)" }}>

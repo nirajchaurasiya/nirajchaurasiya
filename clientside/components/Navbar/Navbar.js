@@ -176,7 +176,7 @@ export default function Navbar() {
               <Image
                 width={20}
                 height={20}
-                src="https://img.icons8.com/arcade/256/sun.png"
+                src="assests/sun.png"
                 alt=""
                 onClick={playTickSound}
               />
@@ -184,7 +184,7 @@ export default function Navbar() {
               <Image
                 width={20}
                 height={20}
-                src="https://img.icons8.com/sf-black-filled/256/moon-symbol.png"
+                src="assests//moon.png"
                 alt=""
                 onClick={playTickSound}
               />
