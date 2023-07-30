@@ -5,29 +5,30 @@ import axios from "axios";
 export default function Activate() {
   const router = useRouter();
   const { activate } = router.query;
-
-  const token = activate;
   const [status, setStatus] = useState("loading");
 
   useEffect(() => {
+    console.log(activate);
     // Make a request to the activation API endpoint
-    axios
-      .post(`/api/activate`, { token: token })
-      .then((response) => {
-        const { data } = response;
-        if (data.status === 1) {
-          setStatus("success");
-        } else if (data.status === 2) {
-          setStatus("alreadyActivated");
-        } else {
+    if (activate) {
+      axios
+        .post(`/api/activate`, { token: activate })
+        .then((response) => {
+          const { data } = response;
+          if (data.status === 1) {
+            setStatus("success");
+          } else if (data.status === 2) {
+            setStatus("alreadyActivated");
+          } else {
+            setStatus("error");
+          }
+        })
+        .catch((error) => {
+          console.error("Error activating account:", error);
           setStatus("error");
-        }
-      })
-      .catch((error) => {
-        console.error("Error activating account:", error);
-        setStatus("error");
-      });
-  }, [token]);
+        });
+    }
+  }, [activate]);
 
   return (
     <div>
