@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { ImCross } from "react-icons/im";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
 export default function Navbar() {
@@ -198,106 +199,112 @@ export default function Navbar() {
                 playTickSound();
               }}
             >
-              <div></div>
-              <div></div>
-              <div></div>
+              {!showMbleNave ? (
+                <>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </>
+              ) : (
+                <ImCross
+                  style={{ zIndex: "10", height: "20px", width: "20px" }}
+                />
+              )}
             </div>
-            {showMbleNave && (
-              <ul>
-                <Link style={{ textDecoration: "none" }} href="/">
-                  <li onClick={playTickSound}>Home</li>
-                </Link>
-                <Link style={{ textDecoration: "none" }} href="/contact">
-                  <li onClick={playTickSound}>Contact</li>
-                </Link>
-                <Link style={{ textDecoration: "none" }} href="/about">
-                  <li onClick={playTickSound}>About</li>
-                </Link>
-                <Link style={{ textDecoration: "none" }} href="/projects">
-                  <li onClick={playTickSound}>Projects</li>
-                </Link>
-                <Link style={{ textDecoration: "none" }} href="/blog">
-                  <li onClick={playTickSound}>Blog</li>
-                </Link>
-                {isLoggedIn ? (
-                  <>
-                    <Link
-                      onClick={playTickSound}
-                      style={{ textDecoration: "none" }}
-                      href="#"
+            <ul className={showMbleNave ? styles.mble_navbar : styles.hide_nav}>
+              <Link style={{ textDecoration: "none" }} href="/">
+                <li onClick={playTickSound}>Home</li>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="/contact">
+                <li onClick={playTickSound}>Contact</li>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="/about">
+                <li onClick={playTickSound}>About</li>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="/projects">
+                <li onClick={playTickSound}>Projects</li>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="/blog">
+                <li onClick={playTickSound}>Blog</li>
+              </Link>
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    onClick={playTickSound}
+                    style={{ textDecoration: "none" }}
+                    href="#"
+                  >
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
                     >
-                      <button
-                        style={{
-                          padding: "10px",
-                          width: "100%",
-                          border: "1px solid var(--nav-text-color)",
-                          outline: "none",
-                          backgroundColor: "transparent",
-                          color: "var(--nav-text-color)",
-                        }}
-                      >
-                        {userData}
-                      </button>
-                    </Link>
-                    <Link
-                      onClick={playTickSound}
-                      style={{ textDecoration: "none" }}
-                      href="#"
+                      {userData}
+                    </button>
+                  </Link>
+                  <Link
+                    onClick={playTickSound}
+                    style={{ textDecoration: "none" }}
+                    href="#"
+                  >
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
+                      onClick={() => {
+                        localStorage.removeItem("nkcdata");
+                        window.location.href = "/login";
+                      }}
                     >
-                      <button
-                        style={{
-                          padding: "10px",
-                          width: "100%",
-                          border: "1px solid var(--nav-text-color)",
-                          outline: "none",
-                          backgroundColor: "transparent",
-                          color: "var(--nav-text-color)",
-                        }}
-                        onClick={() => {
-                          localStorage.removeItem("nkcdata");
-                          window.location.href = "/login";
-                        }}
-                      >
-                        Logout
-                      </button>
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <Link style={{ textDecoration: "none" }} href="/login">
-                      <button
-                        style={{
-                          padding: "10px",
-                          width: "100%",
-                          border: "1px solid var(--nav-text-color)",
-                          outline: "none",
-                          backgroundColor: "transparent",
-                          color: "var(--nav-text-color)",
-                        }}
-                        onClick={playTickSound}
-                      >
-                        Login
-                      </button>
-                    </Link>
-                    <Link style={{ textDecoration: "none" }} href="/register">
-                      <button
-                        style={{
-                          padding: "10px",
-                          width: "100%",
-                          border: "1px solid var(--nav-text-color)",
-                          outline: "none",
-                          backgroundColor: "transparent",
-                          color: "var(--nav-text-color)",
-                        }}
-                        onClick={playTickSound}
-                      >
-                        Register
-                      </button>
-                    </Link>
-                  </>
-                )}
-              </ul>
-            )}
+                      Logout
+                    </button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link style={{ textDecoration: "none" }} href="/login">
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
+                      onClick={playTickSound}
+                    >
+                      Login
+                    </button>
+                  </Link>
+                  <Link style={{ textDecoration: "none" }} href="/register">
+                    <button
+                      style={{
+                        padding: "10px",
+                        width: "100%",
+                        border: "1px solid var(--nav-text-color)",
+                        outline: "none",
+                        backgroundColor: "transparent",
+                        color: "var(--nav-text-color)",
+                      }}
+                      onClick={playTickSound}
+                    >
+                      Register
+                    </button>
+                  </Link>
+                </>
+              )}
+            </ul>
           </div>
         </div>
       </div>
