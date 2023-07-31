@@ -18,18 +18,17 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    return () => {
-      if (localStorage) {
-        document.body.className = localStorage.getItem("darkmodenkc");
-        if (localStorage.getItem("nkcdata")) {
-          const name = JSON.parse(localStorage.getItem("nkcdata")).name;
-          setIsLoggedIn(true);
-          setUserData(name);
-        }
-      } else {
-        document.body.className = !isLightMode ? "dark" : "light";
+    if (localStorage) {
+      document.body.className = localStorage.getItem("darkmodenkc");
+
+      if (localStorage.getItem("nkcdata")) {
+        const name = JSON.parse(localStorage.getItem("nkcdata")).name;
+        setIsLoggedIn(true);
+        setUserData(name);
       }
-    };
+    } else {
+      document.body.className = !isLightMode ? "dark" : "light";
+    }
   }, [isLightMode]);
 
   // Function to play the tick sound
