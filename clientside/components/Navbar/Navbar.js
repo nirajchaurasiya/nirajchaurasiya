@@ -19,8 +19,8 @@ export default function Navbar() {
 
   useEffect(() => {
     if (localStorage) {
-      document.body.className = localStorage.getItem("darkmodenkc");
-
+      const color_mode = localStorage.getItem("darkmodenkc");
+      document.body.className = color_mode;
       if (localStorage.getItem("nkcdata")) {
         const name = JSON.parse(localStorage.getItem("nkcdata")).name;
         setIsLoggedIn(true);
