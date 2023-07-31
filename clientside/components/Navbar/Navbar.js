@@ -18,20 +18,8 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    // Function to handle key press event
-    const handleKeyPress = (event) => {
-      // Check if the pressed key is the one you want to detect (e.g., '/' key with event.key === '/')
-      if (event.key === "/") {
-        // Your logic here when '/' key is pressed
-        search_input.focus();
-      }
-    };
-
-    const search_input = document.querySelector("#search_input");
-    document.addEventListener("keypress", handleKeyPress);
     return () => {
       if (localStorage) {
-        document.removeEventListener("keydown", handleKeyPress);
         document.body.className = localStorage.getItem("darkmodenkc");
         if (localStorage.getItem("nkcdata")) {
           const name = JSON.parse(localStorage.getItem("nkcdata")).name;
@@ -333,7 +321,6 @@ export default function Navbar() {
           }}
           placeholder="Search Projects or Blog"
           name="search" // Add a random value to the name attribute
-          id="search_input"
         />
         <div className={styles.select_box}>
           <select
