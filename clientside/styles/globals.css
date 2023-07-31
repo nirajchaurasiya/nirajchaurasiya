@@ -21,8 +21,10 @@ ul {
   --nav-text-color: rgb(64, 194, 64);
   --primary-color: #007aff;
   --secondary-color: #6c757d;
-  --bg-color-light: rgb(255, 255, 255);
+
+  --bg-color-light: #f1f1f1;
   --text-color-light: #333;
+
   --bg-color-dark: #111;
   --text-color-dark: #f1f1f1;
 }

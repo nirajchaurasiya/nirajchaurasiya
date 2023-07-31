@@ -27,7 +27,7 @@ export default function Navbar() {
           setUserData(name);
         }
       } else {
-        document.body.className = isLightMode ? "dark" : "light";
+        document.body.className = !isLightMode ? "dark" : "light";
       }
     };
   }, [isLightMode]);
