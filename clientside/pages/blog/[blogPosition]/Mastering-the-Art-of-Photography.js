@@ -15,7 +15,8 @@ const AIRevolution = () => {
   const { blogPosition } = router.query;
   const fullUrl = router.asPath;
   const parts = fullUrl.split("/");
-  const targetString = parts[parts.length - 1];
+  const faketargetString = parts[parts.length - 1];
+  const targetString = faketargetString.split("?")[0];
 
   const handleSubmit = (e) => {
     e.preventDefault();
