@@ -33,10 +33,6 @@ const AIRevolution = () => {
     setMessage("");
   };
 
-  setTimeout(() => {
-    document.title = targetString + " - Niraj Chaurasiya";
-  }, 1500);
-
   useEffect(() => {
     // Add the CSS class to the image wrapper div after the page loads
     const imageWrapper = document.querySelector(".Exploring-Ancient-History");
@@ -46,7 +42,60 @@ const AIRevolution = () => {
     <>
       <div className={`${styles.container} Exploring-Ancient-History`}>
         <Head>
-          <title>Loading - Niraj Chaurasiya</title>
+          {/* SEO meta tags */}
+          <title>{targetString} - Niraj Chaurasiya</title>
+          <meta
+            name="description"
+            content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
+          />
+          <meta
+            name="keywords"
+            content="full stack web developer, web applications, front-end, back-end"
+          />
+          <meta name="author" content="Niraj Chaurasiya" />
+          <meta name="robots" content="index, follow" />
+
+          {/* Open Graph meta tags (for better sharing on social media) */}
+          <meta
+            property="og:title"
+            content={`${targetString} - Niraj Chaurasiya`}
+          />
+          <meta
+            property="og:description"
+            content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
+          />
+          <meta property="og:image" content="/path/to/your/og-image.jpg" />
+          <meta
+            property="og:url"
+            content="https://www.nirajchaurasiya.netlify.app/"
+          />
+          <meta property="og:type" content="website" />
+
+          {/* Twitter Card meta tags (for better sharing on Twitter) */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:title"
+            content={`${targetString} - Niraj Chaurasiya`}
+          />
+          <meta
+            name="twitter:description"
+            content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
+          />
+          <meta
+            name="twitter:image"
+            content="/path/to/your/twitter-image.jpg"
+          />
+          <meta
+            name="twitter:url"
+            content="https://www.nirajchaurasiya.netlify.app/"
+          />
+
+          {/* Other meta tags */}
+          <link
+            rel="shortcut icon"
+            href="/assests/logo.jpg"
+            type="image/x-icon"
+          />
         </Head>
         <div className={`${styles.mainContent}`}>
           <h1 className={styles.h1}>{targetString}</h1>

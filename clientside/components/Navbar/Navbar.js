@@ -16,17 +16,32 @@ export default function Navbar() {
   const [select, setSelect] = useState("all");
   const [cmd_text, setCmd_text] = useState("");
   const router = useRouter();
+
   useEffect(() => {
-    if (localStorage) {
-      document.body.className = localStorage.getItem("darkmodenkc");
-      if (localStorage.getItem("nkcdata")) {
-        const name = JSON.parse(localStorage.getItem("nkcdata")).name;
-        setIsLoggedIn(true);
-        setUserData(name);
+    // Function to handle key press event
+    const handleKeyPress = (event) => {
+      // Check if the pressed key is the one you want to detect (e.g., '/' key with event.key === '/')
+      if (event.key === "/") {
+        // Your logic here when '/' key is pressed
+        search_input.focus();
       }
-    } else {
-      document.body.className = isLightMode ? "dark" : "light";
-    }
+    };
+
+    const search_input = document.querySelector("#search_input");
+    document.addEventListener("keypress", handleKeyPress);
+    return () => {
+      if (localStorage) {
+        document.removeEventListener("keydown", handleKeyPress);
+        document.body.className = localStorage.getItem("darkmodenkc");
+        if (localStorage.getItem("nkcdata")) {
+          const name = JSON.parse(localStorage.getItem("nkcdata")).name;
+          setIsLoggedIn(true);
+          setUserData(name);
+        }
+      } else {
+        document.body.className = isLightMode ? "dark" : "light";
+      }
+    };
   }, [isLightMode]);
 
   // Function to play the tick sound
@@ -311,12 +326,14 @@ export default function Navbar() {
       {/* Search Bar */}
       <div className={styles.seaarch_bar_nav}>
         <input
-          type="email" // Use type="email" or type="username"
+          type="search"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+          }}
           placeholder="Search Projects or Blog"
-          autoComplete="off"
-          name={`username_${Math.random()}`} // Add a random value to the name attribute
+          name="search" // Add a random value to the name attribute
+          id="search_input"
         />
         <div className={styles.select_box}>
           <select

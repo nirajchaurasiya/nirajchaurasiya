@@ -37,6 +37,21 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
+body.light {
+  --bg-color: var(--bg-color-light);
+  --text-color: var(--text-color-light);
+  --nav-text-color: rgb(64, 194, 64);
+  --box-shadow: rgba(0, 0, 0, 0.1);
+  --project_desc_bg: rgba(255, 255, 255, 0.9);
+}
+
+body.dark {
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+  --nav-text-color: rgb(4, 255, 213);
+  --box-shadow: rgba(255, 255, 255, 0.1);
+  --project_desc_bg: rgba(0, 0, 0, 0.9);
+}
 
 input,
 p,
@@ -61,21 +76,6 @@ select {
   cursor: url('/pointer.png'), auto !important;
 }
 
-body.light {
-  --bg-color: var(--bg-color-light);
-  --text-color: var(--text-color-light);
-  --nav-text-color: rgb(64, 194, 64);
-  --box-shadow: rgba(0, 0, 0, 0.1);
-  --project_desc_bg: rgba(255, 255, 255, 0.9);
-}
-
-body.dark {
-  --bg-color: var(--bg-color-dark);
-  --text-color: var(--text-color-dark);
-  --nav-text-color: rgb(4, 255, 213);
-  --box-shadow: rgba(255, 255, 255, 0.1);
-  --project_desc_bg: rgba(0, 0, 0, 0.9);
-}
 
 ::-webkit-scrollbar {
   width: 5px;
