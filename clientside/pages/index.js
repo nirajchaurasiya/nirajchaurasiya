@@ -251,7 +251,7 @@ export default function Index() {
                     width={200}
                     height={200}
                     src={e.image}
-                    alt=""
+                    alt={e.name}
                   />
                   <div className="project-pages_heading">
                     <p>{e?.project_title}</p>

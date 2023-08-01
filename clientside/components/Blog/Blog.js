@@ -26,7 +26,7 @@ export default function Blog() {
                 width={200}
                 height={200}
                 src={e.image}
-                alt=""
+                alt={e.name}
               />
               <div className="project-pages_heading">
                 <p>{e?.name}</p>
