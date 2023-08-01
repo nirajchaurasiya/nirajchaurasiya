@@ -67,11 +67,8 @@ export default function MyApp({ Component, pageProps }) {
           property="og:description"
           content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
         />
-        <meta property="og:image" content="/path/to/your/og-image.jpg" />
-        <meta
-          property="og:url"
-          content="https://www.nirajchaurasiya.netlify.app/"
-        />
+        <meta property="og:image" content="/favicon.ico" />
+        <meta property="og:url" content="https://www.nirajchaurasiya.com/" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card meta tags (for better sharing on Twitter) */}
@@ -81,11 +78,8 @@ export default function MyApp({ Component, pageProps }) {
           name="twitter:description"
           content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
         />
-        <meta name="twitter:image" content="/path/to/your/twitter-image.jpg" />
-        <meta
-          name="twitter:url"
-          content="https://www.nirajchaurasiya.netlify.app/"
-        />
+        <meta name="twitter:image" content="/favicon.ico" />
+        <meta name="twitter:url" content="https://www.nirajchaurasiya.com/" />
 
         {/* Other meta tags */}
         <link
