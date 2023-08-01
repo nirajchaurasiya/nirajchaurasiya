@@ -262,9 +262,10 @@
   transition: all 0.3s ease-in-out;
   animation: hide 0.8s forwards;
   overflow: auto;
-  z-index: 10;
+  z-index: -1;
   /* Enable scrolling if content exceeds the fixed height */
   resize: vertical;
+  /* display: none; */
 }
 
 .cmd {
