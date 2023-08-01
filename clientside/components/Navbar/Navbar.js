@@ -179,16 +179,16 @@ export default function Navbar() {
               <Image
                 width={20}
                 height={20}
-                src="assests/sun.png"
-                alt=""
+                src="/assests/sun.png"
+                alt="light"
                 onClick={playTickSound}
               />
             ) : (
               <Image
                 width={20}
                 height={20}
-                src="assests//moon.png"
-                alt=""
+                src="/assests//moon.png"
+                alt="dark"
                 onClick={playTickSound}
               />
             )}

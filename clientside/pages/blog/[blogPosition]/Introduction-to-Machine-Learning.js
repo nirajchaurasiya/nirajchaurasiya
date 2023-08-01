@@ -90,6 +90,20 @@ const AIRevolution = () => {
         </Head>
         <div className={`${styles.mainContent}`}>
           <h1 className={styles.h1}>{targetString}</h1>
+          <div
+            style={{
+              padding: "0px 10px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "10px",
+            }}
+          >
+            <p>
+              Author : <span style={{ color: "red" }}>Niraj Chaurasiya</span>
+            </p>
+            <p>Date : 2023-07-25</p>
+          </div>
           <Image
             height="350"
             width="100"
@@ -99,6 +113,8 @@ const AIRevolution = () => {
           />
           <div className={styles.blogPost}>
             <h2>Introduction to AI</h2>
+            <br />
+
             <p className={styles.point}>
               {`Artificial Intelligence (AI) has become one of the most transformative technologies of our time.
             Its impact can be seen in various industries, from healthcare and finance to education and entertainment.
@@ -321,39 +337,48 @@ const AIRevolution = () => {
         </div>
         <div className={styles.recommendedBlogs}>
           <h2>Recommended Blogs</h2>
-          {allblogs
-            .filter((blog, index) => index + 1 !== parseInt(blogPosition))
-            .map((blog, index) => (
-              <div key={index} className={styles.blogCard}>
-                <Image
-                  src={blog.image}
-                  height="200"
-                  width="100"
-                  alt={`Blog ${index + 1}`}
-                />
-                <div className={styles.cardContent}>
-                  <h3>{blog.name}</h3>
-                  <p style={{ color: "var(--text-color)" }}>
-                    {blog.description.slice(0, 40)}....
-                  </p>
-                  <p
-                    style={{ color: "var(--text-color)" }}
-                    className={styles.author}
-                  >
-                    Author: {blog.author}
-                  </p>
-                  <p
-                    style={{ color: "var(--text-color)" }}
-                    className={styles.date}
-                  >
-                    Date: {blog.createdAt}
-                  </p>
-                  <Link href={`/blog/${blog.index}/${blog.name}`} passHref>
-                    <button className={styles.button}>Read More..</button>
-                  </Link>
+          {allblogs.filter(
+            (blog, index) => index + 1 !== parseInt(blogPosition)
+          ).length > 0 ? (
+            allblogs
+              .filter((blog, index) => index + 1 !== parseInt(blogPosition))
+              .map((blog, index) => (
+                <div key={index} className={styles.blogCard}>
+                  <Image
+                    src={blog.image}
+                    height="200"
+                    width="100"
+                    alt={`Blog ${index + 1}`}
+                  />
+                  <div className={styles.cardContent}>
+                    <h3>{blog.name}</h3>
+                    <p style={{ color: "var(--text-color)" }}>
+                      {blog.description.slice(0, 40)}....
+                    </p>
+                    <p
+                      style={{ color: "var(--text-color)" }}
+                      className={styles.author}
+                    >
+                      Author: {blog.author}
+                    </p>
+                    <p
+                      style={{ color: "var(--text-color)" }}
+                      className={styles.date}
+                    >
+                      Date: {blog.createdAt}
+                    </p>
+                    <Link href={`/blog/${blog.index}/${blog.name}`} passHref>
+                      <button className={styles.button}>Read More..</button>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+          ) : (
+            <div>
+              <br />
+              <h4>No recommended blog found</h4>
+            </div>
+          )}
         </div>
       </div>
     </>
