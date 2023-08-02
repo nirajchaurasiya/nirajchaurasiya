@@ -5,39 +5,141 @@ import { useRouter } from "next/router";
 import allblogs from "../../../components/Blog/allblog/allblog.json";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
+import { formatTimeAgo } from "./dateUtils";
+import { ToastContainer, toast } from "react-toastify";
 const AIRevolution = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [comments, setComments] = useState([]);
-
+  const [allcomment, setAllcomment] = useState([]);
+  const [isUserVerified, setIsUserVerified] = useState(false);
   const router = useRouter();
   const { blogPosition } = router.query;
   const fullUrl = router.asPath;
   const parts = fullUrl.split("/");
   const faketargetString = parts[parts.length - 1];
   const targetString = faketargetString.split("?")[0];
-
+  console.log("=> " + process.env.URI);
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can handle the form submission here, e.g., add the comment to the comments state
-    const newComment = {
-      name,
-      email,
-      message,
-      date: new Date().toLocaleDateString(), // Use the current date as an example
-      // Add more properties as needed for your comment section
-    };
-    setComments([...comments, newComment]);
-    setName("");
-    setEmail("");
-    setMessage("");
+    if (!name || !email || !message) {
+      const notify = () => toast("All the fields are mandatory.");
+      notify();
+    } else {
+      try {
+        const newComment = {
+          name: name,
+          email: email,
+          cid: message,
+        };
+        axios
+          .post(`${process.env.URI}/api/addcomment`, newComment)
+          .then((data) => {
+            const notify = () =>
+              toast("Your comment has been added sucessfully");
+            notify();
+            getAllComment();
+          })
+          .catch((err) => {
+            // console.log(err);
+          });
+
+        setName("");
+        setEmail("");
+        setMessage("");
+      } catch (error) {
+        // console.log(error);
+      }
+    }
+  };
+
+  const getAllComment = async () => {
+    try {
+      axios
+        .get(`${process.env.URI}/api/getcomment`)
+        .then((data) => {
+          setAllcomment(data.data.data);
+        })
+        .catch((err) => {
+          const notify = () =>
+            toast("Some error occured while fetching all the comments.");
+          notify();
+        });
+    } catch (error) {
+      const notify = () =>
+        toast("Some error occured while fetching all the comments.");
+      notify();
+    }
   };
   useEffect(() => {
     // Add the CSS class to the image wrapper div after the page loads
     const imageWrapper = document.querySelector(".Exploring-Ancient-History");
     imageWrapper.classList.add("image-first-content");
+    if (localStorage) {
+      if (localStorage.getItem("nkcdata")) {
+        setIsUserVerified(true);
+      }
+    }
+    getAllComment();
   }, []);
+
+  const DeleteComment = (_id) => {
+    if (
+      confirm(
+        "Are you sure, you want to delete this comment? This action is irreversible"
+      )
+    ) {
+      try {
+        axios
+          .delete(`${process.env.URI}/api/deletecomment`, {
+            data: { id: _id.toString() }, // Send the data object here
+          })
+          .then((data) => {
+            const notify = () =>
+              toast("Your comment has been deleted successfully");
+            notify();
+            getAllComment();
+          })
+          .catch((err) => {
+            const notify = () =>
+              toast("Some error occured while deleting your comment.");
+            notify();
+          });
+      } catch (error) {
+        const notify = () =>
+          toast("Some error occured while deleting your comment.");
+        notify();
+      }
+    }
+  };
+
+  const updateComment = (_id, currentComment) => {
+    const updatedCommentText = prompt(
+      "Enter your updated comment:",
+      currentComment
+    );
+    const updatedComment = {
+      id: _id,
+      cid: updatedCommentText,
+    };
+    axios
+      .put(`${process.env.URI}/api/updatecomment`, updatedComment)
+      .then((response) => {
+        const notify = () =>
+          toast("Your comment has been updated successfully");
+        notify();
+        getAllComment();
+      })
+      .catch((error) => {
+        // Handle error, e.g., display an error message
+        const notify = () =>
+          toast("Some error occured while updating your comment.");
+        notify();
+      });
+  };
+
   return (
     <>
       <div className={`${styles.container} Exploring-Ancient-History`}>
@@ -88,6 +190,7 @@ const AIRevolution = () => {
             type="image/x-icon"
           />
         </Head>
+        <ToastContainer />
         <div className={`${styles.mainContent}`}>
           <h1 className={styles.h1}>{targetString}</h1>
           <div
@@ -294,45 +397,92 @@ const AIRevolution = () => {
           </div>
 
           <div className={styles.commentSection}>
-            <h2>Leave a Comment</h2>
-            <form onSubmit={handleSubmit}>
-              <div className={styles.formControl}>
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  placeholder="Enter name"
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className={styles.formControl}>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  placeholder="Enter email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className={styles.formControl}>
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  rows="4"
-                  value={message}
-                  placeholder="Enter comment"
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                />
-              </div>
-              <button type="submit" className={styles.submitButton}>
-                Submit
-              </button>
-            </form>
+            <h2>Leave a Comment ({allcomment?.length})</h2>
+            {isUserVerified ? (
+              <form onSubmit={handleSubmit}>
+                <div className={styles.formControl}>
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    placeholder="Enter name"
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className={styles.formControl}>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    placeholder="Enter email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className={styles.formControl}>
+                  <label htmlFor="message">Message</label>
+                  <textarea
+                    id="message"
+                    rows="4"
+                    value={message}
+                    placeholder="Enter comment"
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                  />
+                </div>
+                <button
+                  onClick={handleSubmit}
+                  type="submit"
+                  className={styles.submitButton}
+                >
+                  Submit
+                </button>
+              </form>
+            ) : (
+              <div>You must login to comment</div>
+            )}
+
+            <div className={styles.commentList}>
+              {allcomment?.map((e, index) => {
+                return (
+                  <div key={index}>
+                    <div className={styles.commentProfile}>
+                      <Image
+                        src="/guy.jpg"
+                        width={200}
+                        height={200}
+                        alt="user"
+                      />
+                      <p className={styles.profileName}>
+                        {e?.name} <span>{formatTimeAgo(e.createdAt)}</span>
+                      </p>
+                    </div>
+                    <div className={styles.commentText}>{e?.cid}</div>
+                    <div className={styles.actionButton}>
+                      <button
+                        onClick={() => {
+                          // console.log(e?._id);
+                          DeleteComment(e?._id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                      <button
+                        onClick={() => {
+                          updateComment(e?._id, e?.cid);
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* {Comment} */}
           </div>
         </div>
         <div className={styles.recommendedBlogs}>

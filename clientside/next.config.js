@@ -7,24 +7,17 @@ module.exports = withOffline({
   images: {
     unoptimized: true,
   },
+  // next.config.js
+  env: {
+    URI: process.env.URI,
+  },
+
   webpack: (config, { dev, isServer }) => {
     config.plugins.push(
       new webpack.ProvidePlugin({
         React: "react",
       })
     );
-
-    // Remove the esbuildLoader part as it is not needed
-    // if (dev) {
-    //   esbuildLoader(config, {
-    //     loader: "jsx",
-    //     target: "es2017",
-    //   });
-    // }
-
-    // Modify the webpack config as needed
-    // Example: Add a custom plugin
-    // config.plugins.push(new MyCustomPlugin());
 
     if (!isServer) {
       config.resolve.fallback = {

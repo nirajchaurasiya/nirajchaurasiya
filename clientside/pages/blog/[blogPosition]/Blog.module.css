@@ -89,6 +89,7 @@
     margin-left: 0;
   }
 }
+
 /* Blog.module.css */
 .button {
   padding: 10px 6px;
@@ -149,7 +150,7 @@
 
 .submitButton {
   padding: 10px 20px;
-  background-color:transparent;
+  background-color: transparent;
   outline: 1px solid var(--nav-text-color);
   color: var(--text-color);
   font-size: 16px;
@@ -159,27 +160,51 @@
 }
 
 .commentList {
-  margin-top: 40px;
+  margin: 40px 0;
+  display: grid;
+  gap: 10px;
+  /* background-color: aliceblue; */
 }
 
-.commentList h2 {
+.commentList p {
   color: var(--text-color);
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 14px;
 }
 
-.comment {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+.commentList p span::before {
+  content: "(";
 }
-.comment:last-child{
+
+.commentList p span::after {
+  content: ")";
+}
+
+.commentList p span {
+  color: red;
+  font-size: 10px;
+}
+
+@media (max-width:350px) {
+  .commentList p {
+    color: var(--text-color);
+    font-size: 13px;
+  }
+
+  .commentList p span {
+    color: red;
+    font-size: 7px;
+  }
+
+}
+
+.comment:last-child {
   border-bottom: none;
 }
+
 .commentProfile {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  padding-top: 7px;
+  /* align-items: center; */
 }
 
 .commentProfile img {
@@ -187,21 +212,33 @@
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
+  border: 1px solid var(--nav-text-color);
 }
 
 .profileName {
   font-size: 18px;
   font-weight: bold;
   color: var(--text-color);
-  margin-bottom: 5px;
-}
-
-.date {
-  font-size: 14px;
-  color: #666;
 }
 
 .commentText {
   color: var(--text-color);
+  padding-left: 50px;
+  margin-top: -20px;
+}
+
+.actionButton {
+  display: flex;
+  gap: 10px;
   margin-top: 5px;
+  padding-left: 50px;
+}
+
+.actionButton button {
+  padding: 5px;
+  width: 50px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--nav-text-color);
+  color: var(--text-color);
+  border-radius: 5px;
 }
