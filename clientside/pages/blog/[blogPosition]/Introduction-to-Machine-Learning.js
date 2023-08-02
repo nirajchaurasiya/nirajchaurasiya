@@ -6,7 +6,7 @@ import allblogs from "../../../components/Blog/allblog/allblog.json";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-import { formatTimeAgo } from "./dateUtils";
+import { formatTimeAgo } from "../../../components/dateformatter/dateUtils";
 import { ToastContainer, toast } from "react-toastify";
 const AIRevolution = () => {
   const [name, setName] = useState("");
