@@ -12,9 +12,9 @@
     "history": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "technologies_used": [
       {
-        "title": "HTML",
-        "image": "/assests/html.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "REACT",
+        "image": "/assests/react.png",
+        "style": { "width": "55px", "height": "50px" }
       },
       {
         "title": "CSS",
@@ -22,23 +22,8 @@
         "style": { "width": "35px", "height": "50px" }
       },
       {
-        "title": "JavaScript",
-        "image": "/assests/js.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
-      },
-      {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
+        "title": "MUI",
+        "image": "/assests/mui.png",
         "style": { "width": "45px", "height": "50px" }
       }
     ],
@@ -52,15 +37,15 @@
     "image": "/assests/mywebsite.png",
     "url": "https://nirajchaurasiya.com",
     "project_title": "My Personal Website",
-    "project_description": "My first full stack project",
+    "project_description": "NextJS full stack personal website",
     "project_image_url": "/assests/mywebsite.png",
     "about": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "history": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "technologies_used": [
       {
-        "title": "HTML",
-        "image": "/assests/html.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "NextJS",
+        "image": "/assests/nextjs.png",
+        "style": { "width": "50px", "height": "50px" }
       },
       {
         "title": "CSS",
@@ -68,24 +53,14 @@
         "style": { "width": "35px", "height": "50px" }
       },
       {
-        "title": "JavaScript",
-        "image": "/assests/js.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "PHP",
-        "image": "/assests/php.png",
+        "title": "MongoDB",
+        "image": "/assests/mongodb.png",
         "style": { "width": "55px", "height": "50px" }
       },
       {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "Mongoose",
+        "image": "/assests/mongoose.png",
+        "style": { "width": "75px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/nirajchaurasiyaNew",
@@ -150,9 +125,9 @@
     "history": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "technologies_used": [
       {
-        "title": "HTML",
-        "image": "/assests/html.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "ReactJS",
+        "image": "/assests/react.png",
+        "style": { "width": "55px", "height": "50px" }
       },
       {
         "title": "CSS",
@@ -160,24 +135,14 @@
         "style": { "width": "35px", "height": "50px" }
       },
       {
-        "title": "JavaScript",
-        "image": "/assests/js.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "MongoDB",
+        "image": "/assests/mongodb.png",
+        "style": { "width": "60px", "height": "50px" }
       },
       {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
-      },
-      {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "mongoose",
+        "image": "/assests/mongoose.png",
+        "style": { "width": "65px", "height": "50px" }
       }
     ],
     "github_link": false,
@@ -211,19 +176,14 @@
         "style": { "width": "45px", "height": "50px" }
       },
       {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
+        "title": "NodeJS",
+        "image": "/assests/node.png",
+        "style": { "width": "65px", "height": "50px" }
       },
       {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "Socket.IO",
+        "image": "/assests/socketio.png",
+        "style": { "width": "50px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/chat-app-html-css-js-nodejs/tree/main/chatapp",
@@ -257,19 +217,14 @@
         "style": { "width": "45px", "height": "50px" }
       },
       {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
+        "title": "Socket.IO",
+        "image": "/assests/socketio.png",
+        "style": { "width": "50px", "height": "50px" }
       },
       {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "NodeJS",
+        "image": "/assests/node.png",
+        "style": { "width": "65px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/video_chat_app/tree/main/client",
@@ -303,19 +258,14 @@
         "style": { "width": "45px", "height": "50px" }
       },
       {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
+        "title": "NodeJS",
+        "image": "/assests/node.png",
+        "style": { "width": "65px", "height": "50px" }
       },
       {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "Socket.IO",
+        "image": "/assests/socketio.png",
+        "style": { "width": "50px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/personal_dictionary",
@@ -334,34 +284,14 @@
     "history": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "technologies_used": [
       {
-        "title": "HTML",
-        "image": "/assests/html.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "NextJS",
+        "image": "/assests/nextjs.png",
+        "style": { "width": "50px", "height": "50px" }
       },
       {
         "title": "CSS",
         "image": "/assests/css.png",
         "style": { "width": "35px", "height": "50px" }
-      },
-      {
-        "title": "JavaScript",
-        "image": "/assests/js.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
-      },
-      {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/nextjs-pagination-infinite-scroll/tree/main/fsnextjs",
@@ -380,9 +310,9 @@
     "history": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "technologies_used": [
       {
-        "title": "HTML",
-        "image": "/assests/html.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "ReactJS",
+        "image": "/assests/react.png",
+        "style": { "width": "55px", "height": "50px" }
       },
       {
         "title": "CSS",
@@ -390,24 +320,19 @@
         "style": { "width": "35px", "height": "50px" }
       },
       {
-        "title": "JavaScript",
-        "image": "/assests/js.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "PHP",
-        "image": "/assests/php.png",
+        "title": "MongoDB",
+        "image": "/assests/mongodb.png",
         "style": { "width": "55px", "height": "50px" }
       },
       {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "Mongoose",
+        "image": "/assests/mongoose.png",
+        "style": { "width": "65px", "height": "50px" }
       },
       {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "NodeJS",
+        "image": "/assests/node.png",
+        "style": { "width": "65px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/twitter",
@@ -426,8 +351,8 @@
     "history": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "technologies_used": [
       {
-        "title": "HTML",
-        "image": "/assests/html.png",
+        "title": "NextJS",
+        "image": "/assests/nextjs.png",
         "style": { "width": "45px", "height": "50px" }
       },
       {
@@ -436,23 +361,18 @@
         "style": { "width": "35px", "height": "50px" }
       },
       {
-        "title": "JavaScript",
-        "image": "/assests/js.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "NodeJS",
+        "image": "/assests/node.png",
+        "style": { "width": "65px", "height": "50px" }
       },
       {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
+        "title": "Mongoose",
+        "image": "/assests/mongoose.png",
+        "style": { "width": "65px", "height": "50px" }
       },
       {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
+        "title": "MongoDB",
+        "image": "/assests/mongodb.png",
         "style": { "width": "45px", "height": "50px" }
       }
     ],
@@ -472,9 +392,9 @@
     "history": "We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app. We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.We can guess through its name. Online Room Finder is an room finding app.",
     "technologies_used": [
       {
-        "title": "HTML",
-        "image": "/assests/html.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "ReactJS",
+        "image": "/assests/react.png",
+        "style": { "width": "55px", "height": "50px" }
       },
       {
         "title": "CSS",
@@ -482,24 +402,9 @@
         "style": { "width": "35px", "height": "50px" }
       },
       {
-        "title": "JavaScript",
-        "image": "/assests/js.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
-      },
-      {
         "title": "Bootstrap",
         "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "style": { "width": "55px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/newsapp-class-components-infinite-scroll/tree/main/reactclassbased",
@@ -533,19 +438,9 @@
         "style": { "width": "45px", "height": "50px" }
       },
       {
-        "title": "PHP",
-        "image": "/assests/php.png",
-        "style": { "width": "55px", "height": "50px" }
-      },
-      {
-        "title": "Bootstrap",
-        "image": "/assests/boostrap.png",
-        "style": { "width": "45px", "height": "50px" }
-      },
-      {
-        "title": "jQuery",
-        "image": "/assests/jQuery.png",
-        "style": { "width": "45px", "height": "50px" }
+        "title": "NodeJS",
+        "image": "/assests/node.png",
+        "style": { "width": "65px", "height": "50px" }
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/codebot",
