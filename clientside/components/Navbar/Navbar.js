@@ -232,6 +232,9 @@ export default function Navbar() {
               <Link style={{ textDecoration: "none" }} href="/blog">
                 <li onClick={playTickSound}>Blog</li>
               </Link>
+              <Link style={{ textDecoration: "none" }} href="/plays">
+                <li onClick={playTickSound}>Plays</li>
+              </Link>
               {isLoggedIn ? (
                 <>
                   <Link
