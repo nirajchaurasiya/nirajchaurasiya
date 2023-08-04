@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Shadow from "../components/shadow/Shadow";
 import "../styles/globals.css";
 import "../styles/index.css";
 import "../styles/about.css";
@@ -90,7 +89,6 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <LoadingBar color="var(--nav-text-color)" height={3} ref={loadingRef} />
       <Navbar />
-      <Shadow />
       <Component {...pageProps} />
       <Footer />
     </>
