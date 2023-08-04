@@ -36,7 +36,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://nirajchaurasiya.com/plays/</loc>
     <lastmod>2023-07-30</lastmod>
@@ -50,18 +49,15 @@
     <priority>0.7</priority>
   </url>
   <url>
-  <url>
     <loc>https://nirajchaurasiya.com/blog/1/Introduction-to-Machine-Learning</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://nirajchaurasiya.com/plays/humans-mind-a-garden</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
-
 </urlset>
