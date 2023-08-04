@@ -1,0 +1,73 @@
+.playContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--nav-text-color);
+}
+
+/* Play title styles */
+.playTitle {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Play content styles */
+.playContent {
+    margin-top: 20px;
+}
+
+/* Section styles */
+.aboutSection,
+.historySection {
+    margin-bottom: 20px;
+}
+
+/* Section title styles */
+.aboutSection h2,
+.historySection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.aboutSection p,
+.historySection p {
+    font-size: 1.04rem;
+    margin-bottom: 10px;
+}
+
+/* Back link styles */
+.backLink a {
+    display: inline-block;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.backLink a:hover {
+    color: #ff5722;
+}
+
+.backLink button {
+    padding: 10px;
+    border: 1px solid var(--nav-text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.important_notic {
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.important_notic button {
+    padding: 0px 2px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    border-bottom: 1px dashed red;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}

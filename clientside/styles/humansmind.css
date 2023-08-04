@@ -1,0 +1,123 @@
+.dramatic_dialogue_content_width {
+    padding: 15px 5px;
+    background-color: transparent;
+    max-width: 1000px;
+    margin: auto;
+    border: 1px solid rgb(223, 222, 222);
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.drama_title {
+    font-weight: 800;
+    font-size: 30px;
+    border-bottom: 1px solid rgb(222, 217, 217);
+    width: fit-content;
+    margin: auto;
+}
+
+.characters {
+    margin-top: 2%;
+}
+
+.characters p {
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.characters_name {
+    list-style: none;
+    padding: 10px 15px;
+    display: grid;
+    gap: 4px;
+    font-size: 17px;
+}
+
+.characters_play_line_1 {
+    margin-top: 4px;
+    position: absolute;
+    width: 4px;
+    height: 50px;
+    color: aqua;
+    background-color: rgb(78, 76, 76);
+    margin-bottom: 20px;
+}
+
+.characters_play_line_2 {
+    margin-top: 5px;
+    position: absolute;
+    width: 4px;
+    height: 50px;
+    color: aqua;
+    background-color: rgb(78, 76, 76);
+}
+
+.characters_1 {
+    padding-left: 15px;
+    margin-top: 10px;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: rgb(106, 108, 110);
+}
+
+.description {
+    font-size: 14px;
+}
+
+.hr_line {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: 1px solid var(--nav-text-color);
+}
+
+.dialogues_content {
+    padding: 10px 15px;
+    display: grid;
+    gap: 10px;
+}
+
+.dialogues_conversation {
+    margin-top: 5px;
+}
+
+.dialogues_conversation .dialogue_conversation .character_name {
+    font-weight: 700;
+    font-size: 17px;
+    border-bottom: 1px solid rgb(176, 176, 176);
+    width: fit-content;
+}
+
+.dialogues_conversation .dialogue_conversation .character_dialogue {
+    padding: 4px 20px;
+    font-size: 18px;
+}
+
+.dialogue_conversation {
+    margin-bottom: 4px;
+}
+
+.line_conversation {
+    border: 1px solid var(--nav-text-color);
+}
+
+.exit_word {
+    text-align: end;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.important_notice {
+    font-size: 20px;
+    padding: 20px 20px;
+    margin-bottom: 40px;
+}
+
+.important_notice button {
+    padding: 0px 2px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    border-bottom: 1px dashed red;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}

@@ -1,0 +1,178 @@
+[
+  {
+    "part": "Part - I",
+    "location": "Monti . A College In Rome",
+    "entry": "Enter Marcus and Angela",
+    "conversation": [
+      {
+        "name": "Marcus",
+        "dialogue": "Hey Angela! How are you doing?"
+      },
+      {
+        "name": "Angela",
+        "dialogue": "Hey Marcus! I am doing great. Did you read the book, 'As a Man Thinketh', which I suggested you?"
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Yes, I did. It was the most powerful book on thought that I ever read. Thank you for suggesting me, Angela!"
+      },
+      {
+        "name": "Angela",
+        "dialogue": "Welcome, Marcus. Yes, indeed I found it too. In the book the author compared our minds with the garden. But, there was some tough words and sentences that I found it difficult in understanding. Did you get it?"
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Yeah, the sentence was a bit confusing especially when the author compared our mind with garden. Do you know someone to whom we can ask to clear our confusion?"
+      },
+      {
+        "name": "Angela",
+        "dialogue": "Well, I was suggested by our literature teacher Mr. James. So, I think he can help us. However, I am concerned if he may not be available at the school."
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "We can go to the church then, can't we?"
+      },
+      {
+        "name": "Angela",
+        "dialogue": "You are right; he will be available at the church at the evening. So, we can go to the church."
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Great!"
+      }
+    ]
+  },
+  {
+    "part": "Part - II",
+    "location": "Santa Celestia. A Church in Rome",
+    "entry": "Enter James and Cales",
+    "conversation": [
+      {
+        "name": "Cales",
+        "dialogue": "Good eventide, Father! As I am the promise follower of this church, I want to make a small contribution to this amazing church."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Verily, my blessings be upon thee, my child."
+      },
+      {
+        "msg": true,
+        "exit": "Exit Cales but Father"
+      },
+      {
+        "name": "Father",
+        "dialogue": "Hail to my Lord. Hail to my Lord..."
+      },
+      {
+        "msg": true,
+        "enter": "Enter Marcus and Angela"
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Good evening, Father!"
+      },
+      {
+        "name": "Angela",
+        "dialogue": "Good evening, Father! How was your day?"
+      },
+      {
+        "name": "Father",
+        "dialogue": "Good even my children. With the blessings of my lord, the day was good. Tell me about thyself."
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "My day was marvelous, Father."
+      },
+      {
+        "name": "Angela",
+        "dialogue": "My day was good too. Father, the book you suggested to me, I finished reading it yesterday and that book was so captivating that I couldn't resist myself recommending it to Marcus. As a result, he also finished reading it. However, we have some confusion, Father. We  didn't understand it properly what the author was trying to depicts."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Perfection be upon thee, my children. I am gladdened to learn that the book thou both hath found helpful. Pray thee, what concepts doth trouble thee causing confusion?"
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Father, the author was trying to compare the human's mind with the garden and suggested that we must nourishes our mind with water as we do to soil in the garden. If our kind alike a garden, what are the weeds in our minds?"
+      },
+      {
+        "name": "Angela",
+        "dialogue": "Yes, Father! I have the same question what just Marcus asked."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Verily, that is a great question, my children. Now, both of you, close thine eyes and let the aura of the lord goes to thee; for I shall unfold the answer unto thee."
+      },
+      {
+        "msg": true,
+        "actual_msg": "They all closed their eyes but Father."
+      },
+      {
+        "name": "Father",
+        "dialogue": "What doth thou see, my children?"
+      },
+      {
+        "name": "Marcus and Angela",
+        "dialogue": "Nothing Father but a black hollow space."
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Everything is black and blank, Father."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Verily, the mind doth mirror the state of a newborn upon our ingress into this realm. At the outset, it doth resemble fertile soil, wherein diverse ideas and musings may take root within our intellect. Just as fertile earth doth nurture an array of blooms and fruits in a garden, so doth the mind entertain a plethora of contemplations and notions. Embracing virtuous cogitation doth beget an expansive intellect, whilst harboring malevolent thoughts doth lead a soul astray. The more profoundly a notion is ensconced within thy mind, the more potent and influential thy ideas shall wax.",
+        "example": "Let us take an example for contemplation; suppose doth a tremendous storm toward the garden. What shall come to pass?"
+      },
+      {
+        "name": "Marcus and Angela",
+        "dialogue": "All the plants will be blown away, Father."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Verily, thou speaketh truth, my children. However, some of the strong plants will survive which are deeply rooted by themselves in the soil, and give the garden a charming look again. The same concept goeth to the mind; If something is deeply rooted in the mind, nay matter, how many problems cometh to it, thy thoughts wilt never let thee down and as a result, thou canst easily follow thy passion over problems."
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Yes, Father, You art righteth. But, the author was also comparing our mind's thoughts to weeds. What are they?"
+      },
+      {
+        "name": "Angela",
+        "dialogue": "Yes, Father."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Verily, the weeds art naught but wicked thoughts placed in our mind unwittingly. Doth suppose, a garden where in no plant or flower is intentionally sowed, only wild plants persistently grow. Hath ever pondered whence this plants cometh from automatically, for we didn't sow any seeds for them."
+      },
+      {
+        "name": "Angela",
+        "dialogue": "They maybe placed automatically by some wild insects."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Truly spoken, my child. The weeds do seek out vacant gardens where upon they saw their seeds to feed upon later. Thence, wild plants appear in such empty abodes. The same truth applies to the mind, for when it lies follow, bad thoughts shall be sown therein superstitiously without thy knowledge. And, when these thoughts gain strength, they shall govern thy mind as a demon controls its subject. Therefore, thou must purposefully sow good thoughts in thy mind, so that thou may wisely govern it and not be at the mercy of its whims. By continous practice, patience and mindfulness of thy virtuous thoughts, thou shalt ascent to divine perfection in due time. Remember this, my children: 'A man is made or unmade by himself'.",
+        "example": "Now, thou canst open thine eyes, my children."
+      },
+      {
+        "msg": true,
+        "actual_msg": "They applaud while opening their eyes."
+      },
+      {
+        "name": "Angela",
+        "dialogue": "Thank you so much Father to make us understand."
+      },
+      {
+        "name": "Marcus",
+        "dialogue": "Yes, Father. A man is made or unmade by himself, wisely said. You are really a great person and we are really too gald to have you as our literature teacher."
+      },
+      {
+        "name": "Father",
+        "dialogue": "Verily, thou art welcome, my children. Bear in mind, consistency is the key and encureth thou plant flowers in thy mind and not weeds. By continuous righteth thoughts and true application, thou shalt ascend a step up to divine perfection. O'Lord."
+      },
+      {
+        "name": "Marcus and Angela",
+        "dialogue": "Okay, Father. Thank you once again and bye."
+      }
+    ]
+  }
+]
