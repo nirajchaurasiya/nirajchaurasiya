@@ -81,7 +81,7 @@ export default function Navbar() {
         router.push("/register");
         break;
       default:
-        const notify = () => toast("Command didn't matched");
+        const notify = () => toast("Command didn't match.");
         notify();
         break;
     }
