@@ -125,7 +125,7 @@ export default function Index() {
                       "_blank"
                     );
                   }}
-                  href="#"
+                  href="#open_twitter"
                 >
                   <svg
                     stroke="currentColor"
@@ -152,7 +152,7 @@ export default function Index() {
                       "_blank"
                     );
                   }}
-                  href="#"
+                  href="#open_facebook"
                 >
                   <svg
                     stroke="currentColor"
@@ -176,7 +176,7 @@ export default function Index() {
                   onClick={() => {
                     window.open("https://github.com/nirajchaurasiya", "_blank");
                   }}
-                  href="#"
+                  href="#open_github"
                 >
                   <svg
                     stroke="currentColor"
@@ -203,7 +203,7 @@ export default function Index() {
                       "_blank"
                     );
                   }}
-                  href="#"
+                  href="#open_telegram"
                 >
                   <svg
                     stroke="currentColor"
