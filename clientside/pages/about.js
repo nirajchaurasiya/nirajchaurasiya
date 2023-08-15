@@ -77,13 +77,14 @@ export default function About() {
             within myself to achieve the goals I assign to myself. Hence, I
             found one back-end languge that suits my project. At last, I decided
             to go with PHP as it is one of the oldest languages in the world.
-            After learning PHP, I successfully completed the project, "Online
-            Room Finder".
+            After learning PHP, I successfully completed the project,
+            &quot;Online Room Finder&quot;.
           </p>
           <p>
             Overall, the experience taught me valuable lessons in adaptability
             and problem-solving, and solidified my passion for web development.
-            It helped me to know, "how to solve any problem in web development".
+            It helped me to know, &quot;how to solve any problem in web
+            development&quot;.
           </p>
         </div>
 
