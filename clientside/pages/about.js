@@ -100,7 +100,7 @@ export default function About() {
             was in college. I was initially tasked with handling the front-end
             part, but due to our final exams, my friends left me in the middle
             of the journey. I had already completed the front-end part of the
-            website, so I need to tackled the backend part anyhow to complete
+            website, so I needed to tackle the backend part anyhow to complete
             the project. However, I didn't know any backend since I was an
             front-end enginner. Since childhood, I have had the willingness
             within myself to achieve the goals I assign to myself. Hence, I
