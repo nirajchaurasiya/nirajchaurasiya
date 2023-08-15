@@ -10,15 +10,15 @@
       },
       {
         "name": "Angela",
-        "dialogue": "Hey Marcus! I am doing great. Did you read the book, 'As a Man Thinketh', which I suggested you?"
+        "dialogue": "Hey Marcus! I am doing great. Did you read the book, 'As a Man Thinketh', which I suggested to you?"
       },
       {
         "name": "Marcus",
-        "dialogue": "Yes, I did. It was the most powerful book on thought that I ever read. Thank you for suggesting me, Angela!"
+        "dialogue": "Yes, I did. It was the most powerful book on the thought that I ever read. Thank you for suggesting me, Angela!"
       },
       {
         "name": "Angela",
-        "dialogue": "Welcome, Marcus. Yes, indeed I found it too. In the book the author compared our minds with the garden. But, there was some tough words and sentences that I found it difficult in understanding. Did you get it?"
+        "dialogue": "Welcome, Marcus. Yes, indeed I found it too. In the book the author compared our minds with the garden. But, there were some tough words and sentences that I found difficult in understanding. Did you get it?"
       },
       {
         "name": "Marcus",
@@ -26,7 +26,7 @@
       },
       {
         "name": "Angela",
-        "dialogue": "Well, I was suggested by our literature teacher Mr. James. So, I think he can help us. However, I am concerned if he may not be available at the school."
+        "dialogue": "Well, I was suggested by our literature teacher Mr. James. So, I think he can help us. However, I am concerned that he may not be available at the college."
       },
       {
         "name": "Marcus",
@@ -34,7 +34,7 @@
       },
       {
         "name": "Angela",
-        "dialogue": "You are right; he will be available at the church at the evening. So, we can go to the church."
+        "dialogue": "You are right; he will be available at the church in the evening. So, we can go to the church."
       },
       {
         "name": "Marcus",
