@@ -19,9 +19,6 @@ export default function Register() {
 
   const handleRegister = async () => {
     try {
-      const notify = () =>
-        toast("Please wait while we try to register your account!");
-      notify();
       // Simple client-side validation
       if (
         name === "" ||
@@ -39,7 +36,9 @@ export default function Register() {
         notify();
         return;
       }
-
+      const notify = () =>
+        toast("Please wait while we try to register your account!");
+      notify();
       axios
         .post("/api/createuser", { email, name, password })
         .then((data) => {
