@@ -67,18 +67,19 @@ export default function About() {
             using the latest techie stuff.
           </p>
           <p>
-            My very first project was an online room-finding application when I
-            was in college. I was initially tasked with handling the front-end
+            My very first project was an online room-finding application during
+            my college days. Initially, I was tasked with handling the front-end
             part, but due to our final exams, my friends left me in the middle
             of the journey. I had already completed the front-end part of the
-            website, so I needed to tackle the backend part anyhow to complete
-            the project. However, I didn&apos;t know any backend since I was an
-            front-end enginner. Since childhood, I have had the willingness
-            within myself to achieve the goals I assign to myself. Hence, I
-            found one back-end languge that suits my project. At last, I decided
-            to go with PHP as it is one of the oldest languages in the world.
-            After learning PHP, I successfully completed the project,
-            &quot;Online Room Finder&quot;.
+            website, so I needed to tackle the backend portion to complete the
+            project. However, I had no prior experience with backend development
+            since my expertise lay in frontend engineering. Since childhood,
+            I&apos;ve had a strong determination to achieve the goals I set for
+            myself. Hence, I searched for a backend language that would suit my
+            project. After careful consideration, I decided to go with PHP, one
+            of the oldest languages in the world. With determination and
+            perseverance, I successfully completed the project, &quot;Online
+            Room Finder.&quot;
           </p>
           <p>
             Overall, the experience taught me valuable lessons in adaptability
@@ -91,12 +92,16 @@ export default function About() {
         <div className="as_a_web_developer my_quick_story">
           <p>As A Web Developer </p>
           <p>
-            I pay close attention to my code&apos;s readability.I am a full
-            stack web developer, with a deep passion for creating dynamic and
-            functional web applications. With expertise in both front-end and
-            back-end development, I am able to bring a holistic approach to
-            building websites that not only look great but also provide a
-            seamless user experience.
+            I pay close attention to the readability of my code. As a full stack
+            web developer, I harbor a profound passion for crafting dynamic and
+            functional web applications. Possessing expertise in both front-end
+            and back-end development, I adopt a holistic approach to construct
+            websites that excel in appearance and offer a seamless user
+            experience.
+            <br />
+            No matter what kind of challenge comes up, I&apos;m up for it. I
+            enjoy solving problems, no matter how tough or time-consuming they
+            may be.
           </p>
         </div>
         <div className="as_a_person my_quick_story">
@@ -120,6 +125,16 @@ export default function About() {
             developments in these areas. From studying AI and machine learning
             to exploring the latest trends in robotics, I am always seeking to
             expand my knowledge and push the limits of what&apos;s possible.
+          </p>
+          <p>
+            Beyond my work in technology, I find joy in diving into new books,
+            whether they&apos;re novels, biographies, plays, stories, or dramas.
+            In my free time, I also like to put pen to paper and write, taking a
+            break from my daily routines. Embracing these activities not only
+            helps me recharge but also contributes to my overall growth and
+            perspective. In the world of technology and development, it&apos;s
+            these diverse interests that add layers to who I am and infuse a
+            sense of balance into my life.
           </p>
           <p>
             Finally, I am someone who is always looking for new challenges and
