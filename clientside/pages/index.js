@@ -199,7 +199,7 @@ export default function Index() {
                 <a
                   onClick={() => {
                     window.open(
-                      "https://www.linkedin.com/in/niraj-chaurasiya-094469213/",
+                      "https://www.linkedin.com/in/loveforrobotics/",
                       "_blank"
                     );
                   }}
