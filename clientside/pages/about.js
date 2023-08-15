@@ -84,41 +84,6 @@ export default function About() {
             Overall, the experience taught me valuable lessons in adaptability
             and problem-solving, and solidified my passion for web development.
             It helped me to know, "how to solve any problem in web development".
-            Hello there! I'm Niraj Kumar Chaurasiya, a web developer who loves
-            crafting websites that look great and work smoothly. I've got a
-            knack for taking complex code and turning it into user-friendly
-            websites that people enjoy using. I've spent time mastering skills
-            in frontend and backend, and I'm all about making websites that not
-            only look cool but also make sense for the people who use them. It
-            all started when I got curious about how the internet works, and now
-            I get to create all sorts of things online. From online stores that
-            make shopping a breeze to apps that solve everyday problems, I'm
-            here to bring creative ideas to life using the latest techie stuff.
-          </p>
-          <p>
-            My very first project was an online room-finding application when I
-            was in college. I was initially tasked with handling the front-end
-            part, but due to our final exams, my friends left me in the middle
-            of the journey. I had already completed the front-end part of the
-            website, so I needed to tackle the backend part anyhow to complete
-            the project. However, I didn't know any backend since I was an
-            front-end enginner. Since childhood, I have had the willingness
-            within myself to achieve the goals I assign to myself. Hence, I
-            found one back-end languge that suits my project. At last, I decided
-            to go with PHP as it is one of the oldest languages in the world.
-            After learning PHP, I successfully completed the "Online Room
-            Finder" project.
-          </p>
-          <p>
-            To tackle the challenge, I had to teach myself PHP, the programming
-            language. language needed for back-end development. Despite
-            encountering difficulties in debugging and coding, I persevered and
-            eventually succeeded in developing a fully functional website.
-          </p>
-          <p>
-            Overall, the experience taught me valuable lessons in adaptability
-            and problem-solving and solidified my passion for web development.
-            It helped me to know, "how to solve any problem in web development".
           </p>
         </div>
 
