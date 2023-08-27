@@ -15,9 +15,9 @@ Welcome to my personal website repository! This website is built using the full 
 ## Technologies Used
 
 - Frontend: Next.js, React, CSS Modules
-- Backend: Node.js, Express.js
-- Database: MongoDB (or any other database you're using)
-- Deployment: Hosted on Vercel (or your preferred hosting provider)
+- Backend: Node.js
+- Database: MongoDB
+- Deployment: Hosted on Netlify
 
 ## Installation
 
