@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 
 const handler = async (req, res) => {
+  console.log(req.body);
   const { email } = req.body;
   try {
     const isEmailExists = await userSchema.findOne({ email: email });

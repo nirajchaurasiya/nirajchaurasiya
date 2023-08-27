@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Blog from "../components/Blog/Blog";
 import { useEffect, useState } from "react";
+import { BsStackOverflow } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -109,10 +110,17 @@ export default function Index() {
               approach to building websites that not only look great but also
               provide a seamless user experience.
             </p>
-            <Link href="/projects">
-              <button>My Projects</button>
-            </Link>
-
+            <div style={{ display: "flex", marginTop: "15px", gap: "5px" }}>
+              <Link href="/projects">
+                <button>My Projects</button>
+              </Link>
+              <a
+                href="/resume.pdf"
+                download="niraj-kumar-chaurasiya-resume-nirajchaurasiya.com.pdf"
+              >
+                <button>My Resume</button>
+              </a>
+            </div>
             <div style={{ marginTop: "7%" }}>
               <div
                 className="icons_social_media"
@@ -228,6 +236,7 @@ export default function Index() {
           </div>
           <div className="image_first_content">
             <Image width={500} height={500} src="/guy.jpg" alt="guy" />
+            {/* <Image width={500} height={600} src="/myimage.jpg" alt="guy" /> */}
           </div>
         </div>
         <div className="vertical-line"></div>
