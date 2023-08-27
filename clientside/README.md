@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Niraj Chaurasiya - Personal Website
 
-## Getting Started
+![Website Preview](https://nirajchaurasiya.com/assests/mywebsite.png)
 
-First, run the development server:
+Welcome to my personal website repository! This website is built using the full stack Next.js framework and showcases my portfolio, blog posts, and more.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+🌐 **Website URL:** [https://nirajchaurasiya.com](https://nirajchaurasiya.com)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- **Portfolio:** Explore my projects and work.
+- **Blog:** Read my latest blog posts on various topics.
+- **Contact:** Get in touch with me through the provided contact information.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Technologies Used
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Frontend: Next.js, React, CSS Modules
+- Backend: Node.js, Express.js
+- Database: MongoDB (or any other database you're using)
+- Deployment: Hosted on Vercel (or your preferred hosting provider)
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```
+   git clone https://github.com/nirajchaurasiya/nirajchaurasiya
+   cd your-website-repo
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Install Dependencies
+   ```
+   npm install
+   ```
+3. Create a .env.local file in the root directory and add your environment variables:
 
-## Deploy on Vercel
+   ```
+   MONGO_URI = MONGO_URI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   EMAIL = your email
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   URI = "http://localhost:3000"
+
+   REACT_APP_URI = "http://localhost:3000"
+
+   PORT = 5000
+
+   SECRET_KEY = YOUR_SECRET_KEY
+
+   HOST = YOUR_GMAIL_HOST
+
+   PASSWORD = YOUR_APP_PASSWORD
+
+   WEBSITE = "https://nirajchaurasiya.com"
+   ```
+
+4. Run the development server:
+
+   ```
+   yarn dev or npm run dev
+   ```
+
+5. Open your browser and go to http://localhost:3000 to see the website in action!
+
+### Deployment
+
+The website is deployed using Vercel. Any changes pushed to the main branch will automatically trigger a new deployment.
+
+### Contributing
+
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+##### Thank you for visiting my repository! If you have any questions or would like to connect, you can reach me through the contact details on my website.
