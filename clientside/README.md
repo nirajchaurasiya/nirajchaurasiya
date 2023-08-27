@@ -15,9 +15,9 @@ Welcome to my personal website repository! This website is built using the full 
 ## Technologies Used
 
 - Frontend: Next.js, React, CSS Modules
-- Backend: Node.js, Express.js
-- Database: MongoDB (or any other database you're using)
-- Deployment: Hosted on Vercel (or your preferred hosting provider)
+- Backend: Node.js
+- Database: MongoDB
+- Deployment: Hosted on Netlify
 
 ## Installation
 
@@ -32,7 +32,7 @@ Welcome to my personal website repository! This website is built using the full 
    ```
    npm install
    ```
-3. Create a .env.local file in the root directory and add your environment variables:
+3. Create a .env file in the root directory and add your environment variables:
 
    ```
    MONGO_URI = MONGO_URI
