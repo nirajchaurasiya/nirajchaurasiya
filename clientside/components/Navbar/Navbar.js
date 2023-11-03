@@ -116,6 +116,14 @@ export default function Navbar() {
           <Link style={{ textDecoration: "none" }} href="/plays">
             <li onClick={playTickSound}>Plays</li>
           </Link>
+          <a
+            style={{ textDecoration: "none" }}
+            onClick={() => {
+              window.open("https://services.nirajchaurasiya.com", "_blank");
+            }}
+          >
+            <li onClick={playTickSound}>Services</li>
+          </a>
           <button
             style={{
               background: "transparent",
@@ -235,6 +243,14 @@ export default function Navbar() {
               <Link style={{ textDecoration: "none" }} href="/plays">
                 <li onClick={playTickSound}>Plays</li>
               </Link>
+              <a
+                style={{ textDecoration: "none" }}
+                onClick={() => {
+                  window.open("https://services.nirajchaurasiya.com", "_blank");
+                }}
+              >
+                <li onClick={playTickSound}>Services</li>
+              </a>
               {isLoggedIn ? (
                 <>
                   <Link
