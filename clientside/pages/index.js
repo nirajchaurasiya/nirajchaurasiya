@@ -155,33 +155,6 @@ export default function Index() {
                 </a>
                 <a
                   onClick={() => {
-                    window.open(
-                      "https://www.facebook.com/niraj.chaurasiya0/",
-                      "_blank"
-                    );
-                  }}
-                  href="#open_facebook"
-                >
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth="0"
-                    viewBox="0 0 1024 1024"
-                    color="white"
-                    className="mx-3 hover:text-white hover:bg-slate-500 cursor-pointer"
-                    style={{
-                      color: "var(--nav-text-color)",
-                      fontSize: "35px",
-                      height: "1em",
-                      width: "1em",
-                    }}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-92.4 233.5h-63.9c-50.1 0-59.8 23.8-59.8 58.8v77.1h119.6l-15.6 120.7h-104V912H539.2V602.2H434.9V481.4h104.3v-89c0-103.3 63.1-159.6 155.3-159.6 44.2 0 82.1 3.3 93.2 4.8v107.9z"></path>
-                  </svg>
-                </a>
-                <a
-                  onClick={() => {
                     window.open("https://github.com/nirajchaurasiya", "_blank");
                   }}
                   href="#open_github"
@@ -229,6 +202,32 @@ export default function Index() {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM349.3 793.7H230.6V411.9h118.7v381.8zm-59.3-434a68.8 68.8 0 1 1 68.8-68.8c-.1 38-30.9 68.8-68.8 68.8zm503.7 434H675.1V608c0-44.3-.8-101.2-61.7-101.2-61.7 0-71.2 48.2-71.2 98v188.9H423.7V411.9h113.8v52.2h1.6c15.8-30 54.5-61.7 112.3-61.7 120.2 0 142.3 79.1 142.3 181.9v209.4z"></path>
+                  </svg>
+                </a>
+                <a
+                  onClick={() => {
+                    window.open(
+                      "https://www.youtube.com/@niraj.chaurasiya",
+                      "_blank"
+                    );
+                  }}
+                  href="#open_youtube"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth="0"
+                    viewBox="0 0 60 60"
+                    style={{
+                      color: "var(--nav-text-color)",
+                      fontSize: "45px",
+                      height: "1em",
+                      width: "auto",
+                    }}
+                    color="white"
+                    className="mx-3 hover:text-white hover:bg-slate-500 cursor-pointer"
+                  >
+                    <path d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z"></path>
                   </svg>
                 </a>
               </div>
