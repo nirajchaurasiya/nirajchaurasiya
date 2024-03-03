@@ -10,7 +10,7 @@ Due to my deep interest in technology, I learned web development but aimed to be
 *   🖥️  See my portfolio at [Portfolio](http://nirajchaurasiya.com)
 *   ✉️  You can contact me at [developer.nirajchaurasiya@gmail.com](mailto:developer.nirajchaurasiya@gmail.com)
 *   🚀  I'm currently working on [Upgraded version of WhatsApp](http://not-yet-thought.com)
-*   🧠  I'm learning Python, AWS, AI, and ML
+*   🧠  I'm learning AI, and ML with Python
 *   🤝  I'm open to collaborating on Full stack development<a href="https://www.github.com/nirajchaurasiya" target="_blank" rel="noreferrer"><img
                   src="https://img.shields.io/github/followers/nirajchaurasiya?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" /></a><a href="https://www.x.com/loveforrobotics" target="_blank" rel="noreferrer"><img
                   src="https://img.shields.io/twitter/follow/loveforrobotics?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"
