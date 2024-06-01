@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Blog from "../components/Blog/Blog";
+// import Blog from "../components/Blog/Blog";
 import { useEffect, useState } from "react";
-import { BsStackOverflow } from "react-icons/bs";
+// import { BsStackOverflow } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import project_all_data from "./project/project.json";
+// import project_all_data from "./project/project.json";
 export default function Index() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -104,15 +104,24 @@ export default function Index() {
               </span>
             </p>
             <p>
-              I am a full stack web developer, with a deep passion for creating
-              dynamic and functional web applications. With expertise in both
-              front-end and back-end development, I am able to bring a holistic
-              approach to building websites that not only look great but also
-              provide a seamless user experience.
+              Love Teaching by{" "}
+              <span style={{ fontFamily: "'Lumanosimo', cursive" }}>
+                Interest
+              </span>
+              , <br /> Full-stack Developer by{" "}
+              <span style={{ fontFamily: "'Lumanosimo', cursive" }}>
+                Passion
+              </span>
+              , <br />
+              and Pursuing Robotics by{" "}
+              <span style={{ fontFamily: "'Lumanosimo', cursive" }}>
+                Profession
+              </span>
+              !
             </p>
             <div style={{ display: "flex", marginTop: "15px", gap: "5px" }}>
-              <Link href="/projects">
-                <button>My Projects</button>
+              <Link target="_blank" href="https://blogs.nirajchaurasiya.com">
+                <button>Explore Blogs</button>
               </Link>
               <a
                 href="/resume.pdf"
@@ -234,7 +243,7 @@ export default function Index() {
             </div>
           </div>
           <div className="image_first_content">
-            <Image width={500} height={500} src="/guy.jpg" alt="guy" />
+            <Image width={500} height={450} src="/pp.jpg" alt="Profile" />
             {/* <Image width={500} height={600} src="/myimage.jpg" alt="guy" /> */}
           </div>
         </div>
@@ -271,11 +280,12 @@ export default function Index() {
             <p>Git</p>
             <p>GitHub</p>
             <p>Deployment</p>
+            <p>Digital Ocean</p>
           </div>
         </div>
 
         {/* Third Section */}
-        <p className="_skills_header">
+        {/* <p className="_skills_header">
           My <span style={{ color: "var(--nav-text-color)" }}>Projects</span>
         </p>
         <div className="project_card">
@@ -316,13 +326,13 @@ export default function Index() {
               All projects
             </Link>
           </div>
-        </div>
+        </div> */}
         {/* About me sections */}
-        <p className="_skills_header">
+        {/* <p className="_skills_header">
           About <span style={{ color: "var(--nav-text-color)" }}>Me</span>
-        </p>
+        </p> */}
 
-        <div className="about_me">
+        {/* <div className="about_me">
           <div className="image_first_content_about">
             <Image width={400} height={500} src="/guy.png" alt="guy" />
           </div>
@@ -354,14 +364,14 @@ export default function Index() {
               <button style={{ cursor: "pointer" }}>Read More</button>
             </Link>
           </div>
-        </div>
+        </div> */}
 
         {/* Blog Page */}
-        <p className="_skills_header">
+        {/* <p className="_skills_header">
           My <span style={{ color: "var(--nav-text-color)" }}>Blogs</span>
         </p>
-        <Blog />
-        <div style={{ display: "flex" }}>
+        <Blog /> */}
+        {/* <div style={{ display: "flex" }}>
           <Link
             href="/blog"
             style={{
@@ -377,11 +387,12 @@ export default function Index() {
           >
             All blogs
           </Link>
-        </div>
+        </div> */}
         {/* Form Section - Contact Form */}
         <br />
         <p className="_skills_header" style={{ marginBottom: "30px" }}>
-          Contact <span style={{ color: "var(--nav-text-color)" }}>Me</span>
+          Feel Free To
+          <span style={{ color: "var(--nav-text-color)" }}> Contact</span>
         </p>
         {loader && <div className="loader"></div>}
         <div className="_form_section">

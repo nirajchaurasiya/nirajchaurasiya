@@ -3,6 +3,7 @@
   margin: auto;
   position: sticky;
   z-index: 1;
+  margin-top: 40px;
 }
 
 .first_content {
@@ -26,7 +27,7 @@
 }
 
 .text_first_content p:nth-child(2) {
-  font-size: 19px;
+  font-size: 1.6rem;
 }
 
 .text_first_content p span {
@@ -50,12 +51,13 @@
 }
 
 .image_first_content img {
-  width: 500px;
-  height: 600px;
+  width: 100%;
+  /* height: 500px; */
   border-radius: 10px;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out;
+  box-shadow: 5px 5px 5px var(--nav-text-color);
 }
-
 
 /* Add your other styles here */
 
@@ -96,7 +98,7 @@
   text-orientation: sideways;
   white-space: nowrap;
   overflow: hidden;
-  font-family: 'Lumanosimo', cursive;
+  font-family: "Lumanosimo", cursive;
   font-size: 20px;
 }
 
@@ -114,8 +116,6 @@
     transform: translateY(100%);
   }
 }
-
-
 
 /* Second Section - Skill Section */
 ._skills_header {
@@ -362,7 +362,6 @@
   background: transparent;
   margin-bottom: 3%;
 }
-
 
 ._form_section button {
   padding: 15px;

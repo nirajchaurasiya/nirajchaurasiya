@@ -64,22 +64,19 @@ export default function Navbar() {
         // console.log("echo contact");
         router.push("/contact");
         break;
-      case "echo projects":
-        // console.log("echo projects");
-        router.push("/projects");
+      case "echo blogs":
+        // console.log("echo blogs");
+        router.push("https://blogs.nirajchaurasiya.com");
         break;
-      case "echo blog":
-        // console.log("echo blog");
-        router.push("/blog");
+      case "echo services":
+        // console.log("echo services");
+        router.push("https://services.nirajchaurasiya.com");
         break;
-      case "echo login":
-        // console.log("echo login");
-        router.push("/login");
+      case "echo plays":
+        // console.log("echo plays");
+        router.push("/plays");
         break;
-      case "echo register":
-        // console.log("echo register");
-        router.push("/register");
-        break;
+
       default:
         const notify = () => toast("Command didn't match.");
         notify();
@@ -107,11 +104,14 @@ export default function Navbar() {
           <Link style={{ textDecoration: "none" }} href="/about">
             <li onClick={playTickSound}>About</li>
           </Link>
-          <Link style={{ textDecoration: "none" }} href="/projects">
+          {/* <Link style={{ textDecoration: "none" }} href="/projects">
             <li onClick={playTickSound}>Projects</li>
-          </Link>
-          <Link style={{ textDecoration: "none" }} href="/blog">
-            <li onClick={playTickSound}>Blog</li>
+          </Link> */}
+          <Link
+            style={{ textDecoration: "none" }}
+            href="https://blogs.nirajchaurasiya.com"
+          >
+            <li onClick={playTickSound}>Blogs</li>
           </Link>
           <Link style={{ textDecoration: "none" }} href="/plays">
             <li onClick={playTickSound}>Plays</li>
@@ -142,7 +142,7 @@ export default function Navbar() {
           className={styles.thirdNav}
           style={{ listStyle: "none", alignItems: "center", display: "flex" }}
         >
-          {isLoggedIn ? (
+          {/* {isLoggedIn ? (
             <>
               <Link
                 style={{ textDecoration: "none" }}
@@ -167,9 +167,9 @@ export default function Navbar() {
                 </li>
               </Link>
             </>
-          ) : (
-            <>
-              <Link
+          ) : ( */}
+          {/* <> */}
+          {/* <Link
                 style={{ textDecoration: "none" }}
                 className="hideInPhone"
                 href="/login"
@@ -182,9 +182,9 @@ export default function Navbar() {
                 href="/register"
               >
                 <li onClick={playTickSound}>Register</li>
-              </Link>
-            </>
-          )}
+              </Link> */}
+          {/* </> */}
+          {/* )} */}
           <li className={styles.themeToggle} onClick={toggleTheme}>
             {!isLightMode ? (
               <Image
@@ -333,7 +333,7 @@ export default function Navbar() {
         </div>
       </div>
       {/* Search Bar */}
-      <div className={styles.seaarch_bar_nav}>
+      {/* <div className={styles.seaarch_bar_nav}>
         <input
           type="search"
           value={searchQuery}
@@ -357,7 +357,7 @@ export default function Navbar() {
           </select>
         </div>
         <button onClick={handleSearch}>Search</button>
-      </div>
+      </div> */}
 
       {/* CMD */}
       <div
@@ -369,8 +369,8 @@ export default function Navbar() {
         <p style={{ padding: "0px 20px" }}>Comand Prompt</p>
         <p style={{ padding: "0 20px" }}>@nirajchaurasiya.com &copy; 2023</p>
         <span style={{ padding: "0 20px", fontSize: "14px" }}>
-          1{`)`} echo contact 2{`)`} echo about 3{`)`} echo projects 4{`)`} echo
-          blog 5{`)`} echo login 6{`)`} echo register
+          1{`)`} echo contact 2{`)`} echo about 3{`)`} echo blogs 4{`)`} echo
+          services 5{`)`} echo plays
         </span>
         <form className={styles.input_cmd} onSubmit={onSubmitForm}>
           <p>N:\nirajchaurasiya{`>`} </p>
