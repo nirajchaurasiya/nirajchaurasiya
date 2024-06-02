@@ -234,11 +234,14 @@ export default function Navbar() {
               <Link style={{ textDecoration: "none" }} href="/about">
                 <li onClick={playTickSound}>About</li>
               </Link>
-              <Link style={{ textDecoration: "none" }} href="/projects">
-                <li onClick={playTickSound}>Projects</li>
-              </Link>
-              <Link style={{ textDecoration: "none" }} href="/blog">
-                <li onClick={playTickSound}>Blog</li>
+              {/* <Link style={{ textDecoration: "none" }} href="/projects">
+            <li onClick={playTickSound}>Projects</li>
+          </Link> */}
+              <Link
+                style={{ textDecoration: "none" }}
+                href="https://blogs.nirajchaurasiya.com"
+              >
+                <li onClick={playTickSound}>Blogs</li>
               </Link>
               <Link style={{ textDecoration: "none" }} href="/plays">
                 <li onClick={playTickSound}>Plays</li>
