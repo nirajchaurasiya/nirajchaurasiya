@@ -1,18 +1,20 @@
-const withOffline = require("next-offline");
+const withPWA = require("next-pwa")({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+});
+
 const webpack = require("webpack");
 
-module.exports = withOffline({
+module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   images: {
     unoptimized: true,
   },
-  // next.config.js
   env: {
     URI: process.env.URI,
   },
-
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { isServer }) => {
     config.plugins.push(
       new webpack.ProvidePlugin({
         React: "react",
@@ -26,9 +28,9 @@ module.exports = withOffline({
         dns: false,
         child_process: false,
         tls: false,
-        webpack5: false, // Set webpack5: false here
       };
     }
+
     return config;
   },
 });
