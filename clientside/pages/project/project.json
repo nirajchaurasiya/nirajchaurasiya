@@ -35,7 +35,7 @@
     "name": "My-Personal-Website",
     "category": "productivity",
     "image": "/assests/mywebsite.png",
-    "url": "https://nirajchaurasiya.com",
+    "url": "https://nirajchaurasiya.netlify.app",
     "project_title": "My Personal Website",
     "project_description": "NextJS full-stack personal website",
     "project_image_url": "/assests/mywebsite.png",
@@ -64,7 +64,7 @@
       }
     ],
     "github_link": "https://github.com/nirajchaurasiya/nirajchaurasiyaNew",
-    "website_link": "https://nirajchaurasiya.com"
+    "website_link": "https://nirajchaurasiya.netlify.app"
   },
   {
     "index": 3,

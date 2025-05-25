@@ -72,7 +72,10 @@ export default function Index() {
           content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
         />
         <meta property="og:image" content="/favicon.ico" />
-        <meta property="og:url" content="https://www.nirajchaurasiya.com" />
+        <meta
+          property="og:url"
+          content="https://www.nirajchaurasiya.netlify.app"
+        />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card meta tags (for better sharing on Twitter) */}
@@ -83,7 +86,10 @@ export default function Index() {
           content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
         />
         <meta name="twitter:image" content="/favicon.ico" />
-        <meta name="twitter:url" content="https://www.nirajchaurasiya.com" />
+        <meta
+          name="twitter:url"
+          content="https://www.nirajchaurasiya.netlify.app"
+        />
 
         {/* Other meta tags */}
         <link
@@ -120,12 +126,15 @@ export default function Index() {
               !
             </p>
             <div style={{ display: "flex", marginTop: "15px", gap: "5px" }}>
-              <Link target="_blank" href="https://blogs.nirajchaurasiya.com">
+              <Link
+                target="_blank"
+                href="https://blogs.nirajchaurasiya.netlify.app"
+              >
                 <button>Explore Blogs</button>
               </Link>
               <a
                 href="/resume.pdf"
-                download="niraj-kumar-chaurasiya-resume-nirajchaurasiya.com.pdf"
+                download="niraj-kumar-chaurasiya-resume-nirajchaurasiya.netlify.app.pdf"
               >
                 <button>My Resume</button>
               </a>

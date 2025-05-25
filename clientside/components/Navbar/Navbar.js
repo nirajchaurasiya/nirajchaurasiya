@@ -66,11 +66,11 @@ export default function Navbar() {
         break;
       case "echo blogs":
         // console.log("echo blogs");
-        router.push("https://blogs.nirajchaurasiya.com");
+        router.push("https://blogs.nirajchaurasiya.netlify.app");
         break;
       case "echo services":
         // console.log("echo services");
-        router.push("https://services.nirajchaurasiya.com");
+        router.push("https://services.nirajchaurasiya.netlify.app");
         break;
       case "echo plays":
         // console.log("echo plays");
@@ -109,7 +109,7 @@ export default function Navbar() {
           </Link> */}
           <Link
             style={{ textDecoration: "none" }}
-            href="https://blogs.nirajchaurasiya.com"
+            href="https://blogs.nirajchaurasiya.netlify.app"
           >
             <li onClick={playTickSound}>Blogs</li>
           </Link>
@@ -119,7 +119,10 @@ export default function Navbar() {
           <a
             style={{ textDecoration: "none" }}
             onClick={() => {
-              window.open("https://services.nirajchaurasiya.com", "_blank");
+              window.open(
+                "https://services.nirajchaurasiya.netlify.app",
+                "_blank"
+              );
             }}
           >
             <li onClick={playTickSound}>Services</li>
@@ -239,7 +242,7 @@ export default function Navbar() {
           </Link> */}
               <Link
                 style={{ textDecoration: "none" }}
-                href="https://blogs.nirajchaurasiya.com"
+                href="https://blogs.nirajchaurasiya.netlify.app"
               >
                 <li onClick={playTickSound}>Blogs</li>
               </Link>
@@ -249,7 +252,10 @@ export default function Navbar() {
               <a
                 style={{ textDecoration: "none" }}
                 onClick={() => {
-                  window.open("https://services.nirajchaurasiya.com", "_blank");
+                  window.open(
+                    "https://services.nirajchaurasiya.netlify.app",
+                    "_blank"
+                  );
                 }}
               >
                 <li onClick={playTickSound}>Services</li>
@@ -370,7 +376,9 @@ export default function Navbar() {
           <button onClick={handleCMD}>X</button>
         </div>
         <p style={{ padding: "0px 20px" }}>Comand Prompt</p>
-        <p style={{ padding: "0 20px" }}>@nirajchaurasiya.com &copy; 2023</p>
+        <p style={{ padding: "0 20px" }}>
+          @nirajchaurasiya.netlify.app &copy; 2023
+        </p>
         <span style={{ padding: "0 20px", fontSize: "14px" }}>
           1{`)`} echo contact 2{`)`} echo about 3{`)`} echo blogs 4{`)`} echo
           services 5{`)`} echo plays
