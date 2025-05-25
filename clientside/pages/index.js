@@ -128,12 +128,12 @@ export default function Index() {
             <div style={{ display: "flex", marginTop: "15px", gap: "5px" }}>
               <Link
                 target="_blank"
-                href="https://blogs.nirajchaurasiya.netlify.app"
+                href="https://nirajchaurasiya-blog.netlify.app"
               >
                 <button>Explore Blogs</button>
               </Link>
               <a
-                href="/resume.pdf"
+                href="/Resume.pdf"
                 download="niraj-kumar-chaurasiya-resume-nirajchaurasiya.netlify.app.pdf"
               >
                 <button>My Resume</button>
