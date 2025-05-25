@@ -107,12 +107,17 @@ export default function Navbar() {
           {/* <Link style={{ textDecoration: "none" }} href="/projects">
             <li onClick={playTickSound}>Projects</li>
           </Link> */}
-          <Link
+          <a
             style={{ textDecoration: "none" }}
-            href="https://blogs.nirajchaurasiya.netlify.app"
+            onClick={() => {
+              window.open(
+                "https://nirajchaurasiya-blog.netlify.app/",
+                "_blank"
+              );
+            }}
           >
             <li onClick={playTickSound}>Blogs</li>
-          </Link>
+          </a>
           <Link style={{ textDecoration: "none" }} href="/plays">
             <li onClick={playTickSound}>Plays</li>
           </Link>
@@ -120,7 +125,7 @@ export default function Navbar() {
             style={{ textDecoration: "none" }}
             onClick={() => {
               window.open(
-                "https://services.nirajchaurasiya.netlify.app",
+                "https://nirajchaurasiya-services.netlify.app/",
                 "_blank"
               );
             }}
@@ -242,7 +247,7 @@ export default function Navbar() {
           </Link> */}
               <Link
                 style={{ textDecoration: "none" }}
-                href="https://blogs.nirajchaurasiya.netlify.app"
+                href="https://nirajchaurasiya-blog.netlify.app"
               >
                 <li onClick={playTickSound}>Blogs</li>
               </Link>
@@ -253,7 +258,7 @@ export default function Navbar() {
                 style={{ textDecoration: "none" }}
                 onClick={() => {
                   window.open(
-                    "https://services.nirajchaurasiya.netlify.app",
+                    "https://nirajchaurasiya-services.netlify.app/",
                     "_blank"
                   );
                 }}
