@@ -66,11 +66,11 @@ export default function Navbar() {
         break;
       case "echo blogs":
         // console.log("echo blogs");
-        router.push("https://blogs.nirajchaurasiya.netlify.app");
+        router.push("https://nirajchaurasiya-blog.netlify.app/");
         break;
       case "echo services":
         // console.log("echo services");
-        router.push("https://services.nirajchaurasiya.netlify.app");
+        router.push("https://nirajchaurasiya-services.netlify.app/");
         break;
       case "echo plays":
         // console.log("echo plays");
