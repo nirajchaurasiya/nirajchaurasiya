@@ -66,11 +66,11 @@ export default function Navbar() {
         break;
       case "echo blogs":
         // console.log("echo blogs");
-        router.push("https://blog..com/");
+        router.push("https://blogs.nirajchaurasiya.com/");
         break;
       case "echo services":
         // console.log("echo services");
-        router.push("https://services..com/");
+        router.push("https://services.nirajchaurasiya.com/");
         break;
       case "echo plays":
         // console.log("echo plays");
@@ -110,7 +110,7 @@ export default function Navbar() {
           <a
             style={{ textDecoration: "none" }}
             onClick={() => {
-              window.open("https://blog..com/", "_blank");
+              window.open("https://blogs.nirajchaurasiya.com/", "_blank");
             }}
           >
             <li onClick={playTickSound}>Blogs</li>
@@ -121,7 +121,7 @@ export default function Navbar() {
           <a
             style={{ textDecoration: "none" }}
             onClick={() => {
-              window.open("https://services..com/", "_blank");
+              window.open("https://services.nirajchaurasiya.com/", "_blank");
             }}
           >
             <li onClick={playTickSound}>Services</li>
@@ -239,7 +239,10 @@ export default function Navbar() {
               {/* <Link style={{ textDecoration: "none" }} href="/projects">
             <li onClick={playTickSound}>Projects</li>
           </Link> */}
-              <Link style={{ textDecoration: "none" }} href="https://-blog.com">
+              <Link
+                style={{ textDecoration: "none" }}
+                href="https://blogs.nirajchaurasiya.com"
+              >
                 <li onClick={playTickSound}>Blogs</li>
               </Link>
               <Link style={{ textDecoration: "none" }} href="/plays">
@@ -248,7 +251,10 @@ export default function Navbar() {
               <a
                 style={{ textDecoration: "none" }}
                 onClick={() => {
-                  window.open("https://-services.com/", "_blank");
+                  window.open(
+                    "https://services.nirajchaurasiya.com/",
+                    "_blank"
+                  );
                 }}
               >
                 <li onClick={playTickSound}>Services</li>
