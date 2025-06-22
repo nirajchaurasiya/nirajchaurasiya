@@ -72,10 +72,7 @@ export default function Index() {
           content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
         />
         <meta property="og:image" content="/favicon.ico" />
-        <meta
-          property="og:url"
-          content="https://www.nirajchaurasiya.netlify.app"
-        />
+        <meta property="og:url" content="https://www..com" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card meta tags (for better sharing on Twitter) */}
@@ -86,10 +83,7 @@ export default function Index() {
           content="I am a full stack web developer, with a deep passion for creating dynamic and functional web applications. With expertise in both front-end and back-end development, I am able to bring a holistic approach to building websites that not only look great but also provide a seamless user experience."
         />
         <meta name="twitter:image" content="/favicon.ico" />
-        <meta
-          name="twitter:url"
-          content="https://www.nirajchaurasiya.netlify.app"
-        />
+        <meta name="twitter:url" content="https://www..com" />
 
         {/* Other meta tags */}
         <link
@@ -126,15 +120,12 @@ export default function Index() {
               !
             </p>
             <div style={{ display: "flex", marginTop: "15px", gap: "5px" }}>
-              <Link
-                target="_blank"
-                href="https://nirajchaurasiya-blog.netlify.app"
-              >
+              <Link target="_blank" href="https://-blog.com">
                 <button>Explore Blogs</button>
               </Link>
               <a
                 href="/Resume.pdf"
-                download="niraj-kumar-chaurasiya-resume-nirajchaurasiya.netlify.app.pdf"
+                download="niraj-kumar-chaurasiya-resume-.com.pdf"
               >
                 <button>My Resume</button>
               </a>
@@ -173,7 +164,7 @@ export default function Index() {
                 </a>
                 <a
                   onClick={() => {
-                    window.open("https://github.com/nirajchaurasiya", "_blank");
+                    window.open("https://github.com/", "_blank");
                   }}
                   href="#open_github"
                 >

@@ -30,10 +30,7 @@ export default function About() {
           content="A mechanical engineering student focused on robotics and AI, with a strong foundation in programming, emotional intelligence, and personal growth."
         />
         <meta property="og:image" content="/favicon.ico" />
-        <meta
-          property="og:url"
-          content="https://www.nirajchaurasiya.netlify.app/about"
-        />
+        <meta property="og:url" content="https://www..com/about" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card meta tags */}
@@ -44,10 +41,7 @@ export default function About() {
           content="A mechanical engineering student focused on robotics and AI, with a strong foundation in programming, emotional intelligence, and personal growth."
         />
         <meta name="twitter:image" content="/favicon.ico" />
-        <meta
-          name="twitter:url"
-          content="https://www.nirajchaurasiya.netlify.app/about"
-        />
+        <meta name="twitter:url" content="https://www..com/about" />
 
         {/* Favicon */}
         <link

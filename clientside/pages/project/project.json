@@ -4,7 +4,7 @@
     "name": "Personal-Tube",
     "category": "videouploading",
     "image": "/assests/personaltube.png",
-    "url": "https://personaltube.netlify.app",
+    "url": "https://personaltube.com",
     "project_title": "Personal Tube",
     "project_description": "Video watching app",
     "project_image_url": "/assests/personaltube.png",
@@ -28,14 +28,14 @@
       }
     ],
     "github_link": false,
-    "website_link": "https://personaltube.netlify.app"
+    "website_link": "https://personaltube.com"
   },
   {
     "index": 2,
     "name": "My-Personal-Website",
     "category": "productivity",
     "image": "/assests/mywebsite.png",
-    "url": "https://nirajchaurasiya.netlify.app",
+    "url": "https://.com",
     "project_title": "My Personal Website",
     "project_description": "NextJS full-stack personal website",
     "project_image_url": "/assests/mywebsite.png",
@@ -63,15 +63,15 @@
         "style": { "width": "75px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/nirajchaurasiyaNew",
-    "website_link": "https://nirajchaurasiya.netlify.app"
+    "github_link": "https://github.com//New",
+    "website_link": "https://.com"
   },
   {
     "index": 3,
     "name": "Online-Room-Finder",
     "category": "ecommerce",
     "image": "/assests/onlineroom.png",
-    "url": "https://amazon.netlify.app",
+    "url": "https://amazon.com",
     "project_title": "Online Room Finder",
     "project_description": "That makes Room finding easy",
     "project_image_url": "/assests/onlineroom.png",
@@ -109,7 +109,7 @@
         "style": { "width": "45px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/onlineroomfinder",
+    "github_link": "https://github.com//onlineroomfinder",
     "website_link": "https://onlineroomfinder.epizy.com"
   },
   {
@@ -117,7 +117,7 @@
     "name": "Onlinedukan-Ecommerce-App",
     "category": "ecommerce",
     "image": "/assests/onlinedukan.png",
-    "url": "https://onlinedukan.netlify.app",
+    "url": "https://onlinedukan.com",
     "project_title": "Onlinedukan-App",
     "project_description": "An Ecommerce app, makes shopping easy.",
     "project_image_url": "/assests/onlinedukan.png",
@@ -146,7 +146,7 @@
       }
     ],
     "github_link": false,
-    "website_link": "https://onlinedukan.netlify.app"
+    "website_link": "https://onlinedukan.com"
   },
   {
     "index": 5,
@@ -186,7 +186,7 @@
         "style": { "width": "50px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/chat-app-html-css-js-nodejs/tree/main/chatapp",
+    "github_link": "https://github.com//chat-app-html-css-js-nodejs/tree/main/chatapp",
     "website_link": "https://chatapp-3uin.onrender.com/"
   },
   {
@@ -227,7 +227,7 @@
         "style": { "width": "65px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/video_chat_app/tree/main/client",
+    "github_link": "https://github.com//video_chat_app/tree/main/client",
     "website_link": false
   },
   {
@@ -268,7 +268,7 @@
         "style": { "width": "50px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/personal_dictionary",
+    "github_link": "https://github.com//personal_dictionary",
     "website_link": "https://personal-dictionary.onrender.com"
   },
   {
@@ -276,7 +276,7 @@
     "name": "NextJS-Pagination-Infinite-Scroll-JSON",
     "category": "ecommerce",
     "image": "/assests/productkino.png",
-    "url": "https://productkino.netlify.app/",
+    "url": "https://productkino.com/",
     "project_title": "NextJS Pagination Infinite Scroll JSON",
     "project_description": "NextJS app that supports infinite scroll",
     "project_image_url": "/assests/productkino.png",
@@ -294,15 +294,15 @@
         "style": { "width": "35px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/nextjs-pagination-infinite-scroll/tree/main/fsnextjs",
-    "website_link": "https://productkino.netlify.app/"
+    "github_link": "https://github.com//nextjs-pagination-infinite-scroll/tree/main/fsnextjs",
+    "website_link": "https://productkino.com/"
   },
   {
     "index": 9,
     "name": "Twitter - App",
     "category": "socialmedia",
     "image": "/assests/twitter.png",
-    "url": "https://twiittr.netlify.app/",
+    "url": "https://twiittr.com/",
     "project_title": "Twitter App",
     "project_description": "Twitter Clone App",
     "project_image_url": "/assests/twitter.png",
@@ -335,15 +335,15 @@
         "style": { "width": "65px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/twitter",
-    "website_link": "https://twiittr.netlify.app/"
+    "github_link": "https://github.com//twitter",
+    "website_link": "https://twiittr.com/"
   },
   {
     "index": 10,
     "name": "Tailbooks-App",
     "category": "socialmedia",
     "image": "/assests/tailblock.png",
-    "url": "https://tailbooks.netlify.app/login",
+    "url": "https://tailbooks.com/login",
     "project_title": "Tailbooks App",
     "project_description": "Facebook Clone App",
     "project_image_url": "/assests/tailblock.png",
@@ -376,8 +376,8 @@
         "style": { "width": "45px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/nextjstailbooks",
-    "website_link": "https://tailbooks.netlify.app/login"
+    "github_link": "https://github.com//nextjstailbooks",
+    "website_link": "https://tailbooks.com/login"
   },
   {
     "index": 11,
@@ -407,7 +407,7 @@
         "style": { "width": "55px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/newsapp-class-components-infinite-scroll/tree/main/reactclassbased",
+    "github_link": "https://github.com//newsapp-class-components-infinite-scroll/tree/main/reactclassbased",
     "website_link": false
   },
   {
@@ -443,7 +443,7 @@
         "style": { "width": "65px", "height": "50px" }
       }
     ],
-    "github_link": "https://github.com/nirajchaurasiya/codebot",
+    "github_link": "https://github.com//codebot",
     "website_link": false
   }
 ]

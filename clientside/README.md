@@ -1,10 +1,10 @@
 # Niraj Chaurasiya - Personal Website
 
-![Website Preview](https://nirajchaurasiya.netlify.app/assests/mywebsite.png)
+![Website Preview](https://.com/assests/mywebsite.png)
 
 Welcome to my personal website repository! This website is built using the full stack Next.js framework and showcases my portfolio, blog posts, and more.
 
-🌐 **Website URL:** [https://nirajchaurasiya.netlify.app](https://nirajchaurasiya.netlify.app)
+🌐 **Website URL:** [https://.com](https://.com)
 
 ## Features
 
@@ -24,7 +24,7 @@ Welcome to my personal website repository! This website is built using the full 
 1. Clone the repository:
 
    ```
-   git clone https://github.com/nirajchaurasiya/nirajchaurasiya
+   git clone https://github.com//
    cd your-website-repo
    ```
 
@@ -51,7 +51,7 @@ Welcome to my personal website repository! This website is built using the full 
 
    PASSWORD = YOUR_APP_PASSWORD
 
-   WEBSITE = "https://nirajchaurasiya.netlify.app"
+   WEBSITE = "https://.com"
    ```
 
 4. Run the development server:
