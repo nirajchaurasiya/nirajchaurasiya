@@ -15,9 +15,9 @@ I write blogs, create YouTube content, freelance projects, and build startups to
 
 ## Skills
 
-- **Languages:** JavaScript, Python, C, HTML, CSS  
-- **Frameworks & Tools:** React, Node.js, Express, MATLAB, Git  
-- **Concepts:** AI/ML basics, full-stack architecture, hardware-software integration, startup ideation  
+- **Languages:** JavaScript, Python, C, CPP, Dart
+- **Frameworks & Tools:** React, Node.js, Express, MATLAB, Git, HTML, CSS, Flutter, NextJS
+- **Concepts:** AI/ML, full-stack architecture, hardware-software integration, startup ideation  
 - **Other:** App development, backend systems, cloud deployment (Linode, Cloudflare), freelance project management  
 
 ---
@@ -34,7 +34,7 @@ A minimal platform for tech creators to share concise, high-signal content.
 My first app project, gained **19 active users**. Focused on practical learning and early traction experience.
 
 ### Coffee Machine (MATLAB Project)
-Simulates a coffee machine with ingredient tracking, pricing, and user history for class assignments.
+Simulates a coffee machine with ingredient tracking, pricing, and user history.
 
 ### Freelance Web Development Projects
 Delivered **custom websites for clients in Nepal**, emphasizing clean UI and responsive design.
@@ -55,4 +55,4 @@ Delivered **custom websites for clients in Nepal**, emphasizing clean UI and res
 
 ---
 
-*“Building products that merge the digital and physical world — one project at a time.”*
+*“Building products that merge the digital and physical world, one project at a time.”*
