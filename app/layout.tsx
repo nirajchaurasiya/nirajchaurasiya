@@ -3,22 +3,18 @@ import "./globals.css";
 import SiteNavigation from "@/components/SiteNavigation";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/content/site";
-
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 export const metadata: Metadata = {
-  metadataBase:
-    new URL(siteConfig.url),
+  metadataBase: new URL(siteConfig.url),
 
   title: {
     default: siteConfig.title,
-    template:
-      `%s | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name}`,
   },
 
-  description:
-    siteConfig.description,
+  description: siteConfig.description,
 
-  applicationName:
-    siteConfig.name,
+  applicationName: siteConfig.name,
 
   authors: [
     {
@@ -27,17 +23,13 @@ export const metadata: Metadata = {
     },
   ],
 
-  creator:
-    siteConfig.name,
+  creator: siteConfig.name,
 
-  publisher:
-    siteConfig.name,
+  publisher: siteConfig.name,
 
-  keywords:
-    siteConfig.keywords,
+  keywords: siteConfig.keywords,
 
-  category:
-    "Technology",
+  category: "Technology",
 
   openGraph: {
     type: "website",
@@ -45,15 +37,13 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: siteConfig.title,
-    description:
-      siteConfig.description,
+    description: siteConfig.description,
   },
 
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
-    description:
-      siteConfig.description,
+    description: siteConfig.description,
   },
 
   robots: {
@@ -64,8 +54,7 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
 
-      "max-image-preview":
-        "large",
+      "max-image-preview": "large",
 
       "max-snippet": -1,
 
@@ -74,9 +63,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google:
-      process.env
-        .NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 };
 const themeInitializationScript = `
@@ -124,6 +111,7 @@ export default function RootLayout({
           </main>
 
           <Footer />
+          <AnalyticsTracker />
         </div>
       </body>
     </html>
