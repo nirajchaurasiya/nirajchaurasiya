@@ -57,7 +57,7 @@ const projectEvents: TimelineEvent[] =
       title: milestone.title,
       description: milestone.description,
       href: `/work/${project.slug}`,
-      label: milestone.version ?? project.title,
+      label: "version" in milestone ? milestone.version : project.title,
     })),
   );
 
