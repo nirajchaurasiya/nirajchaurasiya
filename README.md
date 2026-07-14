@@ -1,37 +1,207 @@
 # Niraj Kumar Chaurasiya
 
-[![Website](https://img.shields.io/badge/Website-nirajchaurasiya.com-blue)](https://nirajchaurasiya.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-nirajkchaurasiya-blue)](https://linkedin.com/in/nirajkchaurasiya)
-[![YouTube](https://img.shields.io/badge/YouTube-TechXEng-red)](https://youtube.com/@TechXEng)
-[![TechShortsApp](https://img.shields.io/badge/TechShortsApp-Live-green)](https://techshortsapp.com)
-[![Medium](https://img.shields.io/badge/Medium-Articles-black)](https://medium.com/@nirajtechx)
+[![Website](https://img.shields.io/badge/Website-nirajchaurasiya.com-111111?style=flat-square)](https://nirajchaurasiya.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-nirajkchaurasiya-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/nirajkchaurasiya)
+[![YouTube](https://img.shields.io/badge/YouTube-TechXEng-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@TechXEng)
+[![Medium](https://img.shields.io/badge/Medium-@nirajtechx-000000?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@nirajtechx)
+[![TechShortsApp](https://img.shields.io/badge/TechShortsApp-Live-1F883D?style=flat-square)](https://techshortsapp.com)
 
----
+**Mechanical Engineering student · Software builder · Independent researcher**
 
-## About Me
+> Building systems under uncertainty.
 
-I am a Mechanical Engineering student at Arkansas State University interested in understanding how physical and information systems behave under uncertainty.
+I am a Mechanical Engineering student at Arkansas State University exploring how physical, digital, and human systems behave when outcomes are uncertain, signals are noisy, and reality cannot be observed directly.
 
 My work sits at the intersection of:
 
-**Physical Systems × Information Systems × Uncertainty**
+**Physical Systems × Information Systems × Evidence × Uncertainty**
 
-I explore how evidence, incomplete information, constraints, and system dynamics influence decision-making in engineering, software systems, and human behavior.
+I build software platforms, conduct independent research, develop engineering projects, write technical essays, and create educational media around one recurring question:
 
-Beyond academics, I build products, conduct independent research, write technical articles, create educational content, and explore startup development.
+> **How do we make better decisions when the thing that matters cannot be observed directly?**
+
+---
+
+## Current Systems
+
+### TechShortsApp
+
+[Website](https://techshortsapp.com) · [Documentation](https://docs.techshortsapp.com)
+
+A credibility-first short-form learning platform exploring how educational content can be ranked using uncertainty-aware behavioral evidence rather than popularity alone.
+
+The system currently reasons from signals such as:
+
+- Watch ratio
+- Replay
+- Bookmark
+- Helpful
+- Follow
+
+These signals are treated as incomplete evidence—not direct measurements of truth or learning.
+
+**Current research directions**
+
+- Credible input variables
+- Explicit versus implicit evidence
+- Signal weighting under uncertainty
+- Context-dependent behavioral interpretation
+- Creator-level versus video-level evidence
+- Confidence-aware ranking architecture
+
+**Core principle:** We do not rank truth. We rank confidence.
+
+**Technologies:** Next.js, Node.js, MongoDB, TypeScript, Cloudflare R2, Vercel, Linode
+
+---
+
+### TechXEng
+
+[Website](https://techxeng.com) · [YouTube](https://youtube.com/@TechXEng)
+
+A public engineering and systems-thinking lab focused on closing the gap between memorizing formulas and understanding complete systems.
+
+Topics include:
+
+- Systems thinking
+- Mechanics and dynamics
+- Coordinate systems
+- Robotics
+- CAD and physical modeling
+- Engineering assumptions and uncertainty
+
+#### Current Build Series
+
+**Can I Build a Human-Like Robotic Hand?**
+
+The series documents the path from SolidWorks and mechanical linkages toward Arduino, sensing, actuation, and control systems.
+
+[Watch the robotic hand playlist](https://www.youtube.com/playlist?list=PLOrDwx3YJxLobczHWNZPG7iyWNCJ3wDEr)
+
+---
+
+### GlobalBriz
+
+[Website](https://globalbriz.com)
+
+An immigrant-support platform intended to make life in a new country easier, safer, and more connected.
+
+Current modules include:
+
+- Community questions and answers
+- Housing and roommate posts
+- Cultural and practical guides
+- Resources
+- Jobs
+- Moderation and administrative review
+
+**Technologies:** Next.js, Node.js, MongoDB, Prisma, SQLite, custom CSS
+
+---
+
+### Hydrogen Turbine Research
+
+An undergraduate engineering research direction examining hydrogen combustion in small gas-turbine and turbocharger-based systems.
+
+Current areas include:
+
+- Hydrogen-air mixing
+- Combustor zones
+- Turbine energy flow
+- Compressor–turbine coupling
+- Material constraints
+- Instrumentation and safety
+
+---
+
+## Personal Frameworks
+
+### SIGNAL — Systems Thinking
+
+A framework for analyzing systems through:
+
+- **S** — System
+- **I** — Inputs
+- **G** — Governing Interactions
+- **N** — Outputs
+- **A** — Assumptions and Constraints
+- **L** — Latent Uncertainty
+
+### EoL — Evidence of Learning
+
+A framework for asking what evidence supports the claim that learning occurred:
+
+1. Recall
+2. Imitate
+3. Perform Independently
+4. Transfer
+5. Teach
+6. Create
+7. Reflection
+
+### SUF — Sufficient Understanding Framework
+
+A framework for deciding when understanding is sufficient to act under uncertainty:
+
+0. Ask the Right Problem
+1. Recognition
+2. Definition
+3. Justification
+4. Relationship
+5. Application
+6. Productive Uncertainty
 
 ---
 
 ## Research Interests
 
-* Systems Under Uncertainty
-* Credibility & Trust Modeling
-* Human Behavior Signals
-* Engineering Decision-Making
-* Information Quality Assessment
-* Human-Computer Interaction
-* Robotics & Autonomous Systems
-* Physical-Digital System Integration
+- Systems under uncertainty
+- Credibility and trust modeling
+- Behavioral evidence
+- Learning and cognition
+- Engineering decision-making
+- Information quality assessment
+- Human-computer interaction
+- Robotics and autonomous systems
+- Physical-digital system integration
+- Latent-variable reasoning
+
+---
+
+## Research and Writing
+
+[Medium profile](https://medium.com/@nirajtechx)
+
+Selected work includes:
+
+- **Engagement Is Not Evidence**
+- **How Much Credibility Should Each Signal Contribute?**
+- **Contextual Interpretation of Behavioral Signals**
+- **The Illusion of Learning**
+- Systems thinking and engineering education
+
+These are independent public research essays and developing frameworks unless explicitly identified otherwise; they should not be interpreted as peer-reviewed publications.
+
+---
+
+## Research Experience
+
+### Arkansas Summer Research Institute — 2026
+
+Worked with EPA air-quality datasets during the ASRI Python research track.
+
+**Research question**
+
+> Is there a significant difference in reported air-quality values between observations derived from Monitor Only data and observations derived from Monitor and Model data?
+
+**Skills developed**
+
+- Python data analysis
+- Data cleaning and visualization
+- Statistical reasoning
+- Research-method distinction between monitoring and modeling
+- Scientific communication
+- Research presentation
 
 ---
 
@@ -39,20 +209,22 @@ Beyond academics, I build products, conduct independent research, write technica
 
 ### Arkansas State University
 
-**Bachelor of Science in Mechanical Engineering**
-Expected Graduation: 2028
+**Bachelor of Science in Mechanical Engineering**  
+Expected graduation: **2028**
 
-Relevant Coursework:
+Relevant coursework:
 
-* Calculus I–III
-* Differential Equations
-* Statics
-* Dynamics
-* Thermodynamics
-* Fluid Mechanics
-* Control Systems
-* MATLAB
-* Engineering Design
+- Calculus I–III
+- Differential Equations
+- Engineering Mathematics
+- Statics
+- Dynamics
+- Thermodynamics
+- Fluid Mechanics
+- Control Systems
+- MATLAB
+- Computer Programming
+- Engineering Design
 
 ---
 
@@ -60,193 +232,52 @@ Relevant Coursework:
 
 ### Languages
 
-* JavaScript
-* Python
-* C
-* C++
-* Dart
+JavaScript · TypeScript · Python · C · C++ · Dart
 
-### Frameworks & Technologies
+### Frameworks and Technologies
 
-* React
-* Next.js
-* Node.js
-* Express.js
-* Flutter
-* MongoDB
-* Prisma
-* SQLite
+React · Next.js · Node.js · Express.js · Flutter · MongoDB · Prisma · SQLite
 
-### Engineering & Development Tools
+### Engineering and Development Tools
 
-* MATLAB
-* Git
-* SolidWorks
-* Cloudflare
-* Linode
-* Vercel
+MATLAB · SolidWorks · Git · Cloudflare · Linode · Vercel
 
-### Areas
+### Working Areas
 
-* Full-Stack Development
-* System Design
-* Research Documentation
-* Technical Writing
-* Startup Development
-* Data Analysis
-
----
-
-## Featured Projects
-
-### 🚀 TechShortsApp
-
-**Website:** https://techshortsapp.com
-
-A credibility-first short-form learning platform exploring how educational content can be ranked using uncertainty-aware evidence rather than traditional engagement metrics.
-
-#### Current Research Areas
-
-* Credible Input Variables
-* Signal Weighting Under Uncertainty
-* Contextual Interpretation of Behavioral Signals
-* Credibility Score Architecture
-
-#### Resources
-
-* Documentation: https://docs.techshortsapp.com
-* Research Articles: https://medium.com/@nirajtechx
-
-#### Technologies
-
-Next.js • Node.js • MongoDB • Cloudflare R2 • Vercel • Linode
-
----
-
-### 🎓 TechXEng
-
-**YouTube:** https://youtube.com/@TechXEng
-
-An engineering education initiative focused on helping learners understand systems rather than memorize formulas.
-
-Topics include:
-
-* Systems Thinking
-* Engineering Fundamentals
-* Dynamics
-* Coordinate Systems
-* Robotics
-* Uncertainty in Engineering
-
-#### Current Build Series
-
-**Can I Build a Human-Like Robotic Hand?**
-
----
-
-### 🌍 GlobalBriz
-
-**Status:** In Development
-
-A platform focused on helping immigrants navigate life in a new country through:
-
-* Housing Discovery
-* Job Opportunities
-* Cultural Survival Guides
-* Community Support
-* Peer Connections
-
-#### Technologies
-
-Next.js • Prisma • SQLite
-
----
-
-### 🔬 Hydrogen Turbine Research
-
-Undergraduate research exploring:
-
-* Hydrogen Combustion Systems
-* Gas Turbine Fundamentals
-* Turbocharger Design
-* Sustainable Energy Systems
-
----
-
-### 💻 Freelance Development Projects
-
-Built and deployed custom websites for clients in Nepal, focusing on:
-
-* Responsive Design
-* User Experience
-* Full-Stack Development
-* Deployment & Maintenance
-
----
-
-## Publications & Writing
-
-### Medium
-
-**Profile:** https://medium.com/@nirajtechx
-
-Selected Topics:
-
-* Engagement Is Not Evidence
-* How Much Credibility Should Each Signal Contribute?
-* Contextual Interpretation of Behavioral Signals
-* Systems Thinking
-* Engineering Education
-
----
-
-## Research Experience
-
-### Arkansas Summer Research Institute (ASRI) – 2026
-
-Conducted research using air-quality datasets and statistical analysis.
-
-Research Question:
-
-> Is there a significant difference in reported air-quality values between observations derived from Monitor Only data and observations derived from Monitor and Model data?
-
-Skills Developed:
-
-* Data Analysis with Python
-* Statistical Testing
-* Regression Analysis
-* Research Communication
-* Scientific Presentations
+Full-stack development · System design · Data analysis · Research documentation · Technical writing · Startup development
 
 ---
 
 ## Current Focus
 
-* Expanding TechShortsApp research
-* Publishing credibility-model papers
-* Building GlobalBriz MVP
-* Developing robotics projects
-* Undergraduate engineering research
-* Exploring systems under uncertainty
+- Developing TechShortsApp Paper 3 on context-dependent behavioral signals
+- Preparing **The Illusion of Learning** TEDx direction and public video series
+- Building the human-like robotic hand through TechXEng
+- Developing the GlobalBriz platform
+- Expanding SIGNAL, EoL, and SUF
+- Studying robotics and autonomous systems
+- Building a connected public knowledge system at [nirajchaurasiya.com](https://nirajchaurasiya.com)
 
 ---
 
-## Connect With Me
+## Long-Term Direction
 
-🌐 Website: https://nirajchaurasiya.com
+My long-term goal is to develop the technical, intellectual, financial, and institutional capacity to build meaningful engineering systems for Nepal—especially in robotics, autonomous systems, reliable information systems, and education.
 
-💼 LinkedIn: https://linkedin.com/in/nirajkchaurasiya
-
-📝 Medium: https://medium.com/@nirajtechx
-
-🎥 YouTube: https://youtube.com/@TechXEng
-
-🚀 TechShortsApp: https://techshortsapp.com
-
-📚 Documentation: https://docs.techshortsapp.com
-
-📧 Email: [Developer.nirajchaurasiya@gmail.com](mailto:Developer.nirajchaurasiya@gmail.com)
+The projects in this repository ecosystem are early systems, experiments, and intellectual foundations—not the final destination.
 
 ---
 
-> *"We rarely have complete information. The challenge is learning how to build, decide, and reason anyway."*
+## Connect
+
+- Website: [nirajchaurasiya.com](https://nirajchaurasiya.com)
+- LinkedIn: [linkedin.com/in/nirajkchaurasiya](https://linkedin.com/in/nirajkchaurasiya)
+- Medium: [medium.com/@nirajtechx](https://medium.com/@nirajtechx)
+- YouTube: [youtube.com/@TechXEng](https://youtube.com/@TechXEng)
+- TechShortsApp: [techshortsapp.com](https://techshortsapp.com)
+- Documentation: [docs.techshortsapp.com](https://docs.techshortsapp.com)
+- Email: [Developer.nirajchaurasiya@gmail.com](mailto:Developer.nirajchaurasiya@gmail.com)
+
+---
+
+> *We rarely have complete information. The challenge is learning how to build, decide, and reason anyway.*
