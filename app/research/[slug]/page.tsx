@@ -1,53 +1,64 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import ResearchArticlePage from "@/components/research/ResearchArticlePage";
+import type {
+  Metadata,
+} from "next";
 import {
-  getResearchBySlug,
-  researchCatalog,
-} from "@/content/research";
+  notFound,
+} from "next/navigation";
+
+import CmsKnowledgeEntry from "@/components/cms/CmsKnowledgeEntry";
+
+import {
+  getPublishedEntry,
+} from "@/lib/cms/client";
+import {
+  createCmsMetadata,
+} from "@/lib/cms/metadata";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
-
-export function generateStaticParams() {
-  return researchCatalog.map((research) => ({
-    slug: research.slug,
-  }));
-}
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const research = getResearchBySlug(slug);
+  const { slug } =
+    await params;
 
-  if (!research) {
-    return {
-      title: "Research Not Found",
-    };
-  }
+  const entry =
+    await getPublishedEntry(
+      "RESEARCH",
+      slug,
+    );
 
-  return {
-    title: research.title,
-    description: research.abstract,
-    openGraph: {
-      title: `${research.title} | Niraj Chaurasiya`,
-      description: research.abstract,
-      type: "article",
-    },
-  };
+  return entry
+    ? createCmsMetadata(entry)
+    : {
+        title:
+          "Research Not Found",
+      };
 }
 
-export default async function Page({ params }: PageProps) {
-  const { slug } = await params;
-  const research = getResearchBySlug(slug);
+export default async function ResearchPage({
+  params,
+}: PageProps) {
+  const { slug } =
+    await params;
 
-  if (!research) {
+  const entry =
+    await getPublishedEntry(
+      "RESEARCH",
+      slug,
+    );
+
+  if (!entry) {
     notFound();
   }
 
-  return <ResearchArticlePage research={research} />;
+  return (
+    <CmsKnowledgeEntry
+      entry={entry}
+    />
+  );
 }

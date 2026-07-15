@@ -8,6 +8,7 @@ import WritingExplorer from "./WritingExplorer";
 import {
   publicWritingCatalog,
 } from "@/content/writing";
+import CmsWritingList from "./CmsWritingList";
 export default function WritingPage() {
   const publishedCount = writingCatalog.filter(
     (item) => item.status === "Published",
@@ -78,6 +79,7 @@ export default function WritingPage() {
         </div>
       </section>
 
+      <CmsWritingList />
       <section className="writing-position">
         <p className="section-eyebrow">
           Writing position

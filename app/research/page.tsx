@@ -1,27 +1,37 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import ResearchPage from "@/components/research/ResearchPage";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Research",
-  description:
-    "Research by Niraj Chaurasiya on behavioral evidence, learning, engineering systems, information systems, and uncertainty.",
-};
+import CmsCollectionLanding from "@/components/cms/CmsCollectionLanding";
 
-export default function Page() {
-  return (
-    <Suspense fallback={<ResearchPageFallback />}>
-      <ResearchPage />
-    </Suspense>
-  );
+import { getPublishedContent, getPublishedEntry } from "@/lib/cms/client";
+import { createCmsPageMetadata } from "@/lib/cms/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageEntry = await getPublishedEntry("PAGE", "research");
+
+  return pageEntry
+    ? createCmsPageMetadata(pageEntry)
+    : {
+        title: "Research Not Found",
+      };
 }
 
-function ResearchPageFallback() {
+export default async function ResearchPage() {
+  const [pageEntry, researchEntries] = await Promise.all([
+    getPublishedEntry("PAGE", "research"),
+
+    getPublishedContent("RESEARCH"),
+  ]);
+
+  if (!pageEntry) {
+    notFound();
+  }
+
   return (
-    <div className="research-page">
-      <section className="research-page-loading">
-        <p>Loading the research map…</p>
-      </section>
-    </div>
+    <CmsCollectionLanding
+      pageEntry={pageEntry}
+      entries={researchEntries}
+      itemName="Research"
+    />
   );
 }

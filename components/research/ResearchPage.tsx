@@ -1,11 +1,7 @@
-import {
-  BookOpenText,
-  CircleHelp,
-  FileSearch,
-  GitBranch,
-} from "lucide-react";
+import { BookOpenText, CircleHelp, FileSearch, GitBranch } from "lucide-react";
 import { researchCatalog } from "@/content/research";
 import ResearchExplorer from "./ResearchExplorer";
+import CmsCollectionSection from "@/components/cms/CmsCollectionSection";
 
 export default function ResearchPage() {
   const activeResearch = researchCatalog.filter((item) =>
@@ -36,9 +32,9 @@ export default function ResearchPage() {
           </h1>
 
           <p>
-            My research examines situations where the thing that matters
-            cannot be observed directly, yet decisions still need to be made
-            from incomplete evidence.
+            My research examines situations where the thing that matters cannot
+            be observed directly, yet decisions still need to be made from
+            incomplete evidence.
           </p>
         </div>
 
@@ -62,7 +58,12 @@ export default function ResearchPage() {
           </article>
         </div>
       </section>
-
+      <CmsCollectionSection
+        type="RESEARCH"
+        eyebrow="Published inquiry"
+        title="Research from the CMS"
+        description="Questions, claims, methods, and developing investigations across learning, engineering, and uncertain systems."
+      />
       <section className="research-position">
         <div>
           <p className="section-eyebrow">Research position</p>
@@ -77,10 +78,10 @@ export default function ResearchPage() {
           </h2>
 
           <p>
-            Each research page identifies its current status, publication
-            type, methods, evidence, limitations, and unresolved questions.
-            Publicly published work is not labeled as peer reviewed unless it
-            has actually undergone that process.
+            Each research page identifies its current status, publication type,
+            methods, evidence, limitations, and unresolved questions. Publicly
+            published work is not labeled as peer reviewed unless it has
+            actually undergone that process.
           </p>
         </div>
       </section>

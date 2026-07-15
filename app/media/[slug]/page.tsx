@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import MediaDetailPage from "@/components/media/MediaDetailPage";
-import {
-  getMediaBySlug,
-  mediaCatalog,
-} from "@/content/media";
+
+import CmsKnowledgeEntry from "@/components/cms/CmsKnowledgeEntry";
+
+import { getPublishedEntry } from "@/lib/cms/client";
+
+import { createCmsMetadata } from "@/lib/cms/metadata";
 
 type PageProps = {
   params: Promise<{
@@ -12,39 +13,28 @@ type PageProps = {
   }>;
 };
 
-export function generateStaticParams() {
-  return mediaCatalog.map((item) => ({
-    slug: item.slug,
-  }));
-}
-
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const media = getMediaBySlug(slug);
 
-  if (!media) {
-    return {
-      title: "Media Not Found",
-    };
-  }
+  const entry = await getPublishedEntry("MEDIA", slug);
 
-  return {
-    title: media.title,
-    description: media.summary,
-  };
+  return entry
+    ? createCmsMetadata(entry)
+    : {
+        title: "Media Not Found",
+      };
 }
 
-export default async function Page({
-  params,
-}: PageProps) {
+export default async function MediaDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const media = getMediaBySlug(slug);
 
-  if (!media) {
+  const entry = await getPublishedEntry("MEDIA", slug);
+
+  if (!entry) {
     notFound();
   }
 
-  return <MediaDetailPage media={media} />;
+  return <CmsKnowledgeEntry entry={entry} />;
 }

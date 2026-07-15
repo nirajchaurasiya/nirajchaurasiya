@@ -1,12 +1,37 @@
 import type { Metadata } from "next";
-import WorkPage from "@/components/work/WorkPage";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Work",
-  description:
-    "Explore Niraj Chaurasiya's software platforms, engineering systems, research projects, and experiments.",
-};
+import CmsCollectionLanding from "@/components/cms/CmsCollectionLanding";
 
-export default function Page() {
-  return <WorkPage />;
+import { getPublishedContent, getPublishedEntry } from "@/lib/cms/client";
+import { createCmsPageMetadata } from "@/lib/cms/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageEntry = await getPublishedEntry("PAGE", "work");
+
+  return pageEntry
+    ? createCmsPageMetadata(pageEntry)
+    : {
+        title: "Work Not Found",
+      };
+}
+
+export default async function WorkPage() {
+  const [pageEntry, projects] = await Promise.all([
+    getPublishedEntry("PAGE", "work"),
+
+    getPublishedContent("PROJECT"),
+  ]);
+
+  if (!pageEntry) {
+    notFound();
+  }
+
+  return (
+    <CmsCollectionLanding
+      pageEntry={pageEntry}
+      entries={projects}
+      itemName="Project"
+    />
+  );
 }

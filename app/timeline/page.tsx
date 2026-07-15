@@ -1,12 +1,32 @@
 import type { Metadata } from "next";
-import TimelinePage from "@/components/timeline/TimelinePage";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Timeline",
-  description:
-    "A chronological record of Niraj Chaurasiya's projects, research, frameworks, writing, media, and academic development.",
-};
+import CmsTimeline from "@/components/cms/CmsTimeline";
 
-export default function Page() {
-  return <TimelinePage />;
+import { getPublishedContent, getPublishedEntry } from "@/lib/cms/client";
+
+import { createCmsPageMetadata } from "@/lib/cms/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageEntry = await getPublishedEntry("PAGE", "timeline");
+
+  return pageEntry
+    ? createCmsPageMetadata(pageEntry)
+    : {
+        title: "Timeline Not Found",
+      };
+}
+
+export default async function TimelinePage() {
+  const [pageEntry, timelineEntries] = await Promise.all([
+    getPublishedEntry("PAGE", "timeline"),
+
+    getPublishedContent("TIMELINE"),
+  ]);
+
+  if (!pageEntry) {
+    notFound();
+  }
+
+  return <CmsTimeline pageEntry={pageEntry} entries={timelineEntries} />;
 }

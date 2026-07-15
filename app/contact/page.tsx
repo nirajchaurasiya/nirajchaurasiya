@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
-import ContactPage from "@/components/contact/ContactPage";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact Niraj Chaurasiya about research, engineering, software, speaking, collaboration, or current projects.",
-};
+import CmsContactPage from "@/components/cms/CmsContactPage";
 
-export default function Page() {
-  return <ContactPage />;
+import { getPublishedEntry } from "@/lib/cms/client";
+
+import { createCmsPageMetadata } from "@/lib/cms/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const entry = await getPublishedEntry("PAGE", "contact");
+
+  return entry
+    ? createCmsPageMetadata(entry)
+    : {
+        title: "Contact Not Found",
+      };
+}
+
+export default async function ContactPage() {
+  const entry = await getPublishedEntry("PAGE", "contact");
+
+  if (!entry) {
+    notFound();
+  }
+
+  return <CmsContactPage entry={entry} />;
 }

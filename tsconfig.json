@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "../portfolio-cms/lib/public-revalidation.ts"  ],
   "exclude": ["node_modules"]
 }

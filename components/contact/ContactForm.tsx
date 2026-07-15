@@ -1,94 +1,83 @@
 "use client";
 
-import {
-  AlertCircle,
-  CheckCircle2,
-  LoaderCircle,
-  Send,
-} from "lucide-react";
-import {
-  FormEvent,
-  useState,
-} from "react";
+import { FormEvent, useState } from "react";
+import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
 
-type FormState =
-  | {
-      status: "idle";
-      message: "";
-    }
-  | {
-      status: "submitting";
-      message: "";
-    }
-  | {
-      status: "success" | "error";
-      message: string;
-    };
+type SubmissionState = {
+  status: "idle" | "submitting" | "success" | "error";
 
-const initialState: FormState = {
+  message: string;
+};
+
+const initialState: SubmissionState = {
   status: "idle",
+
   message: "",
 };
 
 export default function ContactForm() {
-  const [state, setState] =
-    useState<FormState>(initialState);
+  const [state, setState] = useState(initialState);
 
-  async function handleSubmit(
-    event: FormEvent<HTMLFormElement>,
-  ) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = event.currentTarget;
+
     const formData = new FormData(form);
 
     setState({
       status: "submitting",
-      message: "",
+
+      message: "Sending your message…",
     });
 
     try {
-      const response = await fetch(
-        "/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.get("name"),
-            email: formData.get("email"),
-            reason: formData.get("reason"),
-            subject: formData.get("subject"),
-            message: formData.get("message"),
-            company: formData.get("company"),
-          }),
-        },
-      );
+      const response = await fetch("/api/contact", {
+        method: "POST",
 
-      const result = (await response.json()) as {
-        message?: string;
-      };
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          name: formData.get("name"),
+
+          email: formData.get("email"),
+
+          subject: formData.get("subject"),
+
+          message: formData.get("message"),
+
+          sourcePath: window.location.pathname,
+        }),
+      });
+
+      const result: unknown = await response.json();
+
+      const message =
+        typeof result === "object" &&
+        result !== null &&
+        typeof Reflect.get(result, "message") === "string"
+          ? String(Reflect.get(result, "message"))
+          : response.ok
+            ? "Your message was received."
+            : "The message could not be sent.";
 
       if (!response.ok) {
-        throw new Error(
-          result.message ??
-            "The message could not be sent.",
-        );
+        throw new Error(message);
       }
 
       form.reset();
 
       setState({
         status: "success",
-        message:
-          result.message ??
-          "Your message was sent successfully.",
+
+        message,
       });
     } catch (error) {
       setState({
         status: "error",
+
         message:
           error instanceof Error
             ? error.message
@@ -97,12 +86,26 @@ export default function ContactForm() {
     }
   }
 
+  const isSubmitting = state.status === "submitting";
+
   return (
     <form
-      className="contact-form"
+      className="cms-contact-form"
+      id="contact-form"
       onSubmit={handleSubmit}
     >
-      <div className="contact-form__row">
+      <div className="cms-contact-form__heading">
+        <span>Send a message</span>
+
+        <h2>Start with the context.</h2>
+
+        <p>
+          Explain what you are working on, why you are reaching out, and what
+          kind of response would be useful.
+        </p>
+      </div>
+
+      <div className="cms-contact-form__fields">
         <label>
           <span>Name</span>
 
@@ -110,10 +113,8 @@ export default function ContactForm() {
             type="text"
             name="name"
             autoComplete="name"
-            minLength={2}
             maxLength={100}
             required
-            placeholder="Your name"
           />
         </label>
 
@@ -124,152 +125,55 @@ export default function ContactForm() {
             type="email"
             name="email"
             autoComplete="email"
-            maxLength={180}
+            maxLength={200}
             required
-            placeholder="you@example.com"
+          />
+        </label>
+
+        <label className="cms-contact-form__wide">
+          <span>Subject</span>
+
+          <input type="text" name="subject" maxLength={160} required />
+        </label>
+
+        <label className="cms-contact-form__wide">
+          <span>Message</span>
+
+          <textarea
+            name="message"
+            rows={9}
+            minLength={20}
+            maxLength={5_000}
+            required
           />
         </label>
       </div>
 
-      <label>
-        <span>Reason for contacting</span>
-
-        <select
-          name="reason"
-          defaultValue=""
-          required
-        >
-          <option value="" disabled>
-            Choose a reason
-          </option>
-
-          <option value="Research">
-            Research
-          </option>
-
-          <option value="Engineering">
-            Engineering
-          </option>
-
-          <option value="Collaboration">
-            Collaboration
-          </option>
-
-          <option value="Speaking">
-            Speaking or presentation
-          </option>
-
-          <option value="Project">
-            Project question
-          </option>
-
-          <option value="Other">
-            Something else
-          </option>
-        </select>
-      </label>
-
-      <label>
-        <span>Subject</span>
-
-        <input
-          type="text"
-          name="subject"
-          minLength={3}
-          maxLength={160}
-          required
-          placeholder="What is the message about?"
-        />
-      </label>
-
-      <label>
-        <span>Message</span>
-
-        <textarea
-          name="message"
-          minLength={20}
-          maxLength={5000}
-          required
-          rows={8}
-          placeholder="Provide enough context for me to understand the question or opportunity."
-        />
-      </label>
-
-      <label
-        className="contact-form__honeypot"
-        aria-hidden="true"
-      >
-        <span>Company</span>
-
-        <input
-          type="text"
-          name="company"
-          tabIndex={-1}
-          autoComplete="off"
-        />
-      </label>
-
-      <div className="contact-form__footer">
+      <footer>
         <p>
-          Please do not include confidential,
-          financial, medical, or legally sensitive
-          information.
+          Do not include passwords, financial information, or other sensitive
+          personal data.
         </p>
 
-        <button
-          type="submit"
-          disabled={
-            state.status === "submitting"
-          }
-        >
-          {state.status === "submitting" ? (
-            <LoaderCircle
-              className="contact-form__spinner"
-              size={17}
-              strokeWidth={1.8}
-              aria-hidden="true"
-            />
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <LoaderCircle size={16} className="cms-contact-form__spinner" />
           ) : (
-            <Send
-              size={17}
-              strokeWidth={1.8}
-              aria-hidden="true"
-            />
+            <Send size={16} />
           )}
 
-          {state.status === "submitting"
-            ? "Sending..."
-            : "Send message"}
+          {isSubmitting ? "Sending" : "Send message"}
         </button>
-      </div>
+      </footer>
 
-      {state.status === "success" && (
+      {state.status !== "idle" && (
         <div
-          className="contact-form-message contact-form-message--success"
-          role="status"
+          className={`cms-contact-form__status cms-contact-form__status--${state.status}`}
+          role={state.status === "error" ? "alert" : "status"}
         >
-          <CheckCircle2
-            size={18}
-            strokeWidth={1.8}
-            aria-hidden="true"
-          />
+          {state.status === "success" && <CheckCircle2 size={17} />}
 
-          <p>{state.message}</p>
-        </div>
-      )}
-
-      {state.status === "error" && (
-        <div
-          className="contact-form-message contact-form-message--error"
-          role="alert"
-        >
-          <AlertCircle
-            size={18}
-            strokeWidth={1.8}
-            aria-hidden="true"
-          />
-
-          <p>{state.message}</p>
+          <span>{state.message}</span>
         </div>
       )}
     </form>

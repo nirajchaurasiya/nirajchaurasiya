@@ -1,11 +1,10 @@
 import { ArrowDown, GitBranch, Layers3, Orbit } from "lucide-react";
 import { projectCatalog } from "@/content/projects";
 import WorkExplorer from "./WorkExplorer";
-
+import CmsCollectionSection from "@/components/cms/CmsCollectionSection";
 export default function WorkPage() {
   const activeProjectCount = projectCatalog.filter(
-    (project) =>
-      project.status === "Active" || project.status === "Developing",
+    (project) => project.status === "Active" || project.status === "Developing",
   ).length;
 
   const disciplineCount = new Set(
@@ -26,9 +25,9 @@ export default function WorkPage() {
           </h1>
 
           <p>
-            These projects are not isolated products. Each one is an
-            environment for investigating evidence, learning, engineering,
-            information, and decision-making under uncertainty.
+            These projects are not isolated products. Each one is an environment
+            for investigating evidence, learning, engineering, information, and
+            decision-making under uncertainty.
           </p>
 
           <a href="#work-projects" className="work-page-hero__action">
@@ -57,14 +56,17 @@ export default function WorkPage() {
           </article>
         </div>
       </section>
-
+      <CmsCollectionSection
+        type="PROJECT"
+        eyebrow="Published systems"
+        title="Projects from the CMS"
+        description="Software, engineering, research-driven products, and systems currently being explored or built."
+      />
       <section className="work-page-introduction">
         <p className="section-eyebrow">How to read this page</p>
 
         <div>
-          <h2>
-            Each project records more than its final output.
-          </h2>
+          <h2>Each project records more than its final output.</h2>
 
           <p>
             Project pages include the underlying problem, current system,

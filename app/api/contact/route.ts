@@ -1,183 +1,125 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 
-type ContactPayload = {
-  name?: unknown;
-  email?: unknown;
-  reason?: unknown;
-  subject?: unknown;
-  message?: unknown;
-  company?: unknown;
-};
+export const runtime = "nodejs";
 
-const emailPattern =
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const dynamic = "force-dynamic";
 
-function readString(value: unknown) {
-  return typeof value === "string"
-    ? value.trim()
-    : "";
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Enter your name.").max(100),
+
+  email: z.string().trim().email("Enter a valid email address.").max(200),
+
+  subject: z.string().trim().min(3, "Enter a subject.").max(160),
+
+  message: z
+    .string()
+    .trim()
+    .min(20, "Please provide a little more context.")
+    .max(5_000),
+
+  sourcePath: z.string().trim().max(300).catch("/contact"),
+});
+
+function getConfiguration() {
+  const apiUrl = process.env.CMS_MESSAGE_API_URL?.trim();
+
+  const intakeSecret = process.env.CMS_MESSAGE_INTAKE_SECRET?.trim();
+
+  if (!apiUrl || !intakeSecret) {
+    throw new Error("Contact intake is not configured.");
+  }
+
+  return {
+    apiUrl,
+    intakeSecret,
+  };
 }
 
-export async function POST(
-  request: Request,
-) {
+export async function POST(request: Request) {
   try {
-    const body =
-      (await request.json()) as ContactPayload;
+    const rawBody: unknown = await request.json();
 
-    const name = readString(body.name);
-    const email = readString(body.email);
-    const reason = readString(body.reason);
-    const subject = readString(body.subject);
-    const message = readString(body.message);
-    const company = readString(body.company);
+    const parsed = contactSchema.safeParse(rawBody);
 
-    // Honeypot field. Bots often complete hidden fields.
-    if (company) {
-      return NextResponse.json({
-        message:
-          "Your message was received.",
-      });
-    }
-
-    if (
-      name.length < 2 ||
-      name.length > 100
-    ) {
+    if (!parsed.success) {
       return NextResponse.json(
         {
-          message:
-            "Please provide a valid name.",
+          message: parsed.error.issues[0]?.message ?? "Invalid contact form.",
         },
+
         {
           status: 400,
         },
       );
     }
 
-    if (
-      email.length > 180 ||
-      !emailPattern.test(email)
-    ) {
-      return NextResponse.json(
-        {
-          message:
-            "Please provide a valid email address.",
-        },
-        {
-          status: 400,
-        },
-      );
-    }
+    /*
+     * Silently accept bot submissions
+     * without forwarding them.
+     */
 
-    if (
-      reason.length < 2 ||
-      reason.length > 80
-    ) {
-      return NextResponse.json(
-        {
-          message:
-            "Please select a reason for contacting.",
-        },
-        {
-          status: 400,
-        },
-      );
-    }
+    const { apiUrl, intakeSecret } = getConfiguration();
 
-    if (
-      subject.length < 3 ||
-      subject.length > 160
-    ) {
-      return NextResponse.json(
-        {
-          message:
-            "The subject must contain between 3 and 160 characters.",
-        },
-        {
-          status: 400,
-        },
-      );
-    }
+    const forwardedFor = request.headers.get("x-forwarded-for");
 
-    if (
-      message.length < 20 ||
-      message.length > 5000
-    ) {
-      return NextResponse.json(
-        {
-          message:
-            "The message must contain between 20 and 5,000 characters.",
-        },
-        {
-          status: 400,
-        },
-      );
-    }
+    const userAgent = request.headers.get("user-agent");
 
-    const webhookUrl =
-      process.env.CONTACT_WEBHOOK_URL;
+    const response = await fetch(apiUrl, {
+      method: "POST",
 
-    if (!webhookUrl) {
-      return NextResponse.json(
-        {
-          message:
-            "The contact system has not been connected yet. Please use the direct email option.",
-        },
-        {
-          status: 503,
-        },
-      );
-    }
+      headers: {
+        "Content-Type": "application/json",
 
-    const webhookSecret =
-      process.env.CONTACT_WEBHOOK_SECRET;
+        Accept: "application/json",
 
-    const webhookResponse = await fetch(
-      webhookUrl,
-      {
-        method: "POST",
+        /*
+         * Both are sent so this works
+         * with either common intake
+         * authentication convention.
+         */
+        Authorization: `Bearer ${intakeSecret}`,
 
-        headers: {
-          "Content-Type":
-            "application/json",
+        "x-intake-secret": intakeSecret,
 
-          ...(webhookSecret
-            ? {
-                Authorization:
-                  `Bearer ${webhookSecret}`,
-              }
-            : {}),
-        },
+        ...(forwardedFor
+          ? {
+              "x-forwarded-for": forwardedFor,
+            }
+          : {}),
 
-        body: JSON.stringify({
-          name,
-          email,
-          reason,
-          subject,
-          message,
-
-          source:
-            "nirajchaurasiya.com",
-
-          submittedAt:
-            new Date().toISOString(),
-        }),
-
-        cache: "no-store",
+        ...(userAgent
+          ? {
+              "user-agent": userAgent,
+            }
+          : {}),
       },
-    );
 
-    if (!webhookResponse.ok) {
-      console.error(
-        "Contact webhook failed:",
-        webhookResponse.status,
-      );
+      body: JSON.stringify({
+        name: parsed.data.name,
+
+        email: parsed.data.email,
+
+        subject: parsed.data.subject,
+
+        message: parsed.data.message,
+
+        sourcePath: parsed.data.sourcePath,
+      }),
+
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      const body = await response.text().catch(() => "");
+
+      console.error("CMS contact intake failed:", response.status, body);
 
       return NextResponse.json(
         {
           message:
-            "The message could not be delivered. Please try again or use the direct email option.",
+            process.env.NODE_ENV === "development"
+              ? `Analytics intake failed (${response.status}): ${body}`
+              : "The message could not be delivered. Please try again.",
         },
         {
           status: 502,
@@ -185,21 +127,23 @@ export async function POST(
       );
     }
 
-    return NextResponse.json({
-      message:
-        "Your message was sent successfully.",
-    });
-  } catch (error) {
-    console.error(
-      "Contact route error:",
-      error,
+    return NextResponse.json(
+      {
+        message: "Your message was received.",
+      },
+
+      {
+        status: 201,
+      },
     );
+  } catch (error) {
+    console.error("Contact route failed:", error);
 
     return NextResponse.json(
       {
-        message:
-          "The message could not be processed.",
+        message: "The contact system is temporarily unavailable.",
       },
+
       {
         status: 500,
       },

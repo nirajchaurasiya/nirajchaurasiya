@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
-import AboutPage from "@/components/about/AboutPage";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "About Niraj Chaurasiya—mechanical engineering student, software builder, researcher, and technical communicator working across systems and uncertainty.",
-};
+import CmsStandalonePage from "@/components/cms/CmsStandalonePage";
 
-export default function Page() {
-  return <AboutPage />;
+import { getPublishedEntry } from "@/lib/cms/client";
+
+import { createCmsPageMetadata } from "@/lib/cms/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const entry = await getPublishedEntry("PAGE", "about");
+
+  return entry
+    ? createCmsPageMetadata(entry)
+    : {
+        title: "About Not Found",
+      };
+}
+
+export default async function AboutPage() {
+  const entry = await getPublishedEntry("PAGE", "about");
+
+  if (!entry) {
+    notFound();
+  }
+
+  return <CmsStandalonePage entry={entry} />;
 }

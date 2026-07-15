@@ -1,159 +1,216 @@
 import type { MetadataRoute } from "next";
-import { archiveCatalog } from "@/content/archive";
-import { frameworkCatalog } from "@/content/frameworks";
-import { mediaCatalog } from "@/content/media";
-import { projectCatalog } from "@/content/projects";
-import { publicWritingCatalog } from "@/content/writing";
-import { researchCatalog } from "@/content/research";
-import { siteConfig } from "@/content/site";
 
-const staticRoutes = [
-  "",
+import { getPublishedContent } from "@/lib/cms/client";
+
+import { cmsBasePaths } from "@/lib/cms/routes";
+
+import type { CmsContentEntry } from "@/lib/cms/types";
+
+import { absoluteUrl } from "@/lib/site-config";
+
+export const revalidate = 3600;
+
+const fallbackRoutes = [
+  "/",
   "/work",
   "/research",
   "/frameworks",
   "/writing",
   "/about",
-  "/now",
-  "/timeline",
   "/media",
+  "/timeline",
+  "/now",
   "/archive",
   "/contact",
-];
+] as const;
 
-function toDate(
-  value: string | undefined,
-) {
-  if (!value) {
-    return new Date();
-  }
-
-  return new Date(`${value}T00:00:00Z`);
+function readString(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
 }
 
-export default function sitemap():
-  MetadataRoute.Sitemap {
-  const staticEntries:
-    MetadataRoute.Sitemap =
-    staticRoutes.map((route) => ({
-      url: `${siteConfig.url}${route}`,
+function readEntryField(entry: CmsContentEntry, field: string) {
+  const record = entry as unknown as Record<string, unknown>;
 
-      lastModified: new Date(),
+  return record[field];
+}
 
-      changeFrequency:
-        route === "/now"
-          ? "weekly"
-          : route === ""
-            ? "weekly"
-            : "monthly",
+function normalizePath(path: string) {
+  if (!path) {
+    return "/";
+  }
 
-      priority:
-        route === ""
-          ? 1
-          : [
-                "/work",
-                "/research",
-                "/frameworks",
-              ].includes(route)
-            ? 0.9
-            : 0.7,
-    }));
+  const withoutQuery = path.split("?")[0] ?? "/";
 
-  const projectEntries:
-    MetadataRoute.Sitemap =
-    projectCatalog.map((project) => ({
-      url:
-        `${siteConfig.url}/work/${project.slug}`,
+  const withoutHash = withoutQuery.split("#")[0] ?? "/";
 
-      lastModified:
-        toDate(project.updatedAt),
+  const withLeadingSlash = withoutHash.startsWith("/")
+    ? withoutHash
+    : `/${withoutHash}`;
 
-      changeFrequency: "monthly",
-      priority: 0.8,
-    }));
+  if (withLeadingSlash !== "/") {
+    return withLeadingSlash.replace(/\/+$/, "");
+  }
 
-  const researchEntries:
-    MetadataRoute.Sitemap =
-    researchCatalog.map((research) => ({
-      url:
-        `${siteConfig.url}/research/${research.slug}`,
+  return "/";
+}
 
-      lastModified:
-        toDate(research.updatedAt),
+function getEntryPath(entry: CmsContentEntry): string | null {
+  const publicPath = readString(readEntryField(entry, "publicPath"));
 
-      changeFrequency:
-        research.status === "In Progress" ||
-        research.status === "Developing"
-          ? "weekly"
-          : "monthly",
+  if (publicPath) {
+    return normalizePath(publicPath);
+  }
 
-      priority: 0.8,
-    }));
+  if (entry.type === "PAGE") {
+    return entry.slug === "home" ? "/" : normalizePath(`/${entry.slug}`);
+  }
 
-  const frameworkEntries:
-    MetadataRoute.Sitemap =
-    frameworkCatalog.map((framework) => ({
-      url:
-        `${siteConfig.url}/frameworks/${framework.slug}`,
+  /*
+   * Timeline records currently render
+   * inside /timeline and do not have
+   * individual detail routes.
+   */
+  if (entry.type === "TIMELINE") {
+    return null;
+  }
 
-      lastModified:
-        toDate(framework.updatedAt),
+  const basePath = cmsBasePaths[entry.type];
 
-      changeFrequency: "monthly",
-      priority: 0.8,
-    }));
+  if (!basePath || !entry.slug) {
+    return null;
+  }
 
-  const writingEntries:
-    MetadataRoute.Sitemap =
-    publicWritingCatalog.map((writing) => ({
-      url:
-        `${siteConfig.url}/writing/${writing.slug}`,
+  return normalizePath(`${basePath}/${entry.slug}`);
+}
 
-      lastModified:
-        toDate(writing.updatedAt),
+function getLastModified(entry: CmsContentEntry): Date {
+  const possibleDates = [
+    readEntryField(entry, "publishedAt"),
 
-      changeFrequency: "yearly",
-      priority: 0.7,
-    }));
+    readEntryField(entry, "updatedAt"),
 
-  const mediaEntries:
-    MetadataRoute.Sitemap =
-    mediaCatalog.map((media) => ({
-      url:
-        `${siteConfig.url}/media/${media.slug}`,
-
-      lastModified:
-        toDate(media.updatedAt),
-
-      changeFrequency:
-        media.status === "Ongoing" ||
-        media.status === "Developing"
-          ? "weekly"
-          : "yearly",
-
-      priority: 0.6,
-    }));
-
-  const archiveEntries:
-    MetadataRoute.Sitemap =
-    archiveCatalog.map((archive) => ({
-      url:
-        `${siteConfig.url}/archive/${archive.slug}`,
-
-      lastModified:
-        toDate(archive.archivedAt),
-
-      changeFrequency: "never",
-      priority: 0.3,
-    }));
-
-  return [
-    ...staticEntries,
-    ...projectEntries,
-    ...researchEntries,
-    ...frameworkEntries,
-    ...writingEntries,
-    ...mediaEntries,
-    ...archiveEntries,
+    readEntryField(entry, "createdAt"),
   ];
+
+  for (const value of possibleDates) {
+    if (value instanceof Date && !Number.isNaN(value.getTime())) {
+      return value;
+    }
+
+    if (typeof value === "string" || typeof value === "number") {
+      const parsed = new Date(value);
+
+      if (!Number.isNaN(parsed.getTime())) {
+        return parsed;
+      }
+    }
+  }
+
+  return new Date();
+}
+
+function getPriority(entry: CmsContentEntry, path: string) {
+  if (path === "/") {
+    return 1;
+  }
+
+  if (entry.type === "PAGE") {
+    return 0.85;
+  }
+
+  if (entry.featured) {
+    return 0.8;
+  }
+
+  return 0.7;
+}
+
+function getChangeFrequency(
+  entry: CmsContentEntry,
+): MetadataRoute.Sitemap[number]["changeFrequency"] {
+  if (entry.type === "PAGE" && entry.slug === "now") {
+    return "weekly";
+  }
+
+  if (entry.type === "WRITING" || entry.type === "MEDIA") {
+    return "monthly";
+  }
+
+  if (entry.type === "PROJECT" || entry.type === "RESEARCH") {
+    return "monthly";
+  }
+
+  return "yearly";
+}
+
+function createFallbackSitemap(): MetadataRoute.Sitemap {
+  const timestamp = new Date();
+
+  return fallbackRoutes.map((path) => ({
+    url: absoluteUrl(path),
+
+    lastModified: timestamp,
+
+    changeFrequency: path === "/now" ? "weekly" : "monthly",
+
+    priority: path === "/" ? 1 : 0.8,
+  }));
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const entries = await getPublishedContent();
+
+    const records = new Map<string, MetadataRoute.Sitemap[number]>();
+
+    /*
+     * Keep essential routes available
+     * even if a PAGE entry is missing.
+     */
+    for (const path of fallbackRoutes) {
+      records.set(path, {
+        url: absoluteUrl(path),
+
+        lastModified: new Date(),
+
+        changeFrequency: path === "/now" ? "weekly" : "monthly",
+
+        priority: path === "/" ? 1 : 0.8,
+      });
+    }
+
+    for (const entry of entries) {
+      const path = getEntryPath(entry);
+
+      if (!path) {
+        continue;
+      }
+
+      records.set(path, {
+        url: absoluteUrl(path),
+
+        lastModified: getLastModified(entry),
+
+        changeFrequency: getChangeFrequency(entry),
+
+        priority: getPriority(entry, path),
+      });
+    }
+
+    return Array.from(records.values()).sort((first, second) => {
+      if (first.url === absoluteUrl("/")) {
+        return -1;
+      }
+
+      if (second.url === absoluteUrl("/")) {
+        return 1;
+      }
+
+      return first.url.localeCompare(second.url);
+    });
+  } catch (error) {
+    console.error("Failed to build CMS sitemap:", error);
+
+    return createFallbackSitemap();
+  }
 }

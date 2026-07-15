@@ -1,57 +1,64 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import FrameworkDetailPage from "@/components/frameworks/FrameworkDetailPage";
+import type {
+  Metadata,
+} from "next";
 import {
-  frameworkCatalog,
-  getFrameworkBySlug,
-} from "@/content/frameworks";
+  notFound,
+} from "next/navigation";
+
+import CmsKnowledgeEntry from "@/components/cms/CmsKnowledgeEntry";
+
+import {
+  getPublishedEntry,
+} from "@/lib/cms/client";
+import {
+  createCmsMetadata,
+} from "@/lib/cms/metadata";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
-
-export function generateStaticParams() {
-  return frameworkCatalog.map((framework) => ({
-    slug: framework.slug,
-  }));
-}
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const framework = getFrameworkBySlug(slug);
+  const { slug } =
+    await params;
 
-  if (!framework) {
-    return {
-      title: "Framework Not Found",
-    };
-  }
+  const entry =
+    await getPublishedEntry(
+      "FRAMEWORK",
+      slug,
+    );
 
-  return {
-    title: framework.title,
-    description: framework.summary,
-    openGraph: {
-      title: `${framework.title} | Niraj Chaurasiya`,
-      description: framework.summary,
-      type: "article",
-    },
-  };
+  return entry
+    ? createCmsMetadata(entry)
+    : {
+        title:
+          "Framework Not Found",
+      };
 }
 
-export default async function Page({
+export default async function FrameworkPage({
   params,
 }: PageProps) {
-  const { slug } = await params;
-  const framework = getFrameworkBySlug(slug);
+  const { slug } =
+    await params;
 
-  if (!framework) {
+  const entry =
+    await getPublishedEntry(
+      "FRAMEWORK",
+      slug,
+    );
+
+  if (!entry) {
     notFound();
   }
 
   return (
-    <FrameworkDetailPage framework={framework} />
+    <CmsKnowledgeEntry
+      entry={entry}
+    />
   );
 }

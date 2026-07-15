@@ -1,15 +1,20 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import "./globals.css";
 import SiteNavigation from "@/components/SiteNavigation";
 import Footer from "@/components/Footer";
-import { siteConfig } from "@/content/site";
+// import { siteConfig } from "@/content/site";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
+import Script from "next/script";
+import type { Metadata } from "next";
+
+import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 
   title: {
     default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
+
+    template: "%s | Niraj Chaurasiya",
   },
 
   description: siteConfig.description,
@@ -18,40 +23,60 @@ export const metadata: Metadata = {
 
   authors: [
     {
-      name: siteConfig.name,
-      url: siteConfig.url,
+      name: "Niraj Chaurasiya",
     },
   ],
 
-  creator: siteConfig.name,
+  creator: "Niraj Chaurasiya",
 
-  publisher: siteConfig.name,
+  publisher: "Niraj Chaurasiya",
 
-  keywords: siteConfig.keywords,
+  category: "technology",
 
-  category: "Technology",
+  keywords: [
+    "Niraj Chaurasiya",
+    "Mechanical Engineering",
+    "Systems Thinking",
+    "Robotics",
+    "Software Engineering",
+    "Learning Science",
+    "Research",
+    "TechShortsApp",
+    "TechXEng",
+    "GlobalBriz",
+    "Building systems under uncertainty",
+  ],
 
   openGraph: {
     type: "website",
-    locale: siteConfig.language,
+
+    locale: siteConfig.locale,
+
     url: siteConfig.url,
+
     siteName: siteConfig.name,
+
     title: siteConfig.title,
+
     description: siteConfig.description,
   },
 
   twitter: {
     card: "summary_large_image",
+
     title: siteConfig.title,
+
     description: siteConfig.description,
   },
 
   robots: {
     index: true,
+
     follow: true,
 
     googleBot: {
       index: true,
+
       follow: true,
 
       "max-image-preview": "large",
@@ -60,10 +85,6 @@ export const metadata: Metadata = {
 
       "max-video-preview": -1,
     },
-  },
-
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 };
 const themeInitializationScript = `
@@ -95,7 +116,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="theme-initialization"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: themeInitializationScript,
           }}
