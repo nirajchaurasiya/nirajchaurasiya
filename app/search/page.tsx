@@ -1,34 +1,22 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+
 import SearchPage from "@/components/search/SearchPage";
+
+import { searchCatalog } from "@/content/search";
+
+import { createCmsBookSearchEntries } from "@/lib/cms/book-search";
+import { getPublishedContent } from "@/lib/cms/client";
 
 export const metadata: Metadata = {
   title: "Search",
   description:
-    "Search Niraj Chaurasiya's projects, research, frameworks, writing, media, and archive.",
-
-  robots: {
-    index: false,
-    follow: true,
-  },
+    "Search projects, research, frameworks, writing, books, media, archive entries, and public pages.",
 };
 
-export default function Page() {
-  return (
-    <Suspense
-      fallback={
-        <SearchLoadingState />
-      }
-    >
-      <SearchPage />
-    </Suspense>
-  );
-}
+export default async function Page() {
+  const books = await getPublishedContent("BOOK");
 
-function SearchLoadingState() {
-  return (
-    <div className="global-search-loading">
-      <p>Loading the knowledge system…</p>
-    </div>
-  );
+  const entries = [...searchCatalog, ...createCmsBookSearchEntries(books)];
+
+  return <SearchPage entries={entries} />;
 }

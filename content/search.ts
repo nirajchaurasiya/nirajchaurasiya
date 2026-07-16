@@ -4,19 +4,18 @@ import { mediaCatalog } from "./media";
 import { projectCatalog } from "./projects";
 import { publicWritingCatalog } from "./writing";
 import { researchCatalog } from "./research";
-
 export const searchTypes = [
   "Page",
   "Project",
   "Research",
   "Framework",
   "Writing",
+  "Book",
   "Media",
   "Archive",
 ] as const;
 
-export type SearchType =
-  (typeof searchTypes)[number];
+export type SearchType = (typeof searchTypes)[number];
 
 export type SearchEntry = {
   id: string;
@@ -33,19 +32,31 @@ export type SearchEntry = {
 
 const staticPages: SearchEntry[] = [
   {
+    id: "page-books",
+    type: "Page",
+    title: "Conversation Across Times",
+    description:
+      "Books, thinkers, questions, and intellectual conversations shaping Niraj Chaurasiya’s projects, research, frameworks, and understanding.",
+    href: "/books",
+    keywords: [
+      "books",
+      "reading",
+      "conversation across times",
+      "intellectual conversations",
+      "reading reflections",
+      "thinking",
+      "authors",
+      "ideas",
+    ],
+  },
+  {
     id: "page-home",
     type: "Page",
     title: "Home",
     description:
       "An introduction to Niraj Chaurasiya's work across engineering, software, research, and systems under uncertainty.",
     href: "/",
-    keywords: [
-      "home",
-      "niraj",
-      "systems",
-      "engineering",
-      "software",
-    ],
+    keywords: ["home", "niraj", "systems", "engineering", "software"],
   },
   {
     id: "page-work",
@@ -54,12 +65,7 @@ const staticPages: SearchEntry[] = [
     description:
       "Software platforms, engineering systems, research projects, and experiments.",
     href: "/work",
-    keywords: [
-      "projects",
-      "software",
-      "engineering",
-      "experiments",
-    ],
+    keywords: ["projects", "software", "engineering", "experiments"],
   },
   {
     id: "page-research",
@@ -68,12 +74,7 @@ const staticPages: SearchEntry[] = [
     description:
       "Research into behavioral evidence, learning, engineering systems, and uncertainty.",
     href: "/research",
-    keywords: [
-      "research",
-      "papers",
-      "evidence",
-      "learning",
-    ],
+    keywords: ["research", "papers", "evidence", "learning"],
   },
   {
     id: "page-frameworks",
@@ -82,12 +83,7 @@ const staticPages: SearchEntry[] = [
     description:
       "SIGNAL, Evidence of Learning, and the Sufficient Understanding Framework.",
     href: "/frameworks",
-    keywords: [
-      "signal",
-      "eol",
-      "suf",
-      "frameworks",
-    ],
+    keywords: ["signal", "eol", "suf", "frameworks"],
   },
   {
     id: "page-writing",
@@ -96,11 +92,7 @@ const staticPages: SearchEntry[] = [
     description:
       "Essays, reflections, technical explanations, and building notes.",
     href: "/writing",
-    keywords: [
-      "writing",
-      "essays",
-      "reflections",
-    ],
+    keywords: ["writing", "essays", "reflections"],
   },
   {
     id: "page-about",
@@ -109,12 +101,7 @@ const staticPages: SearchEntry[] = [
     description:
       "Niraj's identity, academic path, thinking, principles, and long-term direction.",
     href: "/about",
-    keywords: [
-      "about",
-      "niraj",
-      "biography",
-      "mechanical engineering",
-    ],
+    keywords: ["about", "niraj", "biography", "mechanical engineering"],
   },
   {
     id: "page-now",
@@ -123,12 +110,7 @@ const staticPages: SearchEntry[] = [
     description:
       "What Niraj is currently building, researching, preparing, reading, and questioning.",
     href: "/now",
-    keywords: [
-      "now",
-      "current",
-      "focus",
-      "reading",
-    ],
+    keywords: ["now", "current", "focus", "reading"],
   },
   {
     id: "page-timeline",
@@ -137,11 +119,7 @@ const staticPages: SearchEntry[] = [
     description:
       "A chronological record of projects, research, frameworks, writing, and media.",
     href: "/timeline",
-    keywords: [
-      "timeline",
-      "history",
-      "milestones",
-    ],
+    keywords: ["timeline", "history", "milestones"],
   },
   {
     id: "page-media",
@@ -150,12 +128,7 @@ const staticPages: SearchEntry[] = [
     description:
       "Videos, talks, presentations, playlists, and short-form series.",
     href: "/media",
-    keywords: [
-      "media",
-      "video",
-      "talk",
-      "presentation",
-    ],
+    keywords: ["media", "video", "talk", "presentation"],
   },
   {
     id: "page-archive",
@@ -164,12 +137,7 @@ const staticPages: SearchEntry[] = [
     description:
       "Deprecated versions, old prototypes, retired assumptions, and historical experiments.",
     href: "/archive",
-    keywords: [
-      "archive",
-      "old versions",
-      "deprecated",
-      "failed experiments",
-    ],
+    keywords: ["archive", "old versions", "deprecated", "failed experiments"],
   },
   {
     id: "page-contact",
@@ -178,131 +146,105 @@ const staticPages: SearchEntry[] = [
     description:
       "Contact Niraj about research, engineering, collaboration, speaking, or the projects.",
     href: "/contact",
-    keywords: [
-      "contact",
-      "message",
-      "collaboration",
-    ],
+    keywords: ["contact", "message", "collaboration"],
   },
 ];
 
-const projectEntries: SearchEntry[] =
-  projectCatalog.map((project) => ({
-    id: `project-${project.slug}`,
-    type: "Project",
-    title: project.title,
-    description: project.summary,
-    href: `/work/${project.slug}`,
-    keywords: [
-      project.type,
-      project.status,
-      ...project.categories,
-      ...project.disciplines,
-      ...project.technologies,
-      ...project.keyQuestions,
-    ],
-    date: project.updatedAt,
-    status: project.status,
-  }));
+const projectEntries: SearchEntry[] = projectCatalog.map((project) => ({
+  id: `project-${project.slug}`,
+  type: "Project",
+  title: project.title,
+  description: project.summary,
+  href: `/work/${project.slug}`,
+  keywords: [
+    project.type,
+    project.status,
+    ...project.categories,
+    ...project.disciplines,
+    ...project.technologies,
+    ...project.keyQuestions,
+  ],
+  date: project.updatedAt,
+  status: project.status,
+}));
 
-const researchEntries: SearchEntry[] =
-  researchCatalog.map((research) => ({
-    id: `research-${research.slug}`,
-    type: "Research",
-    title: research.title,
-    description: research.abstract,
-    href: `/research/${research.slug}`,
-    keywords: [
-      research.question,
-      research.centralClaim,
-      research.kind,
-      research.status,
-      ...research.areas,
-      ...research.openQuestions,
-    ],
-    date:
-      research.publishedAt ??
-      research.updatedAt,
-    status: research.status,
-  }));
+const researchEntries: SearchEntry[] = researchCatalog.map((research) => ({
+  id: `research-${research.slug}`,
+  type: "Research",
+  title: research.title,
+  description: research.abstract,
+  href: `/research/${research.slug}`,
+  keywords: [
+    research.question,
+    research.centralClaim,
+    research.kind,
+    research.status,
+    ...research.areas,
+    ...research.openQuestions,
+  ],
+  date: research.publishedAt ?? research.updatedAt,
+  status: research.status,
+}));
 
-const frameworkEntries: SearchEntry[] =
-  frameworkCatalog.map((framework) => ({
-    id: `framework-${framework.slug}`,
-    type: "Framework",
-    title: framework.title,
-    description: framework.summary,
-    href: `/frameworks/${framework.slug}`,
-    keywords: [
-      framework.shortName,
-      framework.question,
-      framework.category,
-      framework.version,
-      ...framework.principles,
-      ...framework.components.flatMap(
-        (component) => [
-          component.key,
-          component.title,
-          component.description,
-        ],
-      ),
-    ],
-    date: framework.updatedAt,
-    status: framework.status,
-  }));
+const frameworkEntries: SearchEntry[] = frameworkCatalog.map((framework) => ({
+  id: `framework-${framework.slug}`,
+  type: "Framework",
+  title: framework.title,
+  description: framework.summary,
+  href: `/frameworks/${framework.slug}`,
+  keywords: [
+    framework.shortName,
+    framework.question,
+    framework.category,
+    framework.version,
+    ...framework.principles,
+    ...framework.components.flatMap((component) => [
+      component.key,
+      component.title,
+      component.description,
+    ]),
+  ],
+  date: framework.updatedAt,
+  status: framework.status,
+}));
 
-const writingEntries: SearchEntry[] =
-  publicWritingCatalog.map((writing) => ({
-    id: `writing-${writing.slug}`,
-    type: "Writing",
-    title: writing.title,
-    description: writing.excerpt,
-    href: `/writing/${writing.slug}`,
-    keywords: [
-      writing.category,
-      ...writing.tags,
-      writing.opening,
-    ],
-    date:
-      writing.publishedAt ??
-      writing.updatedAt,
-    status: writing.status,
-  }));
+const writingEntries: SearchEntry[] = publicWritingCatalog.map((writing) => ({
+  id: `writing-${writing.slug}`,
+  type: "Writing",
+  title: writing.title,
+  description: writing.excerpt,
+  href: `/writing/${writing.slug}`,
+  keywords: [writing.category, ...writing.tags, writing.opening],
+  date: writing.publishedAt ?? writing.updatedAt,
+  status: writing.status,
+}));
 
-const mediaEntries: SearchEntry[] =
-  mediaCatalog.map((media) => ({
-    id: `media-${media.slug}`,
-    type: "Media",
-    title: media.title,
-    description: media.summary,
-    href: `/media/${media.slug}`,
-    keywords: [
-      media.type,
-      media.status,
-      media.platform,
-    ],
-    date:
-      media.publishedAt ??
-      media.updatedAt,
-    status: media.status,
-  }));
+const mediaEntries: SearchEntry[] = mediaCatalog.map((media) => ({
+  id: `media-${media.slug}`,
+  type: "Media",
+  title: media.title,
+  description: media.summary,
+  href: `/media/${media.slug}`,
+  keywords: [media.type, media.status, media.platform],
+  date: media.publishedAt ?? media.updatedAt,
+  status: media.status,
+}));
 
-const archiveEntries: SearchEntry[] =
-  archiveCatalog.map((archive) => ({
-    id: `archive-${archive.slug}`,
-    type: "Archive",
-    title: archive.title,
-    description: archive.summary,
-    href: `/archive/${archive.slug}`,
-    keywords: [
-      archive.type,
-      archive.originalPeriod,
-      archive.reason,
-      ...archive.lessons,
-    ],
-    date: archive.archivedAt,
-    status: "Archived",
-  }));
+const archiveEntries: SearchEntry[] = archiveCatalog.map((archive) => ({
+  id: `archive-${archive.slug}`,
+  type: "Archive",
+  title: archive.title,
+  description: archive.summary,
+  href: `/archive/${archive.slug}`,
+  keywords: [
+    archive.type,
+    archive.originalPeriod,
+    archive.reason,
+    ...archive.lessons,
+  ],
+  date: archive.archivedAt,
+  status: "Archived",
+}));
 
 export const searchCatalog: SearchEntry[] = [
   ...staticPages,

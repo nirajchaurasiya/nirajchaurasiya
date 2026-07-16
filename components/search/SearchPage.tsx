@@ -10,16 +10,13 @@ import {
   FileText,
   FlaskConical,
   Network,
+  PenLine,
   PlaySquare,
   Search,
   X,
 } from "lucide-react";
+import { useMemo, useState } from "react";
 import {
-  useMemo,
-  useState,
-} from "react";
-import {
-  searchCatalog,
   searchTypes,
   type SearchEntry,
   type SearchType,
@@ -32,13 +29,11 @@ const typeIcons = {
   Project: BriefcaseBusiness,
   Research: FlaskConical,
   Framework: Network,
-  Writing: BookOpenText,
+  Writing: PenLine,
+  Book: BookOpenText,
   Media: PlaySquare,
-  Archive,
-} satisfies Record<
-  SearchType,
-  typeof FileText
->;
+  Archive: Archive,
+} satisfies Record<SearchType, typeof FileText>;
 
 function normalizeText(value: string) {
   return value
@@ -48,10 +43,7 @@ function normalizeText(value: string) {
     .trim();
 }
 
-function scoreEntry(
-  entry: SearchEntry,
-  query: string,
-) {
+function scoreEntry(entry: SearchEntry, query: string) {
   const normalizedQuery = normalizeText(query);
 
   if (!normalizedQuery) {
@@ -60,15 +52,11 @@ function scoreEntry(
 
   const terms = normalizedQuery.split(" ");
 
-  const title =
-    normalizeText(entry.title);
+  const title = normalizeText(entry.title);
 
-  const description =
-    normalizeText(entry.description);
+  const description = normalizeText(entry.description);
 
-  const keywords = normalizeText(
-    entry.keywords.join(" "),
-  );
+  const keywords = normalizeText(entry.keywords.join(" "));
 
   let score = 0;
 
@@ -109,32 +97,29 @@ function scoreEntry(
   return score;
 }
 
-export default function SearchPage() {
+type SearchPageProps = {
+  entries: SearchEntry[];
+};
+
+export default function SearchPage({ entries }: SearchPageProps) {
   const searchParams = useSearchParams();
 
-  const initialQuery =
-    searchParams.get("q") ?? "";
+  const initialQuery = searchParams.get("q") ?? "";
 
-  const [query, setQuery] =
-    useState(initialQuery);
+  const [query, setQuery] = useState(initialQuery);
 
-  const [filter, setFilter] =
-    useState<SearchFilter>("All");
+  const [filter, setFilter] = useState<SearchFilter>("All");
 
   const results = useMemo(() => {
-    return searchCatalog
+    return entries
       .map((entry) => ({
         ...entry,
         score: scoreEntry(entry, query),
       }))
       .filter((entry) => {
-        const matchesQuery =
-          query.trim().length === 0 ||
-          entry.score > 0;
+        const matchesQuery = query.trim().length === 0 || entry.score > 0;
 
-        const matchesType =
-          filter === "All" ||
-          entry.type === filter;
+        const matchesType = filter === "All" || entry.type === filter;
 
         return matchesQuery && matchesType;
       })
@@ -144,9 +129,7 @@ export default function SearchPage() {
         }
 
         return (
-          (b.date ?? "").localeCompare(
-            a.date ?? "",
-          ) ||
+          (b.date ?? "").localeCompare(a.date ?? "") ||
           a.title.localeCompare(b.title)
         );
       });
@@ -155,9 +138,7 @@ export default function SearchPage() {
   return (
     <div className="global-search-page">
       <section className="global-search-hero">
-        <p className="section-eyebrow">
-          Search the knowledge system
-        </p>
+        <p className="section-eyebrow">Search the knowledge system</p>
 
         <h1>
           Find a project, question,
@@ -165,11 +146,7 @@ export default function SearchPage() {
         </h1>
 
         <div className="global-search-input">
-          <Search
-            size={22}
-            strokeWidth={1.7}
-            aria-hidden="true"
-          />
+          <Search size={22} strokeWidth={1.7} aria-hidden="true" />
 
           <input
             type="search"
@@ -177,9 +154,7 @@ export default function SearchPage() {
             value={query}
             placeholder="Search learning, robotics, uncertainty..."
             aria-label="Search the website"
-            onChange={(event) =>
-              setQuery(event.target.value)
-            }
+            onChange={(event) => setQuery(event.target.value)}
           />
 
           {query && (
@@ -188,11 +163,7 @@ export default function SearchPage() {
               aria-label="Clear search"
               onClick={() => setQuery("")}
             >
-              <X
-                size={18}
-                strokeWidth={1.8}
-                aria-hidden="true"
-              />
+              <X size={18} strokeWidth={1.8} aria-hidden="true" />
             </button>
           )}
         </div>
@@ -233,25 +204,17 @@ export default function SearchPage() {
 
       <section className="global-search-results">
         <div className="global-search-results__heading">
-          <span>
-            {query
-              ? `Results for “${query}”`
-              : "Explore everything"}
-          </span>
+          <span>{query ? `Results for “${query}”` : "Explore everything"}</span>
 
           <strong>
-            {results.length}{" "}
-            {results.length === 1
-              ? "result"
-              : "results"}
+            {results.length} {results.length === 1 ? "result" : "results"}
           </strong>
         </div>
 
         {results.length > 0 ? (
           <div className="global-search-list">
             {results.map((entry) => {
-              const Icon =
-                typeIcons[entry.type];
+              const Icon = typeIcons[entry.type] ?? FileText;
 
               return (
                 <Link
@@ -260,22 +223,14 @@ export default function SearchPage() {
                   key={entry.id}
                 >
                   <div className="global-search-result__icon">
-                    <Icon
-                      size={19}
-                      strokeWidth={1.7}
-                      aria-hidden="true"
-                    />
+                    <Icon size={19} strokeWidth={1.7} aria-hidden="true" />
                   </div>
 
                   <div className="global-search-result__content">
                     <div className="global-search-result__metadata">
                       <span>{entry.type}</span>
 
-                      {entry.status && (
-                        <span>
-                          {entry.status}
-                        </span>
-                      )}
+                      {entry.status && <span>{entry.status}</span>}
                     </div>
 
                     <h2>{entry.title}</h2>
@@ -283,13 +238,9 @@ export default function SearchPage() {
 
                     {entry.keywords.length > 0 && (
                       <div className="global-search-result__keywords">
-                        {entry.keywords
-                          .slice(0, 4)
-                          .map((keyword) => (
-                            <span key={keyword}>
-                              {keyword}
-                            </span>
-                          ))}
+                        {entry.keywords.slice(0, 4).map((keyword) => (
+                          <span key={keyword}>{keyword}</span>
+                        ))}
                       </div>
                     )}
                   </div>
@@ -305,18 +256,13 @@ export default function SearchPage() {
           </div>
         ) : (
           <div className="global-search-empty">
-            <Search
-              size={28}
-              strokeWidth={1.5}
-              aria-hidden="true"
-            />
+            <Search size={28} strokeWidth={1.5} aria-hidden="true" />
 
             <h2>No matching entries found.</h2>
 
             <p>
-              Try a broader term such as learning,
-              systems, robotics, evidence, or
-              uncertainty.
+              Try a broader term such as learning, systems, robotics, evidence,
+              or uncertainty.
             </p>
 
             <button

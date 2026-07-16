@@ -6,6 +6,7 @@ export const cmsBasePaths: Record<CmsContentType, string> = {
   RESEARCH: "/research",
   FRAMEWORK: "/frameworks",
   WRITING: "/writing",
+  BOOK: "/books",
   MEDIA: "/media",
   TIMELINE: "/timeline",
   ARCHIVE: "/archive",

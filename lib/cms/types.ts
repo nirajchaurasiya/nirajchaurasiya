@@ -4,6 +4,7 @@ export const cmsContentTypes = [
   "RESEARCH",
   "FRAMEWORK",
   "WRITING",
+  "BOOK",
   "MEDIA",
   "TIMELINE",
   "ARCHIVE",

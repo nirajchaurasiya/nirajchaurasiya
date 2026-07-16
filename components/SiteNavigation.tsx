@@ -1,4 +1,5 @@
 "use client";
+
 import { nowPageContent } from "@/content/profile";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,6 +26,7 @@ import ThemeToggle from "./ThemeToggle";
 
 type NavigationItem = {
   label: string;
+  mobileLabel?: string;
   href: string;
   icon: LucideIcon;
 };
@@ -54,6 +56,12 @@ const primaryNavigation: NavigationItem[] = [
     label: "Writing",
     href: "/writing",
     icon: PenLine,
+  },
+  {
+    label: "Conversation Across Times",
+    mobileLabel: "Books",
+    href: "/books",
+    icon: BookOpenText,
   },
   {
     label: "About",
@@ -110,14 +118,19 @@ function NavigationLink({
   pathname,
   onNavigate,
   className = "",
+  useMobileLabel = false,
 }: {
   item: NavigationItem;
   pathname: string;
   onNavigate?: () => void;
   className?: string;
+  useMobileLabel?: boolean;
 }) {
   const active = isPathActive(pathname, item.href);
   const Icon = item.icon;
+
+  const visibleLabel =
+    useMobileLabel && item.mobileLabel ? item.mobileLabel : item.label;
 
   return (
     <Link
@@ -135,7 +148,7 @@ function NavigationLink({
         aria-hidden="true"
       />
 
-      <span>{item.label}</span>
+      <span>{visibleLabel}</span>
     </Link>
   );
 }
@@ -180,9 +193,20 @@ export default function SiteNavigation() {
     };
   }, [moreOpen]);
 
-  const moreRoutes = [
-    primaryNavigation[4],
-    primaryNavigation[5],
+  /*
+   * Everything after Frameworks appears inside the mobile More menu:
+   *
+   * Writing
+   * Books
+   * About
+   * Now
+   * Timeline
+   * Media
+   * Archive
+   * Contact
+   */
+  const moreRoutes: NavigationItem[] = [
+    ...primaryNavigation.slice(4),
     ...secondaryNavigation,
   ];
 
@@ -284,7 +308,8 @@ export default function SiteNavigation() {
               aria-current={active ? "page" : undefined}
             >
               <Icon size={21} strokeWidth={1.8} aria-hidden="true" />
-              <span>{item.label}</span>
+
+              <span>{item.mobileLabel ?? item.label}</span>
             </Link>
           );
         })}
@@ -297,6 +322,9 @@ export default function SiteNavigation() {
           onClick={() => setMoreOpen((current) => !current)}
           aria-expanded={moreOpen}
           aria-controls="mobile-more-menu"
+          aria-label={
+            moreOpen ? "Close more navigation" : "Open more navigation"
+          }
         >
           {moreOpen ? (
             <X size={21} strokeWidth={1.8} aria-hidden="true" />
@@ -346,6 +374,7 @@ export default function SiteNavigation() {
                   pathname={pathname}
                   onNavigate={() => setMoreOpen(false)}
                   className="navigation-link--mobile-sheet"
+                  useMobileLabel
                 />
               ))}
             </div>
