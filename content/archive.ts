@@ -205,13 +205,13 @@ export const archiveCatalog = [
 
     replacedBy: {
       title: "Human-Like Robotic Hand",
-      href: "/work/robotic-hand",
+      href: "/media/creating-our-first-link",
     },
 
     relatedItems: [
       {
         title: "Robotic Hand Playlist",
-        href: "/media/robotic-hand",
+        href: "/media/creating-our-first-link",
       },
     ],
   },
