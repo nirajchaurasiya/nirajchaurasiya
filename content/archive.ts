@@ -111,8 +111,8 @@ export const archiveCatalog = [
     ],
 
     replacedBy: {
-      title: "Contextual Behavioral Signals",
-      href: "/research/contextual-behavioral-signals",
+      title: "Contextual Interpretation of Behavioral Signals",
+      href: "/research/contextual-interpretation-of-behavioral-signals",
     },
 
     relatedItems: [
