@@ -1,12 +1,37 @@
 import type { Metadata } from "next";
-import ArchivePage from "@/components/archive/ArchivePage";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Archive",
-  description:
-    "Deprecated versions, retired assumptions, old prototypes, and historical experiments from Niraj Chaurasiya's work.",
-};
+import CmsCollectionLanding from "@/components/cms/CmsCollectionLanding";
 
-export default function Page() {
-  return <ArchivePage />;
+import { getPublishedContent, getPublishedEntry } from "@/lib/cms/client";
+import { createCmsPageMetadata } from "@/lib/cms/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageEntry = await getPublishedEntry("PAGE", "archive");
+
+  return pageEntry
+    ? createCmsPageMetadata(pageEntry)
+    : {
+        title: "Archive Not Found",
+      };
+}
+
+export default async function ArchivePage() {
+  const [pageEntry, archiveEntries] = await Promise.all([
+    getPublishedEntry("PAGE", "archive"),
+
+    getPublishedContent("ARCHIVE"),
+  ]);
+
+  if (!pageEntry) {
+    notFound();
+  }
+
+  return (
+    <CmsCollectionLanding
+      pageEntry={pageEntry}
+      entries={archiveEntries}
+      itemName="Archive entry"
+    />
+  );
 }

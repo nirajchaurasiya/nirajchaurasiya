@@ -15,7 +15,7 @@ import {
 } from "@/lib/cms/content-data";
 import type { CmsContentEntry } from "@/lib/cms/types";
 
-type KnowledgeType = "PROJECT" | "RESEARCH" | "FRAMEWORK" | "MEDIA";
+type KnowledgeType = "PROJECT" | "RESEARCH" | "FRAMEWORK" | "MEDIA" | "ARCHIVE";
 type FieldDefinition = {
   key: string;
   label: string;
@@ -223,6 +223,51 @@ const configurations: Record<KnowledgeType, KnowledgeConfiguration> = {
 
     links: [],
   },
+  ARCHIVE: {
+    label: "Archive record",
+
+    backLabel: "All archive records",
+
+    backHref: "/archive",
+
+    questionKey: "centralQuestion",
+
+    fields: [
+      {
+        key: "status",
+        label: "Archive status",
+      },
+      {
+        key: "archiveType",
+        label: "Archive type",
+      },
+      {
+        key: "period",
+        label: "Period or version",
+      },
+      {
+        key: "originalStatus",
+        label: "Original status",
+      },
+      {
+        key: "reason",
+        label: "Why it was archived",
+      },
+      {
+        key: "replacement",
+        label: "Current replacement",
+      },
+    ],
+
+    lists: [
+      {
+        key: "lessons",
+        label: "Lessons preserved",
+      },
+    ],
+
+    links: [],
+  },
 };
 
 function formatDate(value: string | null) {
@@ -303,7 +348,7 @@ export default function CmsKnowledgeEntry({
   const publishedDate = formatDate(entry.publishedAt);
 
   return (
-    <main className="cms-knowledge-detail">
+    <div className="cms-knowledge-detail">
       <div className="cms-knowledge-detail__navigation">
         <Link href={configuration.backHref}>
           <ArrowLeft size={16} />
@@ -483,6 +528,6 @@ export default function CmsKnowledgeEntry({
           </aside>
         )}
       </article>
-    </main>
+    </div>
   );
 }

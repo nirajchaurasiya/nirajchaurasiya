@@ -1,4 +1,3 @@
-import { archiveCatalog } from "./archive";
 import { frameworkCatalog } from "./frameworks";
 import { mediaCatalog } from "./media";
 import { projectCatalog } from "./projects";
@@ -230,22 +229,6 @@ const mediaEntries: SearchEntry[] = mediaCatalog.map((media) => ({
   status: media.status,
 }));
 
-const archiveEntries: SearchEntry[] = archiveCatalog.map((archive) => ({
-  id: `archive-${archive.slug}`,
-  type: "Archive",
-  title: archive.title,
-  description: archive.summary,
-  href: `/archive/${archive.slug}`,
-  keywords: [
-    archive.type,
-    archive.originalPeriod,
-    archive.reason,
-    ...archive.lessons,
-  ],
-  date: archive.archivedAt,
-  status: "Archived",
-}));
-
 export const searchCatalog: SearchEntry[] = [
   ...staticPages,
   ...projectEntries,
@@ -253,5 +236,4 @@ export const searchCatalog: SearchEntry[] = [
   ...frameworkEntries,
   ...writingEntries,
   ...mediaEntries,
-  ...archiveEntries,
 ];
