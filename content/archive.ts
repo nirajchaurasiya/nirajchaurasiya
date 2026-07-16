@@ -173,45 +173,6 @@ export const archiveCatalog = [
   },
 
   {
-    title: "Super Suburban",
-    slug: "super-suburban",
-
-    type: "Prototype",
-
-    archivedAt: "2025-12-01",
-    originalPeriod: "Early software exploration",
-
-    summary:
-      "An earlier Django-based media platform experiment developed before the current project ecosystem.",
-
-    reason:
-      "The prototype was no longer an active product direction, but it remained part of the software-learning history.",
-
-    whatItWas: [
-      "A Django media-site prototype.",
-      "An experiment in content organization and web application development.",
-      "An early environment for learning backend and frontend integration.",
-    ],
-
-    whatChanged: [
-      "Later projects moved toward Next.js, Node.js, and more explicit system design.",
-      "Product development became connected to research questions rather than interface construction alone.",
-    ],
-
-    lessons: [
-      "Early prototypes build technical intuition even when the product is discontinued.",
-      "Archived work can explain capabilities that are invisible in current polished systems.",
-    ],
-
-    relatedItems: [
-      {
-        title: "Current Work",
-        href: "/work",
-      },
-    ],
-  },
-
-  {
     title: "First Robotic Finger Geometry",
     slug: "robotic-finger-first-geometry",
 
