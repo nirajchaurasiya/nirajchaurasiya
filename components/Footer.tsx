@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+import {
+  getPublicSiteSettings,
+  type PublicSiteSettings,
+} from "@/lib/cms/settings";
+
 type FooterLink = {
   label: string;
   href: string;
@@ -66,27 +71,32 @@ const moreLinks: FooterLink[] = [
   },
 ];
 
-function getSocialLinks(): FooterLink[] {
+const fallbackSettings = {
+  publicSiteName: "Niraj Kumar Chaurasiya",
+  tagline: "Building systems under uncertainty",
+};
+
+function getSocialLinks(settings: PublicSiteSettings | null): FooterLink[] {
   const links = [
     {
       label: "LinkedIn",
-      href: process.env.LINKEDIN_URL,
+      href: settings?.socials?.linkedin,
     },
     {
       label: "GitHub",
-      href: process.env.GITHUB_PROFILE_URL,
+      href: settings?.socials?.github,
     },
     {
       label: "YouTube",
-      href: process.env.YOUTUBE_URL,
+      href: settings?.socials?.youtube,
     },
     {
       label: "X",
-      href: process.env.X_PROFILE_URL,
+      href: settings?.socials?.x,
     },
     {
       label: "Instagram",
-      href: process.env.INSTAGRAM_URL,
+      href: settings?.socials?.instagram,
     },
   ];
 
@@ -96,10 +106,17 @@ function getSocialLinks(): FooterLink[] {
   );
 }
 
-export default function Footer() {
+export default async function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = getSocialLinks();
+  const settings = await getPublicSiteSettings();
+
+  const publicSiteName =
+    settings?.publicSiteName?.trim() || fallbackSettings.publicSiteName;
+
+  const tagline = settings?.tagline?.trim() || fallbackSettings.tagline;
+
+  const socialLinks = getSocialLinks(settings);
 
   return (
     <footer className="site-footer">
@@ -108,16 +125,16 @@ export default function Footer() {
           <Link
             href="/"
             className="footer-brand"
-            aria-label="Niraj Chaurasiya home"
+            aria-label={`${publicSiteName} home`}
           >
             <span className="footer-brand__mark" aria-hidden="true">
               NC
             </span>
 
             <span className="footer-brand__identity">
-              <strong>Niraj Chaurasiya</strong>
+              <strong>{publicSiteName}</strong>
 
-              <small>Building systems under uncertainty</small>
+              <small>{tagline}</small>
             </span>
           </Link>
 
@@ -212,9 +229,11 @@ export default function Footer() {
       </div>
 
       <div className="site-footer__bottom">
-        <p>© {currentYear} Niraj Chaurasiya</p>
+        <p>
+          © {currentYear} {publicSiteName}
+        </p>
 
-        <p>Building systems under uncertainty</p>
+        <p>{tagline}</p>
       </div>
     </footer>
   );
