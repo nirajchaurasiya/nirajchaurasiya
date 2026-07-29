@@ -1,7 +1,11 @@
 import { ArrowUpRight, CalendarDays, MapPin, Milestone } from "lucide-react";
 import Link from "next/link";
 
-import { parseCmsContent, readDetailString } from "@/lib/cms/content-data";
+import {
+  parseCmsContent,
+  readDetailExternalLinks,
+  readDetailString,
+} from "@/lib/cms/content-data";
 
 import type { CmsContentEntry } from "@/lib/cms/types";
 
@@ -136,12 +140,16 @@ export default function CmsTimeline({
                 ({ entry, content, date, eventType, status, location }) => {
                   const firstSection = content.sections[0];
 
-                  const connectedTarget = entry.relationships.find(
-                    (relationship) => Boolean(relationship.target.publicPath),
-                  );
                   const connectedTargets = entry.relationships.filter(
                     (relationship) => Boolean(relationship.target.publicPath),
                   );
+
+                  const externalLinks = readDetailExternalLinks(
+                    content.details,
+                  );
+
+                  const hasRelatedLinks =
+                    connectedTargets.length > 0 || externalLinks.length > 0;
 
                   return (
                     <article
@@ -194,17 +202,17 @@ export default function CmsTimeline({
                           </ul>
                         )}
 
-                        {(location || connectedTargets.length > 0) && (
+                        {(location || hasRelatedLinks) && (
                           <footer className="cms-timeline-card__footer">
                             {location && (
                               <span className="cms-timeline-card__location">
-                                <MapPin size={14} />
+                                <MapPin size={14} aria-hidden="true" />
 
                                 {location}
                               </span>
                             )}
 
-                            {connectedTargets.length > 0 && (
+                            {hasRelatedLinks && (
                               <nav
                                 className="cms-timeline-card__links"
                                 aria-label={`Related links for ${entry.title}`}
@@ -221,6 +229,26 @@ export default function CmsTimeline({
                                       aria-hidden="true"
                                     />
                                   </Link>
+                                ))}
+
+                                {externalLinks.map((link) => (
+                                  <a
+                                    href={link.href}
+                                    key={`${link.label}-${link.href}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <span>{link.label}</span>
+
+                                    <ArrowUpRight
+                                      size={14}
+                                      aria-hidden="true"
+                                    />
+
+                                    <span className="visually-hidden">
+                                      opens in a new tab
+                                    </span>
+                                  </a>
                                 ))}
                               </nav>
                             )}

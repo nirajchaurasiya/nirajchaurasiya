@@ -1,6 +1,4 @@
-import type {
-  CmsJsonObject,
-} from "@/lib/cms/types";
+import type { CmsJsonObject } from "@/lib/cms/types";
 
 export type CmsContentSection = {
   id: string;
@@ -15,67 +13,41 @@ export type ParsedCmsContent = {
     description: string;
   };
 
-  details: Record<
-    string,
-    unknown
-  >;
+  details: Record<string, unknown>;
 
   sections: CmsContentSection[];
 
   tags: string[];
 };
 
-function readRecord(
-  value: unknown,
-): Record<string, unknown> {
-  if (
-    typeof value === "object" &&
-    value !== null &&
-    !Array.isArray(value)
-  ) {
-    return value as Record<
-      string,
-      unknown
-    >;
+function readRecord(value: unknown): Record<string, unknown> {
+  if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+    return value as Record<string, unknown>;
   }
 
   return {};
 }
 
-function readString(
-  value: unknown,
-) {
-  return typeof value === "string"
-    ? value.trim()
-    : "";
+function readString(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
 }
 
-function readStringArray(
-  value: unknown,
-) {
+function readStringArray(value: unknown) {
   if (!Array.isArray(value)) {
     return [];
   }
 
   return value
-    .filter(
-      (item): item is string =>
-        typeof item === "string",
-    )
+    .filter((item): item is string => typeof item === "string")
     .map((item) => item.trim())
     .filter(Boolean);
 }
 
 export function readDetailString(
-  details: Record<
-    string,
-    unknown
-  >,
+  details: Record<string, unknown>,
   key: string,
 ) {
-  return readString(
-    details[key],
-  );
+  return readString(details[key]);
 }
 
 export function readDetailStringArray(
@@ -89,12 +61,60 @@ export function readDetailStringArray(
   }
 
   return value
-    .filter(
-      (item): item is string =>
-        typeof item === "string",
-    )
+    .filter((item): item is string => typeof item === "string")
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+export type CmsExternalLink = {
+  label: string;
+  href: string;
+};
+
+export function readDetailExternalLinks(
+  details: Record<string, unknown>,
+  key = "externalLinks",
+): CmsExternalLink[] {
+  const value = details[key];
+
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.flatMap((item) => {
+    if (typeof item !== "object" || item === null || Array.isArray(item)) {
+      return [];
+    }
+
+    const rawLabel = Reflect.get(item, "label");
+
+    const rawHref = Reflect.get(item, "href");
+
+    const label = typeof rawLabel === "string" ? rawLabel.trim() : "";
+
+    const href = typeof rawHref === "string" ? rawHref.trim() : "";
+
+    if (!label || !href) {
+      return [];
+    }
+
+    try {
+      const url = new URL(href);
+
+      if (url.protocol !== "http:" && url.protocol !== "https:") {
+        return [];
+      }
+
+      return [
+        {
+          label,
+          href: url.toString(),
+        },
+      ];
+    } catch {
+      return [];
+    }
+  });
 }
 
 export function readFirstDetailString(
@@ -102,10 +122,7 @@ export function readFirstDetailString(
   keys: string[],
 ) {
   for (const key of keys) {
-    const value = readDetailString(
-      details,
-      key,
-    );
+    const value = readDetailString(details, key);
 
     if (value) {
       return value;
@@ -115,81 +132,42 @@ export function readFirstDetailString(
   return "";
 }
 
-export function parseCmsContent(
-  data: CmsJsonObject,
-): ParsedCmsContent {
-  const hero =
-    readRecord(data.hero);
+export function parseCmsContent(data: CmsJsonObject): ParsedCmsContent {
+  const hero = readRecord(data.hero);
 
-  const details =
-    readRecord(data.details);
+  const details = readRecord(data.details);
 
-  const rawSections =
-    Array.isArray(data.sections)
-      ? data.sections
-      : [];
+  const rawSections = Array.isArray(data.sections) ? data.sections : [];
 
-  const sections =
-    rawSections
-      .map(
-        (
-          rawSection,
-          index,
-        ): CmsContentSection => {
-          const section =
-            readRecord(rawSection);
+  const sections = rawSections
+    .map((rawSection, index): CmsContentSection => {
+      const section = readRecord(rawSection);
 
-          return {
-            id:
-              readString(
-                section.id,
-              ) ||
-              `section-${index + 1}`,
+      return {
+        id: readString(section.id) || `section-${index + 1}`,
 
-            heading:
-              readString(
-                section.heading,
-              ),
+        heading: readString(section.heading),
 
-            body:
-              readString(
-                section.body,
-              ),
+        body: readString(section.body),
 
-            points:
-              readStringArray(
-                section.points,
-              ),
-          };
-        },
-      )
-      .filter(
-        (section) =>
-          section.heading ||
-          section.body ||
-          section.points.length > 0,
-      );
+        points: readStringArray(section.points),
+      };
+    })
+    .filter(
+      (section) => section.heading || section.body || section.points.length > 0,
+    );
 
   return {
     hero: {
-      eyebrow:
-        readString(
-          hero.eyebrow,
-        ),
+      eyebrow: readString(hero.eyebrow),
 
-      description:
-        readString(
-          hero.description,
-        ),
+      description: readString(hero.description),
     },
 
     details,
 
     sections,
 
-    tags:
-      readStringArray(
-        data.tags,
-      ),
+    tags: readStringArray(data.tags),
   };
 }

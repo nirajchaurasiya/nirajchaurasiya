@@ -10494,22 +10494,87 @@ svg {
     flex-direction: column;
   }
 
+  /* =========================================================
+   Timeline card links
+   ========================================================= */
+
   .cms-timeline-card__footer {
+    display: flex;
     align-items: flex-start;
-    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cms-timeline-card__location {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    padding-top: 8px;
+    color: var(--text-tertiary);
+    font-size: 0.64rem;
   }
 
   .cms-timeline-card__links {
-    justify-content: flex-start;
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
   }
 
   .cms-timeline-card__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 34px;
     max-width: 100%;
+    padding: 7px 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 0.65rem;
+    line-height: 1.25;
+    text-decoration: none;
+    transition:
+      border-color 150ms ease,
+      background 150ms ease,
+      transform 150ms ease;
   }
 
-  .cms-timeline-card__links a span {
+  .cms-timeline-card__links a:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-secondary);
+    transform: translateY(-1px);
+  }
+
+  .cms-timeline-card__links a:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 3px;
+  }
+
+  .cms-timeline-card__links a span:first-child {
     overflow-wrap: anywhere;
+  }
+
+  .cms-timeline-card__links svg {
+    flex-shrink: 0;
+    color: var(--text-tertiary);
+  }
+
+  @media (max-width: 700px) {
+    .cms-timeline-card__footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .cms-timeline-card__links {
+      justify-content: flex-start;
+      width: 100%;
+    }
   }
 } /* =========================================================
    CMS Contact
