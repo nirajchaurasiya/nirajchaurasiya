@@ -139,6 +139,9 @@ export default function CmsTimeline({
                   const connectedTarget = entry.relationships.find(
                     (relationship) => Boolean(relationship.target.publicPath),
                   );
+                  const connectedTargets = entry.relationships.filter(
+                    (relationship) => Boolean(relationship.target.publicPath),
+                  );
 
                   return (
                     <article
@@ -191,25 +194,38 @@ export default function CmsTimeline({
                           </ul>
                         )}
 
-                        <footer>
-                          {location ? (
-                            <span>
-                              <MapPin size={14} />
+                        {(location || connectedTargets.length > 0) && (
+                          <footer className="cms-timeline-card__footer">
+                            {location && (
+                              <span className="cms-timeline-card__location">
+                                <MapPin size={14} />
 
-                              {location}
-                            </span>
-                          ) : (
-                            <span />
-                          )}
+                                {location}
+                              </span>
+                            )}
 
-                          {connectedTarget && (
-                            <Link href={connectedTarget.target.publicPath!}>
-                              {connectedTarget.target.title}
+                            {connectedTargets.length > 0 && (
+                              <nav
+                                className="cms-timeline-card__links"
+                                aria-label={`Related links for ${entry.title}`}
+                              >
+                                {connectedTargets.map((relationship) => (
+                                  <Link
+                                    href={relationship.target.publicPath!}
+                                    key={relationship.id}
+                                  >
+                                    <span>{relationship.target.title}</span>
 
-                              <ArrowUpRight size={15} />
-                            </Link>
-                          )}
-                        </footer>
+                                    <ArrowUpRight
+                                      size={14}
+                                      aria-hidden="true"
+                                    />
+                                  </Link>
+                                ))}
+                              </nav>
+                            )}
+                          </footer>
+                        )}
                       </div>
                     </article>
                   );
